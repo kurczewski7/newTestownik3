@@ -62,7 +62,8 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
 //    }
     override init() {
         super.init()
-        print("init")
+        print("init sss")
+        
         database.selectedTestTable.loadData()
         guard database.selectedTestTable.isNotEmpty else {  return  }
         if let uuId = database.selectedTestTable[0]?.uuId {
