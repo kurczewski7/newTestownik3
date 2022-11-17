@@ -1,5 +1,5 @@
 //
-//  TestToDo.swift
+//  .swift
 //  testownik
 //
 //  Created by Sławek K on 10/05/2022.
@@ -49,6 +49,9 @@ class TestToDo: TestToDoDataSource {
     var reapeadTest: Int = 5
     var filePosition: FilePosition = FilePosition.first {
         didSet {
+            if delegate == nil {
+                print("delegate = NIL, 1")
+            }
             delegate?.refreshButtonUI(forFilePosition: filePosition)
             if filePosition == .last {
                 delegate?.allTestDone()
@@ -61,6 +64,11 @@ class TestToDo: TestToDoDataSource {
             if  self.currentPosition == 0 {    filePosition = .first     }
             else if  self.currentPosition == count-1 {   filePosition = .last     }
             else  {  filePosition = .other      }
+            
+            if delegate == nil {
+                print("delegate = NIL, 2")
+            }
+
             delegate?.progress(forCurrentPosition: currentPosition + 1, totalCount: count)
         }
     }
@@ -139,7 +147,12 @@ class TestToDo: TestToDoDataSource {
             return retVal
         }
         return nil
-        
+    }
+    func getCurFileNumber() -> Int {
+        guard self.currentPosition < self.count else { return 0 }
+        let fileNumber = getElem(numberFrom0: self.currentPosition)?.fileNumber
+        print("self.currentPosition:\(self.currentPosition)")
+        return fileNumber ?? 0
     }
     func getFirst(onlyNewElement onlyNew: Bool = false)  -> RawTest? {
         currentPosition = 0
@@ -231,7 +244,7 @@ class TestToDo: TestToDoDataSource {
             retVal = extraTests[currentGroup][positionInGroup - currGroupSize]
             retVal.isExtraTest = true
         }
-        print("File number:\( positionInGroup < currGroupSize ? " " : "E") \(numberFrom0), \(retVal.fileNumber ?? 0)")
+        print("File number:\( positionInGroup < currGroupSize ? " " : "E") \(numberFrom0), \(retVal.fileNumber )")
         return retVal
     }
     func reorganizeExtra(forRow row: inout [RawTest], fileNumber: Int, hawMenyTimes number: Int = 30) {

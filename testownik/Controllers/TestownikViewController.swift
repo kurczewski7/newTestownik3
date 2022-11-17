@@ -457,10 +457,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         listening.linkSpeaking = speech.self
         listening.delegate     = self
         command.delegate       = self
+        //testownik.viewContext  = self
         //testownik.delegate     = self
-        gestures.delegate      = self        
-        testownik.testToDo?.delegate = self
-        
+        gestures.delegate      = self
         gestures.setView(forView: view)
         
         listeningText.text = loremIpsum
@@ -505,6 +504,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         
         // TODO: POPRAW
         testownik.createStartedTest()
+        if testownik.testToDo == nil {
+            print("testownik.testToDo == nil")
+        }
+        testownik.testToDo?.delegate = self
         testownik.refreshData()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -686,9 +689,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         }
     }
     func refreshView() {
+        print("refreshView")
         var i = 0
         let image = UIImage(named: "002.png")
         let set = Set([6,8,9])
+        
+        testownik.currentTest = testownik.testToDo?.getCurFileNumber() ?? 555
+     
+        print("__ refreshView:\(testownik.currentTest)")
         guard testownik.currentTest < testownik.count else {
             print("JEST \(testownik.count)  TESTOW")
             return            

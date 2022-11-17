@@ -32,6 +32,9 @@ let pictureLibrary = PictureLibrary()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print("S T A R T\n")
+        
+        //testownik = Testownik()
+        
         testownik.xcts_random(size: 3, forCount: 500)
         var answerList: [Testownik.Answer] = [Testownik.Answer]()
         answerList.append(Testownik.Answer(isOK: true, answerOption: "1"))

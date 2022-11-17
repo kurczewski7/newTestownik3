@@ -29,6 +29,7 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
             let answerOption: String
     }
     //var delegate: TestownikDelegate?
+    //var viewContext: TestownikViewController? = nil
     var isChanged = false
     var testToDo: TestToDo?
     var filePosition: TestToDo.FilePosition  {
@@ -75,6 +76,9 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
             }
             // TODO: duplicate testToDo
             self.testToDo = TestToDo(rawTestList: rawTestList)
+//            if let context = self.viewContext {
+//                self.testToDo?.delegate = context
+//            }
         }
             
         //
@@ -203,10 +207,7 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
 //        for i in 0..<self.testList.count {
 //            rawTestList.append(i)
 //        }
-//        
-//        testToDo = TestToDo(rawTestList: rawTestList)
-//        testToDo?.restore()
-        
+//                
         if let elem = testToDo?[0] {
             self.currentTest = elem.fileNumber
         }
@@ -368,7 +369,7 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
             xxx.rawValue = UInt(i)
             print("\n\(i):\(xxx.description)")
         }
-        if let path = Bundle.main.path(forResource: "newFile", ofType: "txt") {
+        if Bundle.main.path(forResource: "newFile", ofType: "txt") != nil {
 //            for i in 0..<20 {
 //                xxx.rawValue = UInt(i)
 //                if let str = giveCodepaeText(contentsOfFile: path, encoding: xxx) {

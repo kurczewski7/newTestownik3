@@ -239,7 +239,6 @@
 		2CE1478823F6901C00C834F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2CE1478623F6901C00C834F4 /* LaunchScreen.storyboard */; };
 		2CE1479323F6901C00C834F4 /* testownikTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1479223F6901C00C834F4 /* testownikTests.swift */; };
 		2CE1479E23F6901C00C834F4 /* testownikUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE1479D23F6901C00C834F4 /* testownikUITests.swift */; };
-		2CE2F38C242A4CE800D1B731 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CE2F38B242A4CE800D1B731 /* Default-568h@2x.png */; };
 		2CE2F38E242A56CF00D1B731 /* ZipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2F38D242A56CF00D1B731 /* ZipViewController.swift */; };
 		2CE2F390242A574100D1B731 /* ZipSectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2F38F242A574100D1B731 /* ZipSectionHeaderView.swift */; };
 		2CE2F392242A59CE00D1B731 /* ZipCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CE2F391242A59CE00D1B731 /* ZipCollectionViewCell.swift */; };
@@ -518,7 +517,6 @@
 		2CE1479923F6901C00C834F4 /* testownikUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testownikUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CE1479D23F6901C00C834F4 /* testownikUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testownikUITests.swift; sourceTree = "<group>"; };
 		2CE1479F23F6901C00C834F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2CE2F38B242A4CE800D1B731 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		2CE2F38D242A56CF00D1B731 /* ZipViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZipViewController.swift; path = testownik/Controllers/ZipViewController.swift; sourceTree = SOURCE_ROOT; };
 		2CE2F38F242A574100D1B731 /* ZipSectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZipSectionHeaderView.swift; path = testownik/Controllers/ZipSectionHeaderView.swift; sourceTree = SOURCE_ROOT; };
 		2CE2F391242A59CE00D1B731 /* ZipCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ZipCollectionViewCell.swift; path = testownik/Models/ZipCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
@@ -851,7 +849,6 @@
 			isa = PBXGroup;
 			children = (
 				2C2FD3BB270270B300434C03 /* Speaking.bundle */,
-				2CE2F38B242A4CE800D1B731 /* Default-568h@2x.png */,
 				2CE1477723F6901800C834F4 /* testownik */,
 				2CE1479123F6901C00C834F4 /* testownikTests */,
 				2CE1479C23F6901C00C834F4 /* testownikUITests */,
@@ -1104,7 +1101,6 @@
 				2CC148B727E78E31005B043B /* 002.png in Resources */,
 				2C857A7627BADD5800C6F77F /* fr809.txt in Resources */,
 				2C857A7A27BADD5800C6F77F /* fr803.txt in Resources */,
-				2CE2F38C242A4CE800D1B731 /* Default-568h@2x.png in Resources */,
 				2C857A1C27BAAA3000C6F77F /* pl804.txt in Resources */,
 				2CA81A4127B94C5700F1CACC /* EN in Resources */,
 				2C7ACB0E23F9EF6D00AE4E42 /* 109.txt in Resources */,
