@@ -114,4 +114,9 @@ extension Dictionary where Value: Equatable {
     func key(from value: Value) -> Key? {
         return self.first(where: { $0.value == value })?.key
     }
+    func keysForValue(value: Value) -> [Key] {
+        return compactMap { (key: Key, val: Value) -> Key? in
+        value == val ? key : nil
+      }
+    }
 }

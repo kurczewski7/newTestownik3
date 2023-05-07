@@ -126,13 +126,16 @@ class Setup {
                 Setup.currentLanguage = xx ?? .enlish //.german
                 print("xx:\(xx)")
                 print("Setup.currentLanguage:\(Setup.currentLanguage)")
+                
                 //Setup.LanguaesList.RawValue("pl")
             }
         }
     }
     class func languageChange() {
-        Settings.shared.setValue(forKey: .language_key, newStringValue: Settings.LanguageEnum.english.rawValue)
+        let newVal = self.currentLanguage.rawValue
+        Settings.shared.setValue(forKey: .language_key, newStringValue: newVal)
         print("zmiana jezyka")
+        //let newVal = Settings.LanguageEnum.english.rawValue
     }
     class func randomOrder(toMax: Int) -> Int {
         // For toMax = 10 get from 0 to 9

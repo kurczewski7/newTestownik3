@@ -28,8 +28,6 @@ import UIKit
 //part_size_key
 //
 
-
-
 class Settings {
     enum SettingBundleEnum: String {
         case version_key            = "version_key"
@@ -73,8 +71,6 @@ class Settings {
         case repeating_e = "repeating_e"
         case repeating_f = "repeating_f"
     }
-    //let allLanguages: [String : LanguageEnum] = ["en": .english, "pl": .polish, "de": .german, "fr": .french, "es": .spanish]
-    //let allLanguages: [String : Setup.LanguaesList] = ["en": .enlish, "pl": .polish, "de": .german, "fr": .french, "es": .spanish]
     // MARK: Sinleton definition
     static var shared: Settings = {
         let instance = Settings()
@@ -157,15 +153,6 @@ class Settings {
         }
         return nil
     }
-    
-    
-    
-    
-    
-    
-    
-    
-
     //-------------------
     func setVersionAndBuildNumber() {
         let version = Bundle.main.object(forInfoDictionaryKey:  SettingBundleEnum.BundleShortVersion.rawValue)  //CFBundleShortVersionString
@@ -229,7 +216,16 @@ class Settings {
     func readCurrentLanguae() {
         let currLang = getValue(stringForKey: .language_key)
         switch currLang {
-        case LanguageEnum.automatic.rawValue : Setup.currentLanguage = .enlish
+        case LanguageEnum.automatic.rawValue :
+            //Setup.currentLanguage = .enlish
+            if let selLanguage = Locale.preferredLanguages.first?.components(separatedBy: "-").first
+            {
+                let xx = Setup.allLanguages.key(from: Setup.currentLanguage)
+                //Setup.allLanguages.key(from: selLanguage)
+                //Setup.allLanguages.keysForValue(value: Setup.LanguaesList(rawValue: "fr") ?? <#default value#>)                
+                //Setup.LanguaesList(rawValue: Setup.currentLanguage = Setup.allLanguages.key(from: .french) ?? "en") ?? <#default value#>
+                Setup.allLanguages.key(from: .french)
+            }
             print("automatic")
         case LanguageEnum.english.rawValue   : Setup.currentLanguage = .enlish
             print("english")
@@ -244,7 +240,13 @@ class Settings {
         default:
             print("ERROR  LanguageEnum")
             Setup.currentLanguage = .enlish
+            setLanguage(forSettings: Setup.currentLanguage)
         }
+        //setLanguage(forSettings: .enlish)
+    }
+    func setLanguage(forSettings curLang: Setup.LanguaesList) {
+        let landCode = curLang.rawValue
+        Settings.shared.setValue(forKey: .language_key, newStringValue: landCode)
     }
     func DeleteAllTests() {
         print(">>>>   KASOWANIE TESTÓW   <<<<<<<<<")
