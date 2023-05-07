@@ -22,6 +22,8 @@ let ratings        = Ratings()
 let speech         = Speech()
 let pictureLibrary = PictureLibrary()
 
+//let allLanguages = ["en", "pl", "de", "fr", "es" ]
+// let langDict
 
 
 //let coreData = CoreDataStack()
@@ -32,7 +34,25 @@ let pictureLibrary = PictureLibrary()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print("S T A R T\n")
-        
+        let languages = Locale.preferredLanguages
+        if  let languagePrefix = languages.first?.components(separatedBy: "-").first?.lowercased(){
+            print(languagePrefix)
+            Setup.initValue()
+            Settings.shared.readCurrentLanguae()
+            //Settings.readCurrentLanguae()
+            //print("xx: '\(xx)")
+        }
+//        let newVal = Settings.CodePageEnum.iso9
+//        let listen = Settings.shared.getValue(boolForKey: .listening_key)
+//        let _ = Settings.shared.getValue(boolForKey: .dark_thema_key)
+//        let _ = Settings.shared.getValue(boolForKey:  .listening_key)
+//        let _ = Settings.shared.getValue(stringForKey: .language_key)
+//
+//        Settings.shared.setValue(forKey: .listening_key, newBoolValue:  !listen)
+//        Settings.shared.setValue(forKey: .code_page_key, newStringValue: newVal.rawValue)
+//        Settings.shared.setValue(forKey: .dark_thema_key, newBoolValue: true)
+//        Settings.shared.setValue(forKey: .repeating_key, newStringValue: Settings.RepeatingEnum.repeating_c.rawValue)
+
         //testownik = Testownik()
         
         testownik.xcts_random(size: 3, forCount: 500)
@@ -69,6 +89,7 @@ let pictureLibrary = PictureLibrary()
             let cc = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: val))
             print("cc=\(cc)")
         }
+        // TODO: test ratings
         ratings.xxxxxx()
         let rr = ratings[2]
         rr?.correctionsToDo = 1963
@@ -83,13 +104,18 @@ let pictureLibrary = PictureLibrary()
             $0.correctionsToDo = 1410
             return $0
         }
+        ratings.editRating(forIndex: 1) { result in
+            result.repetitionsToDo = 4440
+            return result
+        }
+        
         ratings.editRating(forIndex: 3) { result in
-            result.repetitionsToDo = 5555
+            result.repetitionsToDo = 5550
             return result
         }
 
         ratings.editRating(forIndex: 11) { result in
-            result.repetitionsToDo = 6666
+            result.repetitionsToDo = 6660
             return result
         }
         
@@ -128,7 +154,7 @@ let pictureLibrary = PictureLibrary()
 //        }
         
 
-        speech.setLanguae(selectedLanguage: 3)
+        speech.setLanguage(selectedLanguage: 3)
         speech.startSpeak()
         
         let fullHomePath = NSHomeDirectory()
@@ -198,6 +224,7 @@ let pictureLibrary = PictureLibrary()
             database.save()
         }
         return true
+        // End finish lanching
     }
 
     // MARK: UISceneSession Lifecycle

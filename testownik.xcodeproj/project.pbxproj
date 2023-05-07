@@ -1529,6 +1529,8 @@
 				CURRENT_PROJECT_VERSION = 2.1;
 				DEVELOPMENT_TEAM = 667E7NU7M9;
 				INFOPLIST_FILE = testownik/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TestOwnik;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1551,6 +1553,8 @@
 				CURRENT_PROJECT_VERSION = 2.1;
 				DEVELOPMENT_TEAM = 667E7NU7M9;
 				INFOPLIST_FILE = testownik/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = TestOwnik;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.education";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

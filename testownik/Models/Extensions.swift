@@ -110,3 +110,8 @@ extension Int16 {
             return Int16(self)
         }
 }
+extension Dictionary where Value: Equatable {
+    func key(from value: Value) -> Key? {
+        return self.first(where: { $0.value == value })?.key
+    }
+}

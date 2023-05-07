@@ -68,7 +68,7 @@ class Speech {
     """
 
     
-    func setLanguae(selectedLanguage: Int) {
+    func setLanguage(selectedLanguage: Int) {
         contentToSpeac.removeAll()
         contentToSpeac.append(t1)
         contentToSpeac.append(t2)

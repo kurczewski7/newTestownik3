@@ -51,7 +51,6 @@ class Settings {
         case nr_wrong_testing_key   = "nr_wrong_testing_key"
         case percent_repeat_key     = "percent_repeat_key"
         case part_size_key          = "part_size_key"
-
     }
     enum LanguageEnum : String {
         case automatic = "automatic"
@@ -74,6 +73,8 @@ class Settings {
         case repeating_e = "repeating_e"
         case repeating_f = "repeating_f"
     }
+    //let allLanguages: [String : LanguageEnum] = ["en": .english, "pl": .polish, "de": .german, "fr": .french, "es": .spanish]
+    //let allLanguages: [String : Setup.LanguaesList] = ["en": .enlish, "pl": .polish, "de": .german, "fr": .french, "es": .spanish]
     // MARK: Sinleton definition
     static var shared: Settings = {
         let instance = Settings()
@@ -149,6 +150,22 @@ class Settings {
 //        }
 
     }
+    func getCountryCode(forLanguage key: Setup.LanguaesList) -> String?
+    {
+        if let val = Setup.allLanguages.key(from: key) {
+            return val
+        }
+        return nil
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+
     //-------------------
     func setVersionAndBuildNumber() {
         let version = Bundle.main.object(forInfoDictionaryKey:  SettingBundleEnum.BundleShortVersion.rawValue)  //CFBundleShortVersionString
@@ -226,6 +243,7 @@ class Settings {
             print("polish")
         default:
             print("ERROR  LanguageEnum")
+            Setup.currentLanguage = .enlish
         }
     }
     func DeleteAllTests() {

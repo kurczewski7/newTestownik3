@@ -13,12 +13,12 @@ class Setup {
     // MARK: Typedef
     enum LanguaesList: String {
         case enlish     = "en"
-        case english_US = "en-US"
-        case english_GB = "en-GB"
+//        case english_US = "en-US"
+//        case english_GB = "en-GB"
         case polish     = "pl"
         case german     = "de"
-        case french     = "fr_FR"
-        case spanish    = "es_ES"
+        case french     = "fr" //_FR"
+        case spanish    = "es" //_ES"
     }
     enum PopViewType: Int {
         case toast       = 0
@@ -48,21 +48,28 @@ class Setup {
     private static var backgroundColorList =  backgroundColorsDefault
     private static var textColorList = textColorsDefault
     
+    
     static var popUpStrong: PopupStrongParams = PopupStrongParams()
     static var popUpBlink: PopUpBlinkParams = PopUpBlinkParams()
     static var cloudPicker: CloudPicker!
     static var animationEnded = true
     static var isNumericQuestions = false
     static var currentAligmentButton: UIControl.ContentHorizontalAlignment = .center
-    static let askNumber = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣","🔟"]    
+    static let askNumber = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣","7️⃣","8️⃣","9️⃣","🔟"]
+    static let allLanguages: [String : LanguaesList] = ["en": .enlish, "pl": .polish, "de": .german, "fr": .french, "es": .spanish]
     static var tempStr: String  = ""
-    static var currentLanguage: LanguaesList = .german
+    static var currentLanguage: LanguaesList  = .german
+    {
+        didSet {
+            languageChange()
+        }
+    }
     static var manualName: String {
         get {
             switch currentLanguage {
             case .enlish     : tempStr = "Introduction to the program."
-            case .english_US : tempStr = "Introduction to the program."
-            case .english_GB : tempStr = "Introduction to the program."
+//            case .english_US : tempStr = "Introduction to the program."
+//            case .english_GB : tempStr = "Introduction to the program."
             case .polish     : tempStr = "Wprowadzenie do programu."
             case .german     : tempStr = "Einführung in das Programm."
             case .french     : tempStr = "Présentation du programme."
@@ -75,8 +82,8 @@ class Setup {
     static var placeHolderButtons: String { get {
         switch currentLanguage {
             case .enlish     : tempStr = "Question"
-            case .english_US : tempStr = "Question"
-            case .english_GB : tempStr = "Question"
+//            case .english_US : tempStr = "Question"
+//            case .english_GB : tempStr = "Question"
             case .polish     : tempStr = "Pytanie"
             case .german     : tempStr = "Frage"
             case .french     : tempStr = "Question"
@@ -87,8 +94,8 @@ class Setup {
     static var placeHolderTitle: String  { get {
         switch currentLanguage {
             case .enlish     : tempStr = "You don't have selected test. Add new test in search option."
-            case .english_US : tempStr = "You don't have selected test. Add new test in search option."
-            case .english_GB : tempStr = "You don't have selected test. Add new test in search option."
+//            case .english_US : tempStr = "You don't have selected test. Add new test in search option."
+//            case .english_GB : tempStr = "You don't have selected test. Add new test in search option."
             case .polish     : tempStr = "Nie wybrałeś testu. Dodaj nowy test w opcji wyszukiwania."
             case .german     : tempStr = "Sie haben keinen Test ausgewählt. Neuen Test in Suchoption hinzufügen."
             case .french     : tempStr = "Vous n'avez pas sélectionné de test. Ajouter un nouveau test dans l'option de recherche."
@@ -99,8 +106,8 @@ class Setup {
     static var placeHolderDeleteTest: String { get {
         switch currentLanguage {
             case .enlish     : tempStr = "Do you want to delete all the tests ?"
-            case .english_US : tempStr = "Do you want to delete all the tests ?"
-            case .english_GB : tempStr = "Do you want to delete all the tests ?"
+//            case .english_US : tempStr = "Do you want to delete all the tests ?"
+//            case .english_GB : tempStr = "Do you want to delete all the tests ?"
             case .polish     : tempStr = "Czy chcesz usunąć wszystkie testy ?"
             case .german     : tempStr = "Möchten Sie alle Tests löschen ?"
             case .french     : tempStr = "Voulez-vous supprimer tous les tests ?"
@@ -108,7 +115,25 @@ class Setup {
         }
         return tempStr
     }}
+    
+   
     // MARK: Static methods
+    class func initValue() {
+        let currLang = Settings.shared.getValue(stringForKey: .language_key)
+        if currLang.count == 0 {
+            if let selLanguage = Locale.preferredLanguages.first?.components(separatedBy: "-").first {
+                var xx = Setup.allLanguages[selLanguage]
+                Setup.currentLanguage = xx ?? .enlish //.german
+                print("xx:\(xx)")
+                print("Setup.currentLanguage:\(Setup.currentLanguage)")
+                //Setup.LanguaesList.RawValue("pl")
+            }
+        }
+    }
+    class func languageChange() {
+        Settings.shared.setValue(forKey: .language_key, newStringValue: Settings.LanguageEnum.english.rawValue)
+        print("zmiana jezyka")
+    }
     class func randomOrder(toMax: Int) -> Int {
         // For toMax = 10 get from 0 to 9
         return Int(arc4random_uniform(UInt32(toMax)))
