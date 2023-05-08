@@ -214,34 +214,32 @@ class Settings {
 //    case polish    = "polish"
 
     func readCurrentLanguae() {
-        let currLang = getValue(stringForKey: .language_key)
-        switch currLang {
-        case LanguageEnum.automatic.rawValue :
-            //Setup.currentLanguage = .enlish
-            if let selLanguage = Locale.preferredLanguages.first?.components(separatedBy: "-").first
-            {
-                let xx = Setup.allLanguages.key(from: Setup.currentLanguage)
-                //Setup.allLanguages.key(from: selLanguage)
-                //Setup.allLanguages.keysForValue(value: Setup.LanguaesList(rawValue: "fr") ?? <#default value#>)                
-                //Setup.LanguaesList(rawValue: Setup.currentLanguage = Setup.allLanguages.key(from: .french) ?? "en") ?? <#default value#>
-                Setup.allLanguages.key(from: .french)
+        let currLangCode = getValue(stringForKey: .language_key)
+        switch currLangCode {
+            case LanguageEnum.automatic.rawValue :
+                //  Get syste language                Setup.currentLanguage = .enlish
+                if let languageCode = Locale.preferredLanguages.first?.components(separatedBy: "-").first // "en"
+                {
+                    // "en" to .english
+                    Setup.currentLanguage = Setup.allLanguages[languageCode] ?? .enlish
+                    //  Setup.allLanguages.key(from: .french)
+                }
+                print("automatic")
+            case LanguageEnum.english.rawValue   : Setup.currentLanguage = .enlish
+                print("english")
+            case LanguageEnum.german.rawValue    : Setup.currentLanguage = .german
+                print("german")
+            case LanguageEnum.french.rawValue    : Setup.currentLanguage = .french
+                print("french")
+            case LanguageEnum.spanish.rawValue   : Setup.currentLanguage = .spanish
+                print("spanish")
+            case LanguageEnum.polish.rawValue    : Setup.currentLanguage = .polish
+                print("polish")
+            default:
+                print("ERROR  LanguageEnum")
+            Setup.currentLanguage = Setup.allLanguages[Locale.preferredLanguages.first?.components(separatedBy: "-").first ?? "en"] ?? .enlish
+                //setLanguage(forSettings: Setup.currentLanguage)
             }
-            print("automatic")
-        case LanguageEnum.english.rawValue   : Setup.currentLanguage = .enlish
-            print("english")
-        case LanguageEnum.german.rawValue    : Setup.currentLanguage = .german
-            print("german")
-        case LanguageEnum.french.rawValue    : Setup.currentLanguage = .french
-            print("french")
-        case LanguageEnum.spanish.rawValue   : Setup.currentLanguage = .spanish
-            print("spanish")
-        case LanguageEnum.polish.rawValue    : Setup.currentLanguage = .polish
-            print("polish")
-        default:
-            print("ERROR  LanguageEnum")
-            Setup.currentLanguage = .enlish
-            setLanguage(forSettings: Setup.currentLanguage)
-        }
         //setLanguage(forSettings: .enlish)
     }
     func setLanguage(forSettings curLang: Setup.LanguaesList) {

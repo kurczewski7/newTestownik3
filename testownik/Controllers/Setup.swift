@@ -61,7 +61,10 @@ class Setup {
     static var currentLanguage: LanguaesList  = .german
     {
         didSet {
-            languageChange()
+            if oldValue == currentLanguage {
+                languageChange()
+            }
+            
         }
     }
     static var manualName: String {
