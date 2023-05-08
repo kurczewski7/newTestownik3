@@ -61,7 +61,7 @@ class Setup {
     static var currentLanguage: LanguaesList  = .german
     {
         didSet {
-            if oldValue == currentLanguage {
+            if oldValue != currentLanguage {
                 languageChange()
             }
             
@@ -125,7 +125,7 @@ class Setup {
         let currLang = Settings.shared.getValue(stringForKey: .language_key)
         if currLang.count == 0 {
             if let selLanguage = Locale.preferredLanguages.first?.components(separatedBy: "-").first {
-                var xx = Setup.allLanguages[selLanguage]
+                let xx = Setup.allLanguages[selLanguage]
                 Setup.currentLanguage = xx ?? .enlish //.german
                 print("xx:\(xx)")
                 print("Setup.currentLanguage:\(Setup.currentLanguage)")

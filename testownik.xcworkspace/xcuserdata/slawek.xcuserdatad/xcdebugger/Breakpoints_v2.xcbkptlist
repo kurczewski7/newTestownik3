@@ -715,42 +715,10 @@
             filePath = "testownik/Models/Testownik.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
             landmarkName = "init()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "FAAEE1D1-B872-4511-81F7-66B04F0A9515 - 736c7d159f5eafff"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.Testownik.init() -&gt; Testownik.Testownik"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/Testownik.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "78"
-                  endingLineNumber = "78"
-                  offsetFromSymbolStart = "2528">
-               </Location>
-               <Location
-                  uuid = "FAAEE1D1-B872-4511-81F7-66B04F0A9515 - 736c7d159f5eae01"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.Testownik.init() -&gt; Testownik.Testownik"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/Testownik.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "68"
-                  endingLineNumber = "68"
-                  offsetFromSymbolStart = "576">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1108,7 +1076,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "12E8A70A-E7A1-4C26-98A8-107E686F0B58"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "testownik/AppDelegate.swift"
@@ -1163,6 +1131,21 @@
                   startingLineNumber = "131"
                   endingLineNumber = "131"
                   offsetFromSymbolStart = "9746">
+               </Location>
+               <Location
+                  uuid = "12E8A70A-E7A1-4C26-98A8-107E686F0B58 - 7d8612e08b19d879"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/AppDelegate.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "137"
+                  endingLineNumber = "137"
+                  offsetFromSymbolStart = "9807">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1290,6 +1273,21 @@
                   endingLineNumber = "128"
                   offsetFromSymbolStart = "861">
                </Location>
+               <Location
+                  uuid = "CA0AACB8-0856-4117-BB90-E9E0F3E6BBAA - dff098d749533536"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Testownik.Setup.initValue() -&gt; ()"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Controllers/Setup.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "880">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
@@ -1307,6 +1305,38 @@
             endingLineNumber = "67"
             landmarkName = "Setup"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "1D3C9CAB-8BA1-4148-819A-524AB64CE3A1 - 4b8a1b60d3c7528f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Testownik.Setup.currentLanguage.didset : Testownik.Setup.LanguaesList"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Controllers/Setup.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "194">
+               </Location>
+               <Location
+                  uuid = "1D3C9CAB-8BA1-4148-819A-524AB64CE3A1 - 4b8a1b60d3c7528f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static Testownik.Setup.currentLanguage.didset : Testownik.Setup.LanguaesList"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Controllers/Setup.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "196">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1701,6 +1731,38 @@
             endingLineNumber = "63"
             landmarkName = "Setup"
             landmarkType = "3">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9300306B-BE0C-438C-AE90-5DE999B66247"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testownik/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "93"
+            endingLineNumber = "93"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "16ED9BD8-9AA8-4906-939D-0B4889A5BF21"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testownik/AppDelegate.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "217"
+            endingLineNumber = "217"
+            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
