@@ -503,7 +503,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         askLabel.layer.cornerRadius = self.cornerRadius
         
         // TODO: POPRAW
-        testownik.createStartedTest()
+        //testownik.createStartedTest()
         if testownik.testToDo == nil {
             print("testownik.testToDo == nil")
         }

@@ -34,6 +34,9 @@ let pictureLibrary = PictureLibrary()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print("S T A R T\n")
+        let fullHomePath = NSHomeDirectory()
+        print("\n=========\nfullHomePath = file:///\(fullHomePath)")
+
         let languages = Locale.preferredLanguages
         if  let languagePrefix = languages.first?.components(separatedBy: "-").first?.lowercased(){
             print(languagePrefix)
@@ -42,6 +45,17 @@ let pictureLibrary = PictureLibrary()
             //Settings.readCurrentLanguae()
             //print("xx: '\(xx)")
         }
+        database.selectedTestTable.loadData()
+        if database.selectedTestTable.count == 0 {
+            let selTest = SelectedTestEntity(context: database.context)
+            selTest.uuId = UUID()
+            selTest.group_size = 30
+            selTest.reapead_test = 5
+            selTest.current_position = 0
+            _ = database.selectedTestTable.add(value: selTest)
+            database.save()
+            createStartedTest()
+        }        
 //        let newVal = Settings.CodePageEnum.iso9
 //        let listen = Settings.shared.getValue(boolForKey: .listening_key)
 //        let _ = Settings.shared.getValue(boolForKey: .dark_thema_key)
@@ -157,8 +171,6 @@ let pictureLibrary = PictureLibrary()
         speech.setLanguage(selectedLanguage: 3)
         speech.startSpeak()
         
-        let fullHomePath = NSHomeDirectory()
-        print("\n=========\nfullHomePath = file:///\(fullHomePath)")
         
         //database.allTestsTable.loadData(fieldName: "user_name", fieldValue: "trzeci")
         
@@ -214,19 +226,73 @@ let pictureLibrary = PictureLibrary()
 //        database.ratingsTable.deleteAll()
 //        database.ratingsTable.save()
         
-        if database.selectedTestTable.count == 0 {
-            let selTest = SelectedTestEntity(context: database.context)
-            selTest.uuId = UUID()
-            selTest.group_size = 30
-            selTest.reapead_test = 5
-            selTest.current_position = 0
-            _ = database.selectedTestTable.add(value: selTest)
-            database.save()
-        }
+
         return true
         // End finish lanching
     }
+       func createStartedTest(forLanguage lang: Setup.LanguaesList = Setup.currentLanguage) {
+           guard database.allTestsTable.count < 1 else {   return    }
+           let uuid = UUID()
+           saveHeaderDB(uuid: uuid)
+           saveDecriptionsDB(parentUUID: uuid, forLanguage: lang)
+           if database.selectedTestTable.count > 0 {
+               database.selectedTestTable[0]?.uuId = uuid
+               database.selectedTestTable.save()
+           }
+       }
+       func saveHeaderDB(uuid: UUID) {
+   //        let currentDateTime = Date()
+   //         let formatter = DateFormatter()
+   //         formatter.dateFormat = "yyyy/MM/dd  HH:mm:ss"
+   //         return "Test  "+formatter.string(from: currentDateTime)
 
+           
+           //let context = database.context
+      let allTestRecord = AllTestEntity(context: database.context)
+           if #available(iOS 14.0, *) {
+               let dataFormater = DateFormatter()
+               dataFormater.dateFormat = "yyyy/MM/dd  HH:mm:ss"
+               allTestRecord.auto_name = "Demo test "+dataFormater.string(from: Date())
+           } else {
+               allTestRecord.auto_name = "Demo test"
+           }
+           allTestRecord.user_name = "START MANUAL"   //"Nazwa 1"
+           allTestRecord.user_description  = Setup.manualName// "nazwa2"
+           allTestRecord.category = "⏪ 👈     D E M O     👉 ⏩"
+           
+           allTestRecord.create_date = Date()
+           allTestRecord.is_favorite = true
+           allTestRecord.uuId = uuid
+           allTestRecord.folder_url = "HOME"
+           
+           database.allTestsTable.append(allTestRecord)
+           database.allTestsTable.save()
+       }
+       func saveDecriptionsDB(parentUUID: UUID, forLanguage lang: Setup.LanguaesList) {
+           let nameRange = 801...812
+           var text = ""
+           let prefLang = lang.rawValue.prefix(2).lowercased()
+           for i in nameRange {
+               text = ""
+               let record = TestDescriptionEntity(context: database.context)
+               record.picture = nil
+               record.code_page = 4
+               record.uuId = UUID()
+               record.uuid_parent = parentUUID
+               record.file_url = "Home"
+               record.file_name = "Name\(i)"
+               let name = prefLang + String(format: "%03d", i)
+               let textLines = testownik.getText(fileName: name)
+               for tmp in textLines {
+                   text += tmp + "\n"
+               }
+               record.text =  text
+               print("textLines:\(textLines)")
+
+               database.testDescriptionTable.append(record)
+               database.testDescriptionTable.save()
+           }
+       }
     // MARK: UISceneSession Lifecycle
 
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {

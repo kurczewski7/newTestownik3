@@ -61,6 +61,7 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
 //        guard index < testList.count else {  return nil   }
 //        return testList[index]
 //    }
+    // MARK: Init Testownik class
     override init() {
         super.init()
         print("init sss")
@@ -256,77 +257,17 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
         }
         return found
     }
-    func teeest() {
-        createStartedTest(forLanguage: .enlish)
-        createStartedTest(forLanguage: .polish)
-        
-        createStartedTest(forLanguage: .spanish)
-        createStartedTest(forLanguage: .french)
-        createStartedTest(forLanguage: .german)
-    }
-    func createStartedTest(forLanguage lang: Setup.LanguaesList = Setup.currentLanguage) {
-        guard database.allTestsTable.count < 1 else {   return    }
-        let uuid = UUID()
-        saveHeaderDB(uuid: uuid)
-        saveDecriptionsDB(parentUUID: uuid, forLanguage: lang)
-        if database.selectedTestTable.count > 0 {
-            database.selectedTestTable[0]?.uuId = uuid
-            database.selectedTestTable.save()
-        }        
-    }
-    func saveHeaderDB(uuid: UUID) {
-//        let currentDateTime = Date()
-//         let formatter = DateFormatter()
-//         formatter.dateFormat = "yyyy/MM/dd  HH:mm:ss"
-//         return "Test  "+formatter.string(from: currentDateTime)
+//    func teeest() {
+//        createStartedTest(forLanguage: .enlish)
+//        createStartedTest(forLanguage: .polish)
+//        
+//        createStartedTest(forLanguage: .spanish)
+//        createStartedTest(forLanguage: .french)
+//        createStartedTest(forLanguage: .german)
+//    }
 
-        
-        //let context = database.context
-   let allTestRecord = AllTestEntity(context: database.context)
-        if #available(iOS 14.0, *) {
-            let dataFormater = DateFormatter()
-            dataFormater.dateFormat = "yyyy/MM/dd  HH:mm:ss"
-            allTestRecord.auto_name = "Demo test "+dataFormater.string(from: Date())
-        } else {
-            allTestRecord.auto_name = "Demo test"
-        }
-        allTestRecord.user_name = "START MANUAL"   //"Nazwa 1"
-        allTestRecord.user_description  = Setup.manualName// "nazwa2"
-        allTestRecord.category = "⏪ 👈     D E M O     👉 ⏩"
-        
-        allTestRecord.create_date = Date()
-        allTestRecord.is_favorite = true
-        allTestRecord.uuId = uuid
-        allTestRecord.folder_url = "HOME"
-        
-        database.allTestsTable.append(allTestRecord)
-        database.allTestsTable.save()
-    }
-    func saveDecriptionsDB(parentUUID: UUID, forLanguage lang: Setup.LanguaesList) {
-        let nameRange = 801...812
-        var text = ""
-        let prefLang = lang.rawValue.prefix(2).lowercased()
-        for i in nameRange {
-            text = ""
-            let record = TestDescriptionEntity(context: database.context)
-            record.picture = nil
-            record.code_page = 4
-            record.uuId = UUID()
-            record.uuid_parent = parentUUID
-            record.file_url = "Home"
-            record.file_name = "Name\(i)"
-            let name = prefLang + String(format: "%03d", i)
-            let textLines = getText(fileName: name)
-            for tmp in textLines {
-                text += tmp + "\n"
-            }
-            record.text =  text
-            print("textLines:\(textLines)")
 
-            database.testDescriptionTable.append(record)
-            database.testDescriptionTable.save()
-        }
-    }
+
     func saveData() {
         //database.allTestsTable.deleteAll()
         //database.testDescriptionTable.deleteAll()
