@@ -17,7 +17,7 @@ import CoreMedia
 let coreData       = CoreDataStack()
 let database       = Database(context: coreData.persistentContainer.viewContext)
 
-let testownik      = Testownik()
+let testownik: Testownik = Testownik()
 let ratings        = Ratings()
 let speech         = Speech()
 let pictureLibrary = PictureLibrary()
@@ -52,10 +52,24 @@ let pictureLibrary = PictureLibrary()
             selTest.group_size = 30
             selTest.reapead_test = 5
             selTest.current_position = 0
+//            selTest.toAllRelationship =
             _ = database.selectedTestTable.add(value: selTest)
+
+//            let selectedTest = database.fetch[0].getObj(at: indexPath) as! AllTestEntity
+//            // ------------------- TODOO
+//            print("selectedTest:\(selectedTest.auto_name ?? "brak")")
+//            print("uuid:\(String(describing: selectedTest.uuId))")
+//            database.selectedTestTable[0]?.uuId = selectedTest.uuId
+//            database.selectedTestTable[0]?.toAllRelationship = selectedTest
+            
+            
             database.save()
+            
+            //self.testownik = Testownik()
             createStartedTest()
-        }        
+            testownik.createTestToDo()
+        }
+        
 //        let newVal = Settings.CodePageEnum.iso9
 //        let listen = Settings.shared.getValue(boolForKey: .listening_key)
 //        let _ = Settings.shared.getValue(boolForKey: .dark_thema_key)

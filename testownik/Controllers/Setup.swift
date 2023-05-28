@@ -64,7 +64,6 @@ class Setup {
             if oldValue != currentLanguage {
                 languageChange()
             }
-            
         }
     }
     static var manualName: String {
@@ -137,7 +136,7 @@ class Setup {
     class func languageChange() {
         let newVal = self.currentLanguage.rawValue
         Settings.shared.setValue(forKey: .language_key, newStringValue: newVal)
-        print("zmiana jezyka")
+        print("zmiana jezyka na \(newVal)")
         //let newVal = Settings.LanguageEnum.english.rawValue
     }
     class func randomOrder(toMax: Int) -> Int {

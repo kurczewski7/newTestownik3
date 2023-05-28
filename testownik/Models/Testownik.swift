@@ -30,6 +30,7 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
     }
     //var delegate: TestownikDelegate?
     //var viewContext: TestownikViewController? = nil
+    var rawTestList = [Int]()
     var isChanged = false
     var testToDo: TestToDo?
     var filePosition: TestToDo.FilePosition  {
@@ -70,13 +71,8 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
         guard database.selectedTestTable.isNotEmpty else {  return  }
         if let uuId = database.selectedTestTable[0]?.uuId {
             database.testDescriptionTable.loadData(forUuid: "uuid_parent", fieldValue: uuId)
-            let number = database.testDescriptionTable.count
-            var  rawTestList = [Int]()
-            for i in 0..<number  { // self.testList.count
-                rawTestList.append(i)
-            }
             // TODO: duplicate testToDo
-            self.testToDo = TestToDo(rawTestList: rawTestList)
+            
 //            if let context = self.viewContext {
 //                self.testToDo?.delegate = context
 //            }
@@ -84,6 +80,15 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
             
         //
         //testToDo?.delegate = self
+    }
+    func createTestToDo() {
+        let number = database.testDescriptionTable.count
+        var  rawTestList = [Int]()
+        for i in 0..<number  { // self.testList.count
+            rawTestList.append(i)
+        }
+        self.rawTestList = rawTestList
+        self.testToDo = TestToDo(rawTestList: self.rawTestList)
     }
     // MARK: Perform protocol TestToDoDelegate
 //    func getCurrentTest(forFileNumber number: Int) -> Test? {
