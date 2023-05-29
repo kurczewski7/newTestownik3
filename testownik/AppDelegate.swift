@@ -61,14 +61,13 @@ let pictureLibrary = PictureLibrary()
 //            print("uuid:\(String(describing: selectedTest.uuId))")
 //            database.selectedTestTable[0]?.uuId = selectedTest.uuId
 //            database.selectedTestTable[0]?.toAllRelationship = selectedTest
-            
-            
+ 
             database.save()
-            
             //self.testownik = Testownik()
             createStartedTest()
-            testownik.createTestToDo()
+            
         }
+        testownik.createTestToDo()
         
 //        let newVal = Settings.CodePageEnum.iso9
 //        let listen = Settings.shared.getValue(boolForKey: .listening_key)
