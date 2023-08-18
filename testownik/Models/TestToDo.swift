@@ -68,7 +68,8 @@ class TestToDo: TestToDoDataSource {
             if delegate == nil {
                 print("delegate = NIL, 2")
             }
-
+            // TODO: Error
+            //testownik.currentTest += 1
             delegate?.progress(forCurrentPosition: currentPosition + 1, totalCount: count)
         }
     }
@@ -140,7 +141,7 @@ class TestToDo: TestToDoDataSource {
     }
 
 
-    func getCurrent(onlyNewElement onlyNew: Bool = false)  -> RawTest? {
+    func getCurrentRawTest(onlyNewElement onlyNew: Bool = false)  -> RawTest? {
         print("currentPosition=\(currentPosition)")
         // print("main[0=\(mainTests[0][0])")
         if let retVal = getElem(numberFrom0: currentPosition) {
@@ -230,7 +231,7 @@ class TestToDo: TestToDoDataSource {
         let fullSize = groupSize + reapeadTest
         guard fullSize > 0 else {  return nil  }
         let currentGroup = Int(numberFrom1 / fullSize) + (numberFrom1 % fullSize > 0 ? 1 : 0) - 1
-        guard numberFrom0 < self.count, currentGroup < groups, currentGroup < mainTests.count else {      return nil   }
+        guard numberFrom0 < self.count, currentGroup < groups+1, currentGroup < mainTests.count else {      return nil   }
         if changePosition {
             self.currentPosition = numberFrom0
         }
@@ -387,7 +388,7 @@ class TestToDo: TestToDoDataSource {
         }
         retVal.mainTests = mainTests
         retVal.mainCount = mainCount
-        retVal.groups = groups
+        retVal.groups    = groups
         return retVal
     }
     private func fillExtraTests(forMainTest mainTests: [[RawTest]], forGroupSize groupSize: Int, forReapeadTest reapeadTest: Int ) -> ExtraTestsValues?  {

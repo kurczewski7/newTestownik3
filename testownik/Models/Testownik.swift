@@ -109,7 +109,7 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
 //    }
     // MARK: Metod for navigation
     override func getCurrent() -> Test {        
-        self.currentTest = testToDo?.getCurrent()?.fileNumber ?? 0
+        self.currentTest = testToDo?.getCurrentRawTest()?.fileNumber ?? 0
         return super.getCurrent()
     }
     override func first() {
@@ -170,7 +170,7 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
                     let yyy = testToDo?.mainTests.first
                     let zzz = testToDo?.currentPosition
                     let bbb = testToDo?[0]
-                    let ddd = testToDo?.getCurrent()?.fileNumber
+                    let ddd = testToDo?.getCurrentRawTest()?.fileNumber
                     let aaa = testToDo?.extraTests
                 }
                 //currentTest = testToDo?.getCurrent()?.fileNumber
