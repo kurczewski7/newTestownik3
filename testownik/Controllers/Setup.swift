@@ -48,6 +48,8 @@ class Setup {
     private static var backgroundColorList =  backgroundColorsDefault
     private static var textColorList = textColorsDefault
     
+    static let defaultMainGroupSize = 30
+    static let defaultReapeadTest = 5
     
     static var popUpStrong: PopupStrongParams = PopupStrongParams()
     static var popUpBlink: PopUpBlinkParams = PopUpBlinkParams()

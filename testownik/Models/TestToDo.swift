@@ -23,7 +23,7 @@ protocol TestToDoDelegate {
 }
 class TestToDo: TestToDoDataSource {
     typealias MainTestsValues = (mainTests: [[RawTest]], mainCount: Int, groups: Int, groupSize: Int)
-    typealias ExtraTestsValues = (extraTests: [[RawTest]], extraCount: Int)
+    typealias ExtraTestsValues = (extraTests: [[RawTest]], extraCount: Int, extraSize: Int)
     struct TestInfo {
         let fileNumber: Int
         let groupNr: Int
@@ -127,15 +127,19 @@ class TestToDo: TestToDoDataSource {
     private func createTests() {
         //groups = Int(rawTests.count / groupSize) + (rawTests.count % groupSize == 0 ? 0 : 1 )
         
-        if let mainVal = fillMainTests(forGroupSize: self.groupSize) {
+        if let mainVal = fillMainTests(forGroupSize:  5)//self.groupSize) {
+        {
             self.mainTests = mainVal.mainTests
             self.mainCount = mainVal.mainCount
             self.groups    = mainVal.groups
             self.groupSize = mainVal.groupSize
         }
-        if let extraVal = fillExtraTests(forMainTest: self.mainTests, forGroupSize: self.groupSize, forReapeadTest: self.reapeadTest) {
-            self.extraTests = extraVal.extraTests
-            self.extraCount = extraVal.extraCount
+        //if let extraVal = fillExtraTests(forMainTest: self.mainTests, forGroupSize: self.groupSize, forReapeadTest: self.reapeadTest)
+    
+        if let extraVal = fillExtraTests(forMainTest: self.mainTests, forGroupSize: 5, forReapeadTest: 3) {
+            self.extraTests  = extraVal.extraTests
+            self.extraCount  = extraVal.extraCount
+            self.reapeadTest = extraVal.extraSize
         }
         // TODO: ????
         self.currentPosition = 0
@@ -427,6 +431,7 @@ class TestToDo: TestToDoDataSource {
         }
         retVal.extraTests = extraTests
         retVal.extraCount = extraCount
+        retVal.extraSize  = reapeadTest
         return retVal
     }
     private func lotteryMainTests(fromFilePosition startPos: Int, arraySize size: Int, shuffle: Bool = true  ) -> [RawTest]    {
@@ -500,6 +505,10 @@ class TestToDo: TestToDoDataSource {
        
         let oldPosition = self.currentPosition
         database.selectedTestTable.loadData()
+        database.selectedTestTable[0]?.current_position = self.currentPosition.toInt16()
+        database.selectedTestTable[0]?.group_size = self.groupSize.toInt16()
+        database.selectedTestTable[0]?.reapead_test = self.reapeadTest.toInt16()
+                
         guard let uuidParent = database.selectedTestTable[0]?.uuId, self.count > 0 else {   return    }
         database.testToDoTable.deleteGroup(uuidDeleteField: "uuid_parent", forValue: uuidParent)
         database.testToDoTable.save()
@@ -546,6 +555,11 @@ class TestToDo: TestToDoDataSource {
         
         database.selectedTestTable.loadData()
         guard let uuidParent = database.selectedTestTable[0]?.uuId else {   return    }
+        self.currentPosition = database.selectedTestTable[0]?.current_position.toInt() ?? 0
+        self.groupSize = database.selectedTestTable[0]?.group_size.toInt() ?? Setup.defaultMainGroupSize
+        self.reapeadTest = database.selectedTestTable[0]?.reapead_test.toInt() ?? Setup.defaultReapeadTest
+        let noRestarting = database.selectedTestTable[0]?.nr_retesting.toInt()
+        
         database.testToDoTable.loadData(forFilterField: "uuid_parent", fieldValue: uuidParent)
         print("COUNT:\(database.testToDoTable.count)")
         database.testToDoTable.forEach { index, oneRecord in
