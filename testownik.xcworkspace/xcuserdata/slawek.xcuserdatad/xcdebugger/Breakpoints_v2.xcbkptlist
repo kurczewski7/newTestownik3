@@ -206,8 +206,8 @@
             filePath = "testownik/Models/TestToDo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "500"
-            endingLineNumber = "500"
+            startingLineNumber = "502"
+            endingLineNumber = "502"
             landmarkName = "save()"
             landmarkType = "7">
          </BreakpointContent>
@@ -519,8 +519,8 @@
             filePath = "testownik/Models/TestToDo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "581"
-            endingLineNumber = "581"
+            startingLineNumber = "583"
+            endingLineNumber = "583"
             landmarkName = "restore()"
             landmarkType = "7">
          </BreakpointContent>
@@ -644,25 +644,25 @@
             filePath = "testownik/Models/TestToDo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "166"
+            endingLineNumber = "166"
             landmarkName = "getNext(onlyNewElement:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "903A9737-666E-4B9F-997F-09FC3D76D059 - 6d83b0bef8de3efc"
+                  uuid = "903A9737-666E-4B9F-997F-09FC3D76D059 - e688e292243fd695"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Testownik.TestToDo.getNext(onlyNewElement: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  symbolName = "default argument 0 of Testownik.TestToDo.getNext(onlyNewElement: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
                   moduleName = "Testownik"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "167"
-                  endingLineNumber = "167"
-                  offsetFromSymbolStart = "244">
+                  startingLineNumber = "166"
+                  endingLineNumber = "166"
+                  offsetFromSymbolStart = "6">
                </Location>
                <Location
                   uuid = "903A9737-666E-4B9F-997F-09FC3D76D059 - 6d83b0bef8de3efc"
@@ -677,6 +677,21 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "167"
                   endingLineNumber = "167"
+                  offsetFromSymbolStart = "67">
+               </Location>
+               <Location
+                  uuid = "903A9737-666E-4B9F-997F-09FC3D76D059 - 6d83b0bef8de3e9d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.getNext(onlyNewElement: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "166"
+                  endingLineNumber = "166"
                   offsetFromSymbolStart = "67">
                </Location>
             </Locations>
@@ -692,10 +707,57 @@
             filePath = "testownik/Models/TestToDo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "163"
-            endingLineNumber = "163"
+            startingLineNumber = "162"
+            endingLineNumber = "162"
             landmarkName = "getLast(onlyNewElement:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7C4AA777-2D06-437B-9EF0-B207ED09E786 - c74672d053a88412"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 0 of Testownik.TestToDo.getLast(onlyNewElement: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "6">
+               </Location>
+               <Location
+                  uuid = "7C4AA777-2D06-437B-9EF0-B207ED09E786 - 79c6e8de3d1899bd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.getLast(onlyNewElement: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "163"
+                  endingLineNumber = "163"
+                  offsetFromSymbolStart = "64">
+               </Location>
+               <Location
+                  uuid = "7C4AA777-2D06-437B-9EF0-B207ED09E786 - 79c6e8de3d1899dc"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.getLast(onlyNewElement: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "162"
+                  endingLineNumber = "162"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -708,10 +770,57 @@
             filePath = "testownik/Models/TestToDo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
+            startingLineNumber = "158"
+            endingLineNumber = "158"
             landmarkName = "getFirst(onlyNewElement:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F569012C-AC1B-4123-806B-4B5E61165B58 - 1c3aff204fa9ab33"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 0 of Testownik.TestToDo.getFirst(onlyNewElement: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "6">
+               </Location>
+               <Location
+                  uuid = "F569012C-AC1B-4123-806B-4B5E61165B58 - 1f3cdfdd1dd3ffdb"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.getFirst(onlyNewElement: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "159"
+                  endingLineNumber = "159"
+                  offsetFromSymbolStart = "38">
+               </Location>
+               <Location
+                  uuid = "F569012C-AC1B-4123-806B-4B5E61165B58 - 1f3cdfdd1dd3ffba"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.getFirst(onlyNewElement: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "158"
+                  endingLineNumber = "158"
+                  offsetFromSymbolStart = "38">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -724,25 +833,25 @@
             filePath = "testownik/Models/TestToDo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "173"
-            endingLineNumber = "173"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
             landmarkName = "getPrev(onlyNewElement:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "6F713DFB-9EFE-426D-8835-8572A4F9DE16 - 649d6106dce8aca4"
+                  uuid = "6F713DFB-9EFE-426D-8835-8572A4F9DE16 - bba456fc841ccaab"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Testownik.TestToDo.getPrev(onlyNewElement: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  symbolName = "default argument 0 of Testownik.TestToDo.getPrev(onlyNewElement: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
                   moduleName = "Testownik"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "173"
-                  endingLineNumber = "173"
-                  offsetFromSymbolStart = "199">
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
+                  offsetFromSymbolStart = "6">
                </Location>
                <Location
                   uuid = "6F713DFB-9EFE-426D-8835-8572A4F9DE16 - 649d6106dce8aca4"
@@ -759,83 +868,20 @@
                   endingLineNumber = "173"
                   offsetFromSymbolStart = "67">
                </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "FAAEE1D1-B872-4511-81F7-66B04F0A9515"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "testownik/Models/Testownik.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "init()"
-            landmarkType = "7">
-            <Locations>
                <Location
-                  uuid = "FAAEE1D1-B872-4511-81F7-66B04F0A9515 - 736c7d159f5eae26"
+                  uuid = "6F713DFB-9EFE-426D-8835-8572A4F9DE16 - 649d6106dce8ac85"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "Testownik.Testownik.init() -&gt; Testownik.Testownik"
+                  symbolName = "Testownik.TestToDo.getPrev(onlyNewElement: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
                   moduleName = "Testownik"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/Testownik.swift"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "796">
-               </Location>
-               <Location
-                  uuid = "FAAEE1D1-B872-4511-81F7-66B04F0A9515 - 736c7d159f5eae26"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.Testownik.init() -&gt; Testownik.Testownik"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/Testownik.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "69"
-                  endingLineNumber = "69"
-                  offsetFromSymbolStart = "576">
-               </Location>
-               <Location
-                  uuid = "FAAEE1D1-B872-4511-81F7-66B04F0A9515 - 736c7d159f5eaec7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.Testownik.init() -&gt; Testownik.Testownik"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/Testownik.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
-                  offsetFromSymbolStart = "477">
-               </Location>
-               <Location
-                  uuid = "FAAEE1D1-B872-4511-81F7-66B04F0A9515 - 736c7d159f5eaec7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.Testownik.init() -&gt; Testownik.Testownik"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/Testownik.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "70"
-                  endingLineNumber = "70"
-                  offsetFromSymbolStart = "628">
+                  startingLineNumber = "172"
+                  endingLineNumber = "172"
+                  offsetFromSymbolStart = "67">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -850,8 +896,8 @@
             filePath = "testownik/Models/TestToDo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "518"
-            endingLineNumber = "518"
+            startingLineNumber = "520"
+            endingLineNumber = "520"
             landmarkName = "save()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1102,14 +1148,29 @@
             filePath = "testownik/Models/TestToDo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "154"
-            endingLineNumber = "154"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "getCurFileNumber()"
             landmarkType = "7">
             <Locations>
                <Location
                   uuid = "5A3AEC86-A877-49BA-944E-E02AAB8B12E5 - e48da0097d7d97fd"
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.getCurFileNumber() -&gt; Swift.Int"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "153"
+                  endingLineNumber = "153"
+                  offsetFromSymbolStart = "69">
+               </Location>
+               <Location
+                  uuid = "5A3AEC86-A877-49BA-944E-E02AAB8B12E5 - e48da0097d7d97fd"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Testownik.TestToDo.getCurFileNumber() -&gt; Swift.Int"
@@ -1124,7 +1185,7 @@
                </Location>
                <Location
                   uuid = "5A3AEC86-A877-49BA-944E-E02AAB8B12E5 - e48da0097d7d97fd"
-                  shouldBeEnabled = "No"
+                  shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
                   symbolName = "Testownik.TestToDo.getCurFileNumber() -&gt; Swift.Int"
@@ -1135,36 +1196,6 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "153"
                   endingLineNumber = "153"
-                  offsetFromSymbolStart = "747">
-               </Location>
-               <Location
-                  uuid = "5A3AEC86-A877-49BA-944E-E02AAB8B12E5 - e48da0097d7d97de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.TestToDo.getCurFileNumber() -&gt; Swift.Int"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "154"
-                  endingLineNumber = "154"
-                  offsetFromSymbolStart = "117">
-               </Location>
-               <Location
-                  uuid = "5A3AEC86-A877-49BA-944E-E02AAB8B12E5 - e48da0097d7d97de"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.TestToDo.getCurFileNumber() -&gt; Swift.Int"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "154"
-                  endingLineNumber = "154"
                   offsetFromSymbolStart = "747">
                </Location>
             </Locations>
@@ -1174,16 +1205,63 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "DF54F6CB-8FDD-4C4A-8318-46513ECE67FB"
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "testownik/Models/TestToDo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "229"
-            endingLineNumber = "229"
+            startingLineNumber = "228"
+            endingLineNumber = "228"
             landmarkName = "getElem(numberFrom0:changePosition:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DF54F6CB-8FDD-4C4A-8318-46513ECE67FB - c5a13c4d68b5cbc2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 1 of Testownik.TestToDo.getElem(numberFrom0: Swift.Int, changePosition: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "6">
+               </Location>
+               <Location
+                  uuid = "DF54F6CB-8FDD-4C4A-8318-46513ECE67FB - 85ab29090979c554"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.getElem(numberFrom0: Swift.Int, changePosition: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "229"
+                  endingLineNumber = "229"
+                  offsetFromSymbolStart = "225">
+               </Location>
+               <Location
+                  uuid = "DF54F6CB-8FDD-4C4A-8318-46513ECE67FB - 85ab29090979c535"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.getElem(numberFrom0: Swift.Int, changePosition: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "228"
+                  endingLineNumber = "228"
+                  offsetFromSymbolStart = "225">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1248,69 +1326,6 @@
             endingLineNumber = "60"
             landmarkName = "addRating(_:lastAnswer:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "2C4F3982-7D0E-45D0-BC1A-87D9D9433223"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "testownik/AppDelegate.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "application(_:didFinishLaunchingWithOptions:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "2C4F3982-7D0E-45D0-BC1A-87D9D9433223 - 7d8612e08b19d572"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/AppDelegate.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "699">
-               </Location>
-               <Location
-                  uuid = "2C4F3982-7D0E-45D0-BC1A-87D9D9433223 - 7d8612e08b19d572"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/AppDelegate.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "702">
-               </Location>
-               <Location
-                  uuid = "2C4F3982-7D0E-45D0-BC1A-87D9D9433223 - 7d8612e08b19d572"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.AppDelegate.application(_: __C.UIApplication, didFinishLaunchingWithOptions: Swift.Optional&lt;Swift.Dictionary&lt;__C.UIApplicationLaunchOptionsKey, Any&gt;&gt;) -&gt; Swift.Bool"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/AppDelegate.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "36"
-                  endingLineNumber = "36"
-                  offsetFromSymbolStart = "1016">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2172,13 +2187,13 @@
             filePath = "testownik/Models/TestToDo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "557"
-            endingLineNumber = "557"
+            startingLineNumber = "559"
+            endingLineNumber = "559"
             landmarkName = "restore()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C72CD105-42B0-4809-BFAD-99A6D2B8F44B - 400ea34aaa751e91"
+                  uuid = "C72CD105-42B0-4809-BFAD-99A6D2B8F44B - 400ea34aaa751e34"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2188,12 +2203,12 @@
                   urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "557"
-                  endingLineNumber = "557"
-                  offsetFromSymbolStart = "2473">
+                  startingLineNumber = "560"
+                  endingLineNumber = "560"
+                  offsetFromSymbolStart = "2383">
                </Location>
                <Location
-                  uuid = "C72CD105-42B0-4809-BFAD-99A6D2B8F44B - 400ea34aaa751e91"
+                  uuid = "C72CD105-42B0-4809-BFAD-99A6D2B8F44B - 400ea34aaa751ed3"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2203,8 +2218,8 @@
                   urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "557"
-                  endingLineNumber = "557"
+                  startingLineNumber = "559"
+                  endingLineNumber = "559"
                   offsetFromSymbolStart = "2383">
                </Location>
             </Locations>
@@ -2220,13 +2235,13 @@
             filePath = "testownik/Models/TestToDo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "575"
-            endingLineNumber = "575"
+            startingLineNumber = "577"
+            endingLineNumber = "577"
             landmarkName = "restore()"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "2B6BF17C-BA94-4800-9B08-5AE084B44B8F - 400ea34aaa751cc3"
+                  uuid = "2B6BF17C-BA94-4800-9B08-5AE084B44B8F - 400ea34aaa751c05"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2236,12 +2251,12 @@
                   urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "575"
-                  endingLineNumber = "575"
-                  offsetFromSymbolStart = "5733">
+                  startingLineNumber = "577"
+                  endingLineNumber = "577"
+                  offsetFromSymbolStart = "5165">
                </Location>
                <Location
-                  uuid = "2B6BF17C-BA94-4800-9B08-5AE084B44B8F - 400ea34aaa751cc3"
+                  uuid = "2B6BF17C-BA94-4800-9B08-5AE084B44B8F - 400ea34aaa751c05"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2251,8 +2266,8 @@
                   urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "575"
-                  endingLineNumber = "575"
+                  startingLineNumber = "577"
+                  endingLineNumber = "577"
                   offsetFromSymbolStart = "5170">
                </Location>
             </Locations>
@@ -2268,10 +2283,57 @@
             filePath = "testownik/Models/TestToDo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "145"
-            endingLineNumber = "145"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
             landmarkName = "getCurrentRawTest(onlyNewElement:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "F891C576-5A7D-4B04-BCCD-27DA026A572F - d7165bae8ee40ab7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "default argument 0 of Testownik.TestToDo.getCurrentRawTest(onlyNewElement: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "6">
+               </Location>
+               <Location
+                  uuid = "F891C576-5A7D-4B04-BCCD-27DA026A572F - 3b6277ce01c99eca"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.getCurrentRawTest(onlyNewElement: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "145"
+                  endingLineNumber = "145"
+                  offsetFromSymbolStart = "63">
+               </Location>
+               <Location
+                  uuid = "F891C576-5A7D-4B04-BCCD-27DA026A572F - 3b6277ce01c99f2b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.getCurrentRawTest(onlyNewElement: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "144"
+                  endingLineNumber = "144"
+                  offsetFromSymbolStart = "63">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2284,10 +2346,186 @@
             filePath = "testownik/Models/TestToDo.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "377"
-            endingLineNumber = "377"
+            startingLineNumber = "381"
+            endingLineNumber = "381"
             landmarkName = "fillMainTests(forGroupSize:)"
             landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "56346017-78A2-4343-A3F9-DBD143227698 - f15dd5207921e623"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.fillMainTests(forGroupSize: Swift.Int) -&gt; Swift.Optional&lt;(mainTests: Swift.Array&lt;Swift.Array&lt;Testownik.TestToDo.RawTest&gt;&gt;, mainCount: Swift.Int, groups: Swift.Int, groupSize: Swift.Int)&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "382"
+                  endingLineNumber = "382"
+                  offsetFromSymbolStart = "201">
+               </Location>
+               <Location
+                  uuid = "56346017-78A2-4343-A3F9-DBD143227698 - f15dd5207921e6c0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.fillMainTests(forGroupSize: Swift.Int) -&gt; Swift.Optional&lt;(mainTests: Swift.Array&lt;Swift.Array&lt;Testownik.TestToDo.RawTest&gt;&gt;, mainCount: Swift.Int, groups: Swift.Int, groupSize: Swift.Int)&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "381"
+                  endingLineNumber = "381"
+                  offsetFromSymbolStart = "201">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CF02E7DD-897C-4D9C-8414-6A87ED321C5B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testownik/Models/TestToDo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "385"
+            endingLineNumber = "385"
+            landmarkName = "fillMainTests(forGroupSize:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CF02E7DD-897C-4D9C-8414-6A87ED321C5B - f15dd5207921e644"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.fillMainTests(forGroupSize: Swift.Int) -&gt; Swift.Optional&lt;(mainTests: Swift.Array&lt;Swift.Array&lt;Testownik.TestToDo.RawTest&gt;&gt;, mainCount: Swift.Int, groups: Swift.Int, groupSize: Swift.Int)&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "385"
+                  endingLineNumber = "385"
+                  offsetFromSymbolStart = "247">
+               </Location>
+               <Location
+                  uuid = "CF02E7DD-897C-4D9C-8414-6A87ED321C5B - f15dd5207921e644"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.fillMainTests(forGroupSize: Swift.Int) -&gt; Swift.Optional&lt;(mainTests: Swift.Array&lt;Swift.Array&lt;Testownik.TestToDo.RawTest&gt;&gt;, mainCount: Swift.Int, groups: Swift.Int, groupSize: Swift.Int)&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "385"
+                  endingLineNumber = "385"
+                  offsetFromSymbolStart = "265">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "BDE67503-137B-4D4B-93E7-0D30AFAE1734"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testownik/Models/TestToDo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "131"
+            endingLineNumber = "131"
+            landmarkName = "createTests()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "BDE67503-137B-4D4B-93E7-0D30AFAE1734 - 5be7b3160b7fafd2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.createTests() -&gt; ()"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "254">
+               </Location>
+               <Location
+                  uuid = "BDE67503-137B-4D4B-93E7-0D30AFAE1734 - 5be7b3160b7fafd2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.createTests() -&gt; ()"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "131"
+                  endingLineNumber = "131"
+                  offsetFromSymbolStart = "261">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A17509E5-59E0-4D1D-ACDF-4F82BF552338"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testownik/Models/TestToDo.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "233"
+            endingLineNumber = "233"
+            landmarkName = "getElem(numberFrom0:changePosition:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A17509E5-59E0-4D1D-ACDF-4F82BF552338 - 85ab29090979c6d0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.getElem(numberFrom0: Swift.Int, changePosition: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "233"
+                  endingLineNumber = "233"
+                  offsetFromSymbolStart = "447">
+               </Location>
+               <Location
+                  uuid = "A17509E5-59E0-4D1D-ACDF-4F82BF552338 - 85ab29090979c6d0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestToDo.getElem(numberFrom0: Swift.Int, changePosition: Swift.Bool) -&gt; Swift.Optional&lt;Testownik.TestToDo.RawTest&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestToDo.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "233"
+                  endingLineNumber = "233"
+                  offsetFromSymbolStart = "1231">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
