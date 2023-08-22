@@ -120,6 +120,11 @@ class FavoriteTestsViewController: UIViewController, UITableViewDataSource, UITa
             print("selectedTest:\(selectedTest.auto_name ?? "brak")")
             print("uuid:\(String(describing: selectedTest.uuId))")
             database.selectedTestTable[0]?.uuId = selectedTest.uuId
+            database.selectedTestTable[0]?.current_position = database.allTestsTable[0]?.current_position ?? Int16(0)
+            database.selectedTestTable[0]?.group_size = database.allTestsTable[0]?.group_size ?? Int16(Setup.defaultMainGroupSize)
+            database.selectedTestTable[0]?.reapead_test = database.allTestsTable[0]?.repead_test ?? Int16(Setup.defaultReapeadTest)
+            
+            
             database.selectedTestTable[0]?.toAllRelationship = selectedTest
             database.selectedTestTable.save()
             testownik.refreshData()

@@ -189,11 +189,11 @@ let pictureLibrary = PictureLibrary()
         
         database.selectedTestTable.loadData()
         if database.selectedTestTable.count > 0 && Int(database.selectedTestTable[0]!.group_size) == 0 {
-            database.selectedTestTable[0]?.group_size = 10
+            database.selectedTestTable[0]?.group_size = Setup.defaultMainGroupSize.toInt16()
             database.selectedTestTable.save()
         }
         if database.selectedTestTable.count > 0 && Int(database.selectedTestTable[0]!.reapead_test) == 0 {
-            database.selectedTestTable[0]?.reapead_test = 2
+            database.selectedTestTable[0]?.reapead_test = Setup.defaultReapeadTest.toInt16()
             database.selectedTestTable.save()
         }
         database.allTestsTable.loadData()
@@ -250,6 +250,9 @@ let pictureLibrary = PictureLibrary()
            saveDecriptionsDB(parentUUID: uuid, forLanguage: lang)
            if database.selectedTestTable.count > 0 {
                database.selectedTestTable[0]?.uuId = uuid
+               database.selectedTestTable[0]?.current_position = 0
+               database.selectedTestTable[0]?.group_size = Setup.defaultMainGroupSize.toInt16()
+               database.selectedTestTable[0]?.reapead_test = Setup.defaultReapeadTest.toInt16()
                database.selectedTestTable.save()
            }
        }
@@ -277,6 +280,9 @@ let pictureLibrary = PictureLibrary()
            allTestRecord.is_favorite = true
            allTestRecord.uuId = uuid
            allTestRecord.folder_url = "HOME"
+           allTestRecord.current_position = 0
+           allTestRecord.group_size = Setup.defaultMainGroupSize.toInt16()
+           allTestRecord.repead_test = Setup.defaultReapeadTest.toInt16()
            
            database.allTestsTable.append(allTestRecord)
            database.allTestsTable.save()

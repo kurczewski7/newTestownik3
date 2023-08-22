@@ -81,8 +81,7 @@ class Setup {
             }
         return tempStr
         }
-    }
-    
+    }    
     static var placeHolderButtons: String { get {
         switch currentLanguage {
             case .enlish     : tempStr = "Question"

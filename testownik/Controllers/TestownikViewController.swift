@@ -337,6 +337,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         if filePosition == .first {
             hideButton(forButtonNumber: 0)
             hideButton(forButtonNumber: 1)
+            hideButton(forButtonNumber: 3, isHide: false)
         }
         else if filePosition == .last {
             hideButton(forButtonNumber: 3)
