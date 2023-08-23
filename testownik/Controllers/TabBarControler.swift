@@ -12,7 +12,16 @@ class TabBarControler: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        if let xx = self.tabBar.items?[0].title {
+            print("XXX0:\(xx)")
+        }
+        if let yy = self.tabBar.items?[1].title {
+            print("XXX1:\(yy)")
+        }
+        if let zz = self.tabBar.items?[2].title {
+            print("XXX2:\(zz)")
+        }
+        self.tabBar.items?[0].title = "A kuku"
         // Do any additional setup after loading the view.
     }
     

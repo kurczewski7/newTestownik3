@@ -983,10 +983,10 @@
             </objects>
             <point key="canvasLocation" x="-1891" y="1319"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controler-->
         <scene sceneID="4P4-BA-cn8">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Gpk-Z3-T9O" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="Gpk-Z3-T9O" customClass="TabBarControler" customModule="Testownik" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="06o-dp-T9F">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
