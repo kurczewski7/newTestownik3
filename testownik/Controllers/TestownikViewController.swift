@@ -14,13 +14,6 @@ protocol TestownikViewContDataSource {
     var gestures: Gestures { get }
 }
 class TestownikViewController: UIViewController, GesturesDelegate, TestownikDelegate, TestToDoDelegate, ListeningDelegate, TestownikViewContDataSource, CommandDelegate    {
-//    func addAllRequiredGestures(sender: Gestures) {
-//
-//    }
-    
-    func addCustomGesture(_ gestureType: Gestures.GesteresList, forView aView: UIView?, _ touchNumber: Int) {
-    }
-        
     // MARK: other classes
     let listening = Listening()
     let command   = Command()
@@ -48,6 +41,18 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     let okBorderedColor: UIColor = #colorLiteral(red: 0.2034551501, green: 0.7804297805, blue: 0.34896487, alpha: 1)
     let borderColor: UIColor     = #colorLiteral(red: 0.7254344821, green: 0.6902328134, blue: 0.5528755784, alpha: 1)
     let otherColor: UIColor      = #colorLiteral(red: 0.8469454646, green: 0.9804453254, blue: 0.9018514752, alpha: 1)
+    var pictureSwitchOn: Bool = false {
+        didSet {
+            if self.pictureSwitchOn == true {
+                askLabel.isHidden = true
+                askPicture.isHidden = false
+            }
+            else {
+                askLabel.isHidden = false
+                askPicture.isHidden = true
+            }
+        }
+    }
     
     //  MARK: IBOutlets
     @IBOutlet weak var askLabel: UILabel!
@@ -70,18 +75,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     @IBOutlet weak var highButton9: NSLayoutConstraint!
     @IBOutlet weak var highButton10: NSLayoutConstraint!
     
-    var pictureSwitchOn: Bool = false {
-        didSet {
-            if self.pictureSwitchOn == true {
-                askLabel.isHidden = true
-                askPicture.isHidden = false
-            }
-            else {
-                askLabel.isHidden = false
-                askPicture.isHidden = true
-            }
-        }
-    }
     @IBAction func microphonePress(_ sender: UIBarButtonItem) {
         microphoneButt.image = (microphoneButt.image == UIImage(systemName: "mic") ? UIImage(systemName: "mic.fill") : UIImage(systemName: "mic"))
     }
@@ -114,6 +107,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             }
         }
     }
+    func addCustomGesture(_ gestureType: Gestures.GesteresList, forView aView: UIView?, _ touchNumber: Int) {
+    }
+    //    func addAllRequiredGestures(sender: Gestures) {
+    //
+    //    }
 
     func dddddd() {
         let frame = CGRect(x: 0, y: 0, width: 30, height: 30)
@@ -130,7 +128,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         button.contentHorizontalAlignment = .center
         button.backgroundImage(for: .normal)
     }
-    
     // MARK: TestToDoDelegate
     func allTestDone() {
         print("allTestDone")
@@ -442,7 +439,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     // MARK: viewDidLoad - initial method
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        testownik.delegate = self
+                
         //testownik.first()
         
         print("TestownikViewController viewDidLoad-testownik.count:\(testownik.count)")        
@@ -454,8 +452,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         askLabel.isUserInteractionEnabled = true
         askLabel.addGestureRecognizer(gesture)
         Settings.shared.checkResetRequest(forUIViewController: self)
-        
-        
         listening.linkSpeaking = speech.self
         listening.delegate     = self
         command.delegate       = self
@@ -543,8 +539,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     @objc func restart() {
         listeningText.alpha = alphaLabel
     }
+    
+    // MARK: TestownikDelegate
     func refreshTabbarUI(visableLevel: Int) {
-        print("visableLevel: \(visableLevel)")
+        print("refreshTabbarUI(),visableLevel:\(visableLevel)")
         switch visableLevel
             {
             case 4:

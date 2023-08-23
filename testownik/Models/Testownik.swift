@@ -28,7 +28,7 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
             let isOK: Bool
             let answerOption: String
     }
-    //var delegate: TestownikDelegate?
+    var delegate: TestownikDelegate?
     //var viewContext: TestownikViewController? = nil
     var rawTestList = [Int]()
     var isChanged = false
@@ -50,7 +50,7 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
     var visableLevel: Int = 4 {
         didSet {
             // TODO: ????
-            //delegate?.refreshTabbarUI(visableLevel: visableLevel)
+            delegate?.refreshTabbarUI(visableLevel: visableLevel)
         }
     }
     var currentElement: Test {
