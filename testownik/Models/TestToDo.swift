@@ -259,6 +259,7 @@ class TestToDo: TestToDoDataSource {
             retVal.isExtraTest = false
         }
         else {
+            // FIXME: Error here
             retVal = extraTests[currentGroup][positionInGroup - currGroupSize]
             retVal.isExtraTest = true
         }

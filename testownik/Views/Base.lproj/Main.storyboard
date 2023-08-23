@@ -416,11 +416,11 @@
             </objects>
             <point key="canvasLocation" x="3524.6376811594205" y="-106.47321428571428"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Testing-->
         <scene sceneID="1MI-Yc-YSP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EIw-9T-Dvc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" systemItem="mostViewed" id="C7G-1b-jxh"/>
+                    <tabBarItem key="tabBarItem" title="Testing" id="C7G-1b-jxh"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aUe-UR-tPz">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
@@ -956,7 +956,7 @@
             </objects>
             <point key="canvasLocation" x="2576.811594202899" y="583.92857142857144"/>
         </scene>
-        <!--Item-->
+        <!--Rating-->
         <scene sceneID="10T-zT-JlZ">
             <objects>
                 <viewController id="C8K-Jp-siy" sceneMemberID="viewController">
@@ -975,7 +975,7 @@
                         <viewLayoutGuide key="safeArea" id="jQr-uT-MHU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" image="graduationcap.fill" catalog="system" id="R41-au-8zR">
+                    <tabBarItem key="tabBarItem" title="Rating" image="graduationcap.fill" catalog="system" id="R41-au-8zR">
                         <imageReference key="selectedImage" image="graduationcap.fill" catalog="system" variableValue="0.80000000000000004"/>
                     </tabBarItem>
                 </viewController>
