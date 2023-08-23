@@ -45,8 +45,22 @@ class TestToDo: TestToDoDataSource {
     }
     var delegate: TestToDoDelegate?  //? TestownikDelegate?
     var groups: Int = 0
-    var groupSize: Int = 30
-    var reapeadTest: Int = 5
+    var groupSize: Int = 30 {
+        didSet {
+            if database.selectedTestTable.count > 0 {
+                database.selectedTestTable[0]?.group_size = groupSize.toInt16()
+                database.selectedTestTable.save()
+            }
+        }
+    }
+    var reapeadTest: Int = 5 {
+        didSet {
+            if database.selectedTestTable.count > 0 {
+                database.selectedTestTable[0]?.reapead_test = reapeadTest.toInt16()
+                database.selectedTestTable.save()
+            }
+        }
+    }
     var filePosition: FilePosition = FilePosition.first {
         didSet {
             if delegate == nil {
@@ -126,7 +140,7 @@ class TestToDo: TestToDoDataSource {
     }
     private func createTests() {
         //groups = Int(rawTests.count / groupSize) + (rawTests.count % groupSize == 0 ? 0 : 1 )
-        
+        // TODO: czasowo
         if let mainVal = fillMainTests(forGroupSize:  5)//self.groupSize) {
         {
             self.mainTests = mainVal.mainTests
