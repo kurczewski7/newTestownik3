@@ -134,9 +134,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     }
     func progress(forCurrentPosition currentPosition: Int, totalCount count:Int) {
         guard count > 0 else { return }
-        let promil = Int((currentPosition * 1000)/count)
+        let promil = Int((currentPosition * 1000)/count) ?? 0
         print("progress:\(promil),currentPosition:\(currentPosition),count:\(count)")
         print("fileNumber:\(testownik.testToDo?.getCurFileNumber() ?? -9)")
+        let title = tabBarItem.title
+        print("title:\(title)")
+        if let items = tabBarController?.tabBar.items, items.count > 3 {
+            items[0].badgeValue = "\(currentPosition)"
+            items[3].badgeValue = "\(Int(promil/10)) %"
+        }
     }
 //    func refreshFilePosition(newFilePosition filePosition: TestToDo.FilePosition) {
 //        print("refreshFilePosition: \(filePosition)")

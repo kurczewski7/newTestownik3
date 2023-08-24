@@ -45,7 +45,7 @@ class TestToDo: TestToDoDataSource {
     }
     var delegate: TestToDoDelegate?  //? TestownikDelegate?
     var groups: Int = 0
-    var groupSize: Int = 30 {
+    var groupSize: Int = Setup.defaultMainGroupSize {
         didSet {
             if database.selectedTestTable.count > 0 {
                 database.selectedTestTable[0]?.group_size = groupSize.toInt16()
@@ -53,7 +53,7 @@ class TestToDo: TestToDoDataSource {
             }
         }
     }
-    var reapeadTest: Int = 5 {
+    var reapeadTest: Int = Setup.defaultReapeadTest {
         didSet {
             if database.selectedTestTable.count > 0 {
                 database.selectedTestTable[0]?.reapead_test = reapeadTest.toInt16()
