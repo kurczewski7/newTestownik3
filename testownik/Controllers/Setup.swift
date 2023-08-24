@@ -81,7 +81,17 @@ class Setup {
             }
         return tempStr
         }
-    }    
+    }
+    static var  placeHolderRatings: String { get {
+        switch currentLanguage {
+        case .enlish     : tempStr = "Rating"
+        case .polish     : tempStr = "Ocena"
+        case .german     : tempStr = "Bewertung"
+        case .french     : tempStr = "Notation"
+        case .spanish    : tempStr = "Clasificación"
+        }
+        return tempStr }
+    }
     static var placeHolderButtons: String { get {
         switch currentLanguage {
             case .enlish     : tempStr = "Question"

@@ -23,6 +23,10 @@ class TabBarControler: UITabBarController {
         }
         self.tabBar.items?[0].title = "A kuku"
         // Do any additional setup after loading the view.
+        if self.tabBar.items?.count == 4 {
+            self.tabBar.items?[3].badgeValue = "77 %"
+            self.tabBar.items?[3].title = Setup.placeHolderRatings
+        }
     }
     
 

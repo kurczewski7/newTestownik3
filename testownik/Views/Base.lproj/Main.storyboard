@@ -265,7 +265,6 @@
                             <constraint firstItem="xuO-fW-0nf" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="zyS-sh-kcU"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" springLoaded="YES" systemItem="featured" id="R2g-yW-Ktg"/>
                     <navigationItem key="navigationItem" title="Testownik" id="Ey0-Y1-Rkw">
                         <leftBarButtonItems>
                             <barButtonItem title="Item" image="minus.magnifyingglass" catalog="system" id="ks6-E2-aaK">
@@ -420,7 +419,9 @@
         <scene sceneID="1MI-Yc-YSP">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EIw-9T-Dvc" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Testing" id="C7G-1b-jxh"/>
+                    <tabBarItem key="tabBarItem" title="Testing" image="list.number" catalog="system" badgeValue="7" id="C7G-1b-jxh">
+                        <color key="badgeColor" systemColor="systemOrangeColor"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aUe-UR-tPz">
                         <rect key="frame" x="0.0" y="48" width="414" height="44"/>
@@ -642,7 +643,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QLr-Ly-OU0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2660.8695652173915" y="1300.4464285714284"/>
+            <point key="canvasLocation" x="1715.9420289855075" y="1307.8125"/>
         </scene>
         <!--Test description-->
         <scene sceneID="HfQ-HE-4z6">
@@ -731,7 +732,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BWU-m3-k1g" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3440.579710144928" y="1299.1071428571429"/>
+            <point key="canvasLocation" x="2652.1739130434785" y="1307.8125"/>
         </scene>
         <!--New Detail View Controller-->
         <scene sceneID="Fiq-4i-r90">
@@ -956,7 +957,7 @@
             </objects>
             <point key="canvasLocation" x="2576.811594202899" y="583.92857142857144"/>
         </scene>
-        <!--Rating-->
+        <!--Results-->
         <scene sceneID="10T-zT-JlZ">
             <objects>
                 <viewController id="C8K-Jp-siy" sceneMemberID="viewController">
@@ -975,13 +976,11 @@
                         <viewLayoutGuide key="safeArea" id="jQr-uT-MHU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Rating" image="graduationcap.fill" catalog="system" id="R41-au-8zR">
-                        <imageReference key="selectedImage" image="graduationcap.fill" catalog="system" variableValue="0.80000000000000004"/>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" title="Results" id="Z5b-kp-6GC"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ceN-5l-z6c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1891" y="1319"/>
+            <point key="canvasLocation" x="-1749.2753623188407" y="1307.8125"/>
         </scene>
         <!--Tab Bar Controler-->
         <scene sceneID="4P4-BA-cn8">
@@ -997,7 +996,7 @@
                         <segue destination="EIw-9T-Dvc" kind="relationship" relationship="viewControllers" id="zlI-d8-e73"/>
                         <segue destination="xyD-Sr-GgE" kind="relationship" relationship="viewControllers" id="0mw-Mk-cbn"/>
                         <segue destination="LRR-4o-vGG" kind="relationship" relationship="viewControllers" id="oRp-EH-CmP"/>
-                        <segue destination="C8K-Jp-siy" kind="relationship" relationship="viewControllers" id="r3D-aO-dJZ"/>
+                        <segue destination="5UC-9S-ofz" kind="relationship" relationship="viewControllers" id="r3D-aO-dJZ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sgG-TP-Xom" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1021,7 +1020,29 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EKH-XM-ex5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1750.7246376811595" y="1300.4464285714284"/>
+            <point key="canvasLocation" x="786.95652173913049" y="1307.8125"/>
+        </scene>
+        <!--Rating-->
+        <scene sceneID="7fM-5q-8rP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5UC-9S-ofz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Rating" image="graduationcap.fill" catalog="system" badgeValue="12.7" id="R41-au-8zR">
+                        <color key="badgeColor" systemColor="systemMintColor"/>
+                        <imageReference key="selectedImage" image="graduationcap.fill" catalog="system" variableValue="0.80000000000000004"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="z2x-Ji-mWI">
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="C8K-Jp-siy" kind="relationship" relationship="rootViewController" id="z88-He-Gsx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="r5F-wu-Xbm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2659.4202898550725" y="1307.8125"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
@@ -1036,6 +1057,7 @@
         <image name="eye" catalog="system" width="128" height="79"/>
         <image name="gradient" width="375" height="31.5"/>
         <image name="graduationcap.fill" catalog="system" width="128" height="108"/>
+        <image name="list.number" catalog="system" width="128" height="97"/>
         <image name="mic" catalog="system" width="110" height="128"/>
         <image name="minus.magnifyingglass" catalog="system" width="128" height="117"/>
         <image name="plus.magnifyingglass" catalog="system" width="128" height="117"/>
@@ -1061,6 +1083,12 @@
         </systemColor>
         <systemColor name="systemGray5Color">
             <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemMintColor">
+            <color red="0.0" green="0.7803921568627451" blue="0.74509803921568629" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemPinkColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
