@@ -960,7 +960,7 @@
         <!--Results-->
         <scene sceneID="10T-zT-JlZ">
             <objects>
-                <viewController id="C8K-Jp-siy" sceneMemberID="viewController">
+                <viewController id="C8K-Jp-siy" customClass="ResultsViewController" customModule="Testownik" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ig0-sB-Mj4">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -977,6 +977,9 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Results" id="Z5b-kp-6GC"/>
+                    <connections>
+                        <outlet property="Label" destination="8mp-so-HSm" id="ch4-MT-LOX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ceN-5l-z6c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
