@@ -254,12 +254,15 @@ class TestToDo: TestToDoDataSource {
         }
         let positionInGroup = numberFrom0 - (currentGroup * fullSize)
         let currGroupSize = mainTests[currentGroup].count
+        
         if   positionInGroup < currGroupSize {
+            guard currentGroup < mainTests.count else {  return nil  }
             retVal = mainTests[currentGroup][positionInGroup]
             retVal.isExtraTest = false
         }
         else {
             // FIXME: Error here
+            guard currentGroup < extraTests.count else {  return nil  }
             retVal = extraTests[currentGroup][positionInGroup - currGroupSize]
             retVal.isExtraTest = true
         }
