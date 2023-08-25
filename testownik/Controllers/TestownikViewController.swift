@@ -118,7 +118,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 testownik.visableLevel = 4
             case .landscapeLeft, .landscapeRight :
                 print("Krajobraz")
-                testownik.visableLevel = 2
+                testownik.visableLevel = 0
         default : print("Inna orientacja")
             
         }
@@ -593,15 +593,18 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 //viewDidLoad()
             case 2:
                 self.listeningText.alpha = alphaLabel
-                listeningText.isHidden = false
-                buttonNaviHide(isHide: true)
+                listeningText.isHidden = true
+                buttonNaviHide(isHide: false)
                 self.tabBarController?.tabBar.isHidden = false
                 self.navigationController?.isNavigationBarHidden = true
                 resizeView()
             case 1:
-                listeningText.isHidden = false
+                listeningText.isHidden = true
                 //listeningText.layer.animation(forKey: <#T##String#>)
-                
+                buttonNaviHide(isHide: true)
+                self.tabBarController?.tabBar.isHidden = false
+                self.navigationController?.isNavigationBarHidden = true
+
                 UIView.animate(withDuration: 10.0, delay: 0.2,
                     options: .curveEaseOut, animations: {
                     self.listeningText.alpha = 0.0
@@ -611,11 +614,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 //listeningText.layer.removeAllAnimations()
                 //self.listeningText.alpha = 1.0
                 
+            case 0:
+                listeningText.isHidden = true
                 buttonNaviHide(isHide: true)
                 self.tabBarController?.tabBar.isHidden = true
                 self.navigationController?.isNavigationBarHidden = true
-            case 0:
-                listeningText.isHidden = true
+
                 self.listeningText.alpha = alphaLabel
                 let xx = UILabel()
                 xx.font = UIFont(name: "Helvetica Neue", size: 20)
