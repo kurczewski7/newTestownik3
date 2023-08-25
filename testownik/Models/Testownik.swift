@@ -51,6 +51,7 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
         didSet {
             // TODO: ????
             delegate?.refreshTabbarUI(visableLevel: visableLevel)
+            print("Visable Level:\(visableLevel)")
         }
     }
     var currentElement: Test {

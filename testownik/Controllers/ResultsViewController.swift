@@ -22,7 +22,6 @@ class ResultsViewController: UIViewController {
         label.text = "\(percent) % OK"
         if percent < 40 {  label.textColor = .magenta   }
         else {  label.textColor = percent > 70 ? .green : .orange    }
-            
         progressBar.progress = Float(x)/Float(y)
     }
     
@@ -37,5 +36,4 @@ class ResultsViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

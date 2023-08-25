@@ -107,6 +107,22 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             }
         }
     }
+    override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
+        print("OBRÓT from\(fromInterfaceOrientation.rawValue)")
+        checkOrientation()
+    }
+    func checkOrientation() {
+        switch UIDevice.current.orientation {
+            case .portrait, .portraitUpsideDown  :
+                print("Portret")
+                testownik.visableLevel = 4
+            case .landscapeLeft, .landscapeRight :
+                print("Krajobraz")
+                testownik.visableLevel = 2
+        default : print("Inna orientacja")
+            
+        }
+    }
     func addCustomGesture(_ gestureType: Gestures.GesteresList, forView aView: UIView?, _ touchNumber: Int) {
     }
     //    func addAllRequiredGestures(sender: Gestures) {
@@ -343,6 +359,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             hideButton(forButtonNumber: 3, isHide: false)
         }
         else if filePosition == .last {
+            hideButton(forButtonNumber: 0, isHide: false)
+            hideButton(forButtonNumber: 1, isHide: false)
             hideButton(forButtonNumber: 3)
         }
         else {
@@ -350,6 +368,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             hideButton(forButtonNumber: 1, isHide: false)
             hideButton(forButtonNumber: 3, isHide: false)
         }
+//        if testownik.visableLevel < 3 {
+//            for i in 0...3 {
+//                hideButton(forButtonNumber: i)
+//            }
+//        }
         refreshView()
     }
 
@@ -610,10 +633,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         }
     }
     func buttonNaviHide(isHide: Bool) {
-        for elem in actionsButtonStackView.arrangedSubviews {
-            //elem.layer.zPosition = isHide ? -1 : 0
-            elem.isHidden = isHide
-        }
+        actionsButtonStackView.isHidden = isHide
+//        for elem in actionsButtonStackView.arrangedSubviews {
+//            //elem.layer.zPosition = isHide ? -1 : 0
+//            elem.isHidden = isHide
+//        }
     }
     func resizeView(toMaximalize: Bool? = nil) {
         if let toAddSize = toMaximalize {
