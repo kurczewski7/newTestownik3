@@ -214,6 +214,7 @@
 		2C857A8127BADD5800C6F77F /* fr812.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C857A7527BADD5800C6F77F /* fr812.txt */; };
 		2C8B536726F234DA00204774 /* XXSettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B536626F234D900204774 /* XXSettingsBundleHelper.swift */; };
 		2C8B536926F2889B00204774 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B536826F2889B00204774 /* Settings.swift */; };
+		2C8FAE362A9BC9C2002A81EA /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8FAE352A9BC9C2002A81EA /* ResultsViewController.swift */; };
 		2C99AE9924001A6700FF28F5 /* pl201.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C99AE9524001A6700FF28F5 /* pl201.txt */; };
 		2C99AE9A24001A6700FF28F5 /* 202.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C99AE9624001A6700FF28F5 /* 202.txt */; };
 		2C99AE9B24001A6700FF28F5 /* 203.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C99AE9724001A6700FF28F5 /* 203.txt */; };
@@ -488,6 +489,7 @@
 		2C857A7527BADD5800C6F77F /* fr812.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fr812.txt; sourceTree = "<group>"; };
 		2C8B536626F234D900204774 /* XXSettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XXSettingsBundleHelper.swift; sourceTree = "<group>"; };
 		2C8B536826F2889B00204774 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		2C8FAE352A9BC9C2002A81EA /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResultsViewController.swift; path = /Volumes/WD250/newTestownik3/testownik/Controllers/ResultsViewController.swift; sourceTree = "<absolute>"; };
 		2C99AE9524001A6700FF28F5 /* pl201.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pl201.txt; sourceTree = "<group>"; };
 		2C99AE9624001A6700FF28F5 /* 202.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 202.txt; sourceTree = "<group>"; };
 		2C99AE9724001A6700FF28F5 /* 203.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 203.txt; sourceTree = "<group>"; };
@@ -792,6 +794,7 @@
 			isa = PBXGroup;
 			children = (
 				2C2C53C62A97BF09008EDA08 /* ResultsViewController.swift */,
+				2C8FAE352A9BC9C2002A81EA /* ResultsViewController.swift */,
 				2CE1477C23F6901900C834F4 /* TestownikViewController.swift */,
 				2CF7F4142719846A00016384 /* Command.swift */,
 				2C625DFA2443A68800EE29A0 /* AddTestViewController.swift */,
@@ -1308,6 +1311,7 @@
 				2CE1477D23F6901900C834F4 /* TestownikViewController.swift in Sources */,
 				2CE2F39A242A5B9200D1B731 /* Colors.swift in Sources */,
 				2C82DE8C24393DA0002CDA10 /* FavoriteTestsViewController.swift in Sources */,
+				2C8FAE362A9BC9C2002A81EA /* ResultsViewController.swift in Sources */,
 				2C77CD62270CF9FD0024A461 /* Listening.swift in Sources */,
 				2C652AFB24087DCC00284ADF /* CloudPicker.swift in Sources */,
 				2CE1478323F6901900C834F4 /* testownik.xcdatamodeld in Sources */,
