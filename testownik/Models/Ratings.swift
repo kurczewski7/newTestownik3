@@ -113,16 +113,16 @@ class Ratings {
         print("saveRatings,results save:\(self.results.count)")
         for (index, value) in self.results.enumerated() {
             let rec = RatingsEntity(context: database.context)
-            rec.lp = Int16(index)
+            rec.lp = index.toInt16()
             print("index:\(index).\(uuId)")
             rec.uuId = UUID()
             rec.uuid_parent = uuId
-            rec.file_number = Int16(value.fileNumber)
-            rec.good_answers = Int16(value.goodAnswers)
-            rec.wrong_answers = Int16(value.wrongAnswers)
+            rec.file_number = value.fileNumber.toInt16()
+            rec.good_answers = value.goodAnswers.toInt16()
+            rec.wrong_answers = value.wrongAnswers.toInt16()
             rec.last_answer = value.lastAnswer
-            rec.corrections_to_do = Int16(value.correctionsToDo)
-            rec.repetitions_to_do = Int16(value.repetitionsToDo)
+            rec.corrections_to_do = value.correctionsToDo.toInt16()
+            rec.repetitions_to_do = value.repetitionsToDo.toInt16()
             _ = database.ratingsTable?.add(value: rec)
         }
         print("restoreRatings, befor save:\(database.ratingsTable.count)")
@@ -139,10 +139,10 @@ class Ratings {
         
         for (index, value) in self.testList.enumerated() {
             let rec = TestListEntity(context: database.context)
-            rec.lp = Int16(index)
+            rec.lp = index.toInt16()
             rec.uuId = UUID()
             rec.uuid_parent = uuId
-            rec.rating_index = Int16(value)
+            rec.rating_index = value.toInt16()
             rec.done = true
             _ = database.testListTable?.add(value: rec)
         }
@@ -158,10 +158,10 @@ class Ratings {
             let lastAnswer: Bool = oneElement?.last_answer ?? false
             let tmp = TestResult(fileNumber, lastAnswer: lastAnswer)
             
-            tmp.correctionsToDo = Int(elem.corrections_to_do)
-            tmp.repetitionsToDo = Int(elem.repetitions_to_do)
-            tmp.setWrongAnswers(Int(elem.wrong_answers))
-            tmp.setGoodAnswers(Int(elem.good_answers))
+            tmp.correctionsToDo = elem.corrections_to_do.toInt()
+            tmp.repetitionsToDo = elem.repetitions_to_do.toInt()
+            tmp.setWrongAnswers(elem.wrong_answers.toInt())
+            tmp.setGoodAnswers(elem.good_answers.toInt())
             tmp.errorMultiple = 2
             print("index:\(index)")
             newRatings.append(tmp)
