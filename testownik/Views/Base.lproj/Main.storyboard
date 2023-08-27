@@ -965,28 +965,40 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="a3L-ZP-Fuy">
-                                <rect key="frame" x="132" y="305" width="150" height="5"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </progressView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 % OK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mp-so-HSm">
-                                <rect key="frame" x="146" y="438" width="129" height="48"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                                <size key="shadowOffset" width="2" height="-2"/>
-                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="oKF-en-B5u">
+                                <rect key="frame" x="20" y="312" width="374" height="272.5"/>
+                                <subviews>
+                                    <progressView opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" verticalHuggingPriority="750" progress="0.20000000000000001" translatesAutoresizingMaskIntoConstraints="NO" id="a3L-ZP-Fuy">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="4"/>
+                                    </progressView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="751" text="0 % OK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8mp-so-HSm" userLabel="percentLabel">
+                                        <rect key="frame" x="0.0" y="104" width="374" height="48"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="40"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <size key="shadowOffset" width="2" height="-2"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JCP-hQ-QvP" userLabel="infoLabel">
+                                        <rect key="frame" x="0.0" y="252" width="374" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jQr-uT-MHU"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="jQr-uT-MHU" firstAttribute="bottom" secondItem="8mp-so-HSm" secondAttribute="bottom" constant="327" id="Enq-nI-sVJ"/>
-                            <constraint firstItem="8mp-so-HSm" firstAttribute="leading" secondItem="jQr-uT-MHU" secondAttribute="leading" constant="146" id="mL4-BK-G2n"/>
+                            <constraint firstItem="jQr-uT-MHU" firstAttribute="trailing" secondItem="oKF-en-B5u" secondAttribute="trailing" constant="20" id="EtZ-Ol-84D"/>
+                            <constraint firstItem="oKF-en-B5u" firstAttribute="centerY" secondItem="Ig0-sB-Mj4" secondAttribute="centerY" id="eLI-II-csN"/>
+                            <constraint firstItem="oKF-en-B5u" firstAttribute="leading" secondItem="jQr-uT-MHU" secondAttribute="leading" constant="20" id="zwz-Wx-I4r"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Results" id="Z5b-kp-6GC"/>
                     <connections>
                         <outlet property="Label" destination="8mp-so-HSm" id="ch4-MT-LOX"/>
+                        <outlet property="infoLabel" destination="JCP-hQ-QvP" id="zrg-bd-rC2"/>
                         <outlet property="progressBar" destination="a3L-ZP-Fuy" id="w3s-En-DLH"/>
                     </connections>
                 </viewController>

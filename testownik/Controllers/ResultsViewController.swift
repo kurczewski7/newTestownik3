@@ -23,10 +23,12 @@ class ResultsViewController: UIViewController {
         if percent < 40 {  label.textColor = .magenta   }
         else {  label.textColor = percent > 70 ? .green : .orange    }
         progressBar.progress = Float(x)/Float(y)
+        infoLabel.text = "Total: \(y)"
     }
     
     @IBOutlet weak var label: UILabel!    
     @IBOutlet weak var progressBar: UIProgressView!
+    @IBOutlet weak var infoLabel: UILabel!
     /*
     // MARK: - Navigation
 
