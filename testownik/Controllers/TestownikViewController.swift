@@ -89,12 +89,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         for buttHight in tabHigh {       buttHight.constant -= 2        }
     }
     @IBAction func firstButtonPress(_ sender: UIButton) {
+        saveAnswerSelection()
         testownik.first()
     }
     @IBAction func nextButtonPress(_ sender: UIButton) {
+        saveAnswerSelection()
         if testownik.filePosition != .last {      testownik.next()        }
     }
     @IBAction func previousButtonPress(_ sender: UIButton) {
+        saveAnswerSelection()
         if testownik.filePosition != .first  {       testownik.previous()  }
     }
     @IBAction func checkButtonPress(_ sender: UIButton) {
@@ -110,6 +113,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
         print("OBRÓT from\(fromInterfaceOrientation.rawValue)")
         checkOrientation()
+    }
+    func saveAnswerSelection() {
+        print("Twoj wybór")
+        guard let currTest = testownik[testownik.currentTest] else {    return        }
+        let countTest = currTest.answerOptions.count        //okAnswers.count
+
     }
     func checkOrientation() {
         switch UIDevice.current.orientation {

@@ -171,7 +171,6 @@ class Ratings {
         }
         print("RRRRR:\(newRatings)")
     }
-
     func restoreTestList() {
         //    var testList: [Int] = [4,2,4,2,1,7]
         var newTestList = [TestListStruct]()
