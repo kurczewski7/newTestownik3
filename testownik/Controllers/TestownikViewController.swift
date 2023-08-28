@@ -115,7 +115,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         checkOrientation()
     }
     func saveAnswerSelection() {
-        print("Twoj wybór")
+        let isOk = testownik.isAllAnswersOk()
+        print("Twoj wybór: \(isOk)")
+        
         guard let currTest = testownik[testownik.currentTest] else {    return        }
         let countTest = currTest.answerOptions.count        //okAnswers.count
 
@@ -227,7 +229,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                     button.layer.borderWidth = button.layer.borderWidth == 1 ? 3 : 1
                     //currTest.answerOptions[nr].isOK ? 3 : 1
                     button.layer.borderColor = button.layer.borderColor == UIColor.brown.cgColor ? UIColor.systemYellow.cgColor : UIColor.brown.cgColor
+                    
                     //currTest.answerOptions[nr].isOK ? UIColor.systemGreen.cgColor : UIColor.brown.cgColor
+                    testownik.switchYourAnsfer(selectedOptionForTest: nr)
+                    //let xxx = testownik.isAnswersOk(selectedOptionForTest: nr)
                 }
             }
             print("tapRefreshUI NOWY zz:\(sender.view?.tag ?? 0)")

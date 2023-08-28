@@ -27,6 +27,7 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
     struct Answer {
             let isOK: Bool
             let answerOption: String
+            var lastYourCheck: Bool = false
     }
     var delegate: TestownikDelegate?
     //var viewContext: TestownikViewController? = nil
@@ -59,6 +60,7 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
             return testList[currentTest]
         }
     }
+    //var chooseOpions: [Bool] = [Bool](repeating: false, count: 10)
 //    subscript(index: Int)  -> Test? {
 //        guard index < testList.count else {  return nil   }
 //        return testList[index]
@@ -249,12 +251,26 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
         }
         return answerOptions
     }
-    func isAnswerOk(selectedOptionForTest selectedOption: Int) -> Bool {
-        var value = false
-        if  selectedOption < testList[currentTest].answerOptions.count {
-            value = testList[currentTest].answerOptions[selectedOption].isOK
+    func isAllAnswersOk() -> Bool {
+        var retValue = true
+        for (key, value) in testList[currentTest].answerOptions.enumerated() {
+            if value.lastYourCheck != value.isOK {
+                retValue = false
+                break
+            }
         }
-        return value
+//        if  selectedOption < testList[currentTest].answerOptions.count {
+//            value = testList[currentTest].answerOptions[selectedOption].isOK
+//        }
+        return retValue
+    }
+    func switchYourAnsfer(selectedOptionForTest selectedOption: Int)     {
+        var value: Bool = false
+        if  selectedOption < testList[currentTest].answerOptions.count {
+            value = testList[currentTest].answerOptions[selectedOption].lastYourCheck
+            value.toggle()
+            testList[currentTest].answerOptions[selectedOption].lastYourCheck = value
+        }
     }
     func findValue<T: Comparable>(currentList: [T], valueToFind: T) -> Int {
         var found = -1
