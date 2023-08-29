@@ -204,10 +204,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                     //print("NR 0:\(self.lastButton.Tag)")
                     if  (0...9).contains(self.lastButton.Tag) {
                         if let oldButton = self.stackView.arrangedSubviews[self.lastButton.Tag] as? UIButton {
-                            
-//                            UIView.animate(withDuration: 2.5, delay: 0.3, options: []) {
-//                                oldButton.tintColor = self.lastButton.Color
-//                            }, completion: nil)
                             Setup.popUpStrong.frame = sender.view?.frame
                             UIView.animate(withDuration: 2.0, delay: 0.2, options: []) {
                                 oldButton.tintColor = self.lastButton.Color
@@ -216,28 +212,40 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                         }
                         print("NR 1:\(self.lastButton.Tag)")
                     }
+                    //                            UIView.animate(withDuration: 2.5, delay: 0.3, options: []) {
+                    //                                oldButton.tintColor = self.lastButton.Color
+                    //                            }, completion: nil)
                     //Setup.setTextColor(forToastType: .toast, backgroundColor: UIColor.brown)
                 })
            }
             if (0...9).contains(nr) {
                 if let button = sender.view as? UIButton {
+                    testownik.switchYourAnsfer(selectedOptionForTest: nr)
+                                      
+                    markSelected(forButton: button, optionNr: nr)
+                    
+                    //let mark =  testownik[0]?.answerOptions[nr].lastYourCheck ?? false //button.layer.borderWidth == 1
                     // let txtLabel = button.titleLabel?.text
 //                    self.lastButton.Tag = nr
 //                    self.lastButton.Color = button.tintColor
                     //let currTest = testownik[testownik.currentTest]
                     //button.tintColor = UIColor.purple
-                    button.layer.borderWidth = button.layer.borderWidth == 1 ? 3 : 1
                     //currTest.answerOptions[nr].isOK ? 3 : 1
-                    button.layer.borderColor = button.layer.borderColor == UIColor.brown.cgColor ? UIColor.systemYellow.cgColor : UIColor.brown.cgColor
-                    
                     //currTest.answerOptions[nr].isOK ? UIColor.systemGreen.cgColor : UIColor.brown.cgColor
-                    testownik.switchYourAnsfer(selectedOptionForTest: nr)
                     //let xxx = testownik.isAnswersOk(selectedOptionForTest: nr)
                 }
             }
             print("tapRefreshUI NOWY zz:\(sender.view?.tag ?? 0)")
         }
     }
+    func markSelected(forButton button: UIButton, optionNr nr: Int) {
+        let isMark =  testownik.currentElement.answerOptions[nr].lastYourCheck ?? false
+        button.layer.borderWidth = isMark ? 3 : 1
+        button.layer.borderColor = isMark ? UIColor.systemYellow.cgColor : UIColor.brown.cgColor
+        //button.layer.borderColor = button.layer.borderColor == UIColor.brown.cgColor ? UIColor.systemYellow.cgColor : UIColor.brown.cgColor
+        //  button.layer.borderWidth == 1
+    }
+
     func pinchRefreshUI(sender: UIPinchGestureRecognizer) {
         print("Pinch touches:\(sender.numberOfTouches),\(sender.scale) ")
         stackView.spacing = initalStackSpacing * sender.scale
