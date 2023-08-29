@@ -120,7 +120,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         
         guard let currTest = testownik[testownik.currentTest] else {    return        }
         let countTest = currTest.answerOptions.count        //okAnswers.count
-
     }
     func checkOrientation() {
         switch UIDevice.current.orientation {
@@ -221,7 +220,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             if (0...9).contains(nr) {
                 if let button = sender.view as? UIButton {
                     testownik.switchYourAnsfer(selectedOptionForTest: nr)
-                                      
                     markSelected(forButton: button, optionNr: nr)
                     
                     //let mark =  testownik[0]?.answerOptions[nr].lastYourCheck ?? false //button.layer.borderWidth == 1
@@ -239,6 +237,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         }
     }
     func markSelected(forButton button: UIButton, optionNr nr: Int) {
+        guard nr < testownik.currentElement.answerOptions.count else {     return     }
         let isMark =  testownik.currentElement.answerOptions[nr].lastYourCheck ?? false
         button.layer.borderWidth = isMark ? 3 : 1
         button.layer.borderColor = isMark ? UIColor.systemYellow.cgColor : UIColor.brown.cgColor
@@ -733,12 +732,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         }
     }
     func clearView() {
-        var i = 1
+        var i = 0
         //let totalQuest = 7
         askLabel.text = "\(Setup.placeHolderTitle)"
         for curButt in stackView.arrangedSubviews     {
             if let butt = curButt as? UIButton {
                 butt.isHidden =  false
+                markSelected(forButton: butt, optionNr: i)
                 butt.setTitle("\(Setup.placeHolderButtons) \(i)", for: .normal)
                 i += 1
             }
@@ -783,6 +783,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 butt.layer.borderColor = UIColor.brown.cgColor
                 let isSelect = testownik[testownik.currentTest]?.youAnswer2.contains(i) ?? false
                 butt.layer.backgroundColor = isSelect ? selectedColor.cgColor: unSelectedColor.cgColor
+     markSelected(forButton: butt, optionNr: i)
                 // MARK: ggggg ffffff
                 if set.contains(i)  {
                     butt.setTitle(" \(i+1)", for: .normal)
