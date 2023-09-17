@@ -2291,69 +2291,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "72E63DA8-27A1-4A83-86FE-E045482A66EA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "testownik/Controllers/Setup.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "302"
-            endingLineNumber = "302"
-            landmarkName = "changeArryyOrder(forArray:fromPosition:count:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "72E63DA8-27A1-4A83-86FE-E045482A66EA - 52028affa695769f"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Testownik.Setup.changeArryyOrder&lt;&#x3c4;_0_0&gt;(forArray: Swift.Array&lt;&#x3c4;_0_0&gt;, fromPosition: Swift.Int, count: Swift.Int) -&gt; Swift.Array&lt;&#x3c4;_0_0&gt;"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Controllers/Setup.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "303"
-                  endingLineNumber = "303"
-                  offsetFromSymbolStart = "1671">
-               </Location>
-               <Location
-                  uuid = "72E63DA8-27A1-4A83-86FE-E045482A66EA - 52028affa69576be"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Testownik.Setup.changeArryyOrder&lt;&#x3c4;_0_0&gt;(forArray: Swift.Array&lt;&#x3c4;_0_0&gt;, fromPosition: Swift.Int, count: Swift.Int) -&gt; Swift.Array&lt;&#x3c4;_0_0&gt;"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Controllers/Setup.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "302"
-                  endingLineNumber = "302"
-                  offsetFromSymbolStart = "1452">
-               </Location>
-               <Location
-                  uuid = "72E63DA8-27A1-4A83-86FE-E045482A66EA - 52028affa69576be"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "static Testownik.Setup.changeArryyOrder&lt;&#x3c4;_0_0&gt;(forArray: Swift.Array&lt;&#x3c4;_0_0&gt;, fromPosition: Swift.Int, count: Swift.Int) -&gt; Swift.Array&lt;&#x3c4;_0_0&gt;"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Controllers/Setup.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "302"
-                  endingLineNumber = "302"
-                  offsetFromSymbolStart = "1460">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "AE7B78EA-0A40-4C11-A832-34DC1F1301B6"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"

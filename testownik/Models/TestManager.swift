@@ -78,6 +78,7 @@ class TestManager: TestManagerDataSource {
             tmpTestPull.append(contentsOf: oneGroup)
         }
         print("new Pull: \(tmpTestPull)")
+        self.allTestPull = tmpTestPull
     }
     func changeQueue(forRow row: inout [RawTest], fileNumber number: Int, errorCorrect: Bool = true) {
         var newRow: [RawTest] = [RawTest]()
