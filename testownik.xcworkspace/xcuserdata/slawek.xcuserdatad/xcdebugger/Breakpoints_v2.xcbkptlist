@@ -2429,6 +2429,21 @@
                   endingLineNumber = "85"
                   offsetFromSymbolStart = "75">
                </Location>
+               <Location
+                  uuid = "943A2F39-F01B-4E9B-A9A4-AD78EFD57C1C - d1d62320d4c4ae54"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestManager.getNextTest() -&gt; ()"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Volumes/WD250/newTestownik3/testownik/Models/TestManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "85"
+                  endingLineNumber = "85"
+                  offsetFromSymbolStart = "94">
+               </Location>
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>

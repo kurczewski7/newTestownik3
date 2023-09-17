@@ -83,8 +83,10 @@ class TestManager: TestManagerDataSource {
     }
     func getNextTest() {
         if self.loteryTestBasket.isEmpty {
-            let moreTests = self.allTestPull[0..<self.groupSize]
-            self.loteryTestBasket.append(contentsOf: moreTests)
+            //guard self.groupSize <= self.loteryTestBasket.count  else { return  }
+            let end = min(self.groupSize, self.allTestPull.count)
+            let moreTests = self.allTestPull[0..<end]
+            self.loteryTestBasket.append(contentsOf: moreTests)           
         }
         else    {
             if let oneTest = self.allTestPull.first {
