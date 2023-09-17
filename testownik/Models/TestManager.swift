@@ -40,6 +40,7 @@ class TestManager: TestManagerDataSource {
         var checked: Bool = false
         var errorCorrect: Bool = false
     }
+    let groupSize = 5  //Setup.defaultMainGroupSize
     let maxValueLive: Int
     var rawTestListCount: Int
     var rawTestList = [Int]()
@@ -56,10 +57,10 @@ class TestManager: TestManagerDataSource {
     }
     func createTestManager(forRawListCout rawListCount: Int) {
         for i in 0..<rawTestListCount {
-            //let tmpElem = RawTest(fileNumber: rawTestList[i], isExtraTest: false)
             let tmpElem = TestInfo(fileNumber: i, lifeValue: 0)
             self.allTestPull.append(tmpElem)
         }
+        loteryQueue()
         
 //        let number = database.testDescriptionTable.count
 //        var  rawTestList = [Int]()
@@ -69,7 +70,15 @@ class TestManager: TestManagerDataSource {
 //        self.rawTestList = rawTestList
 //        self.testToDo = TestToDo(rawTestList: self.rawTestList)
     }
-    
+    func loteryQueue() {
+        var tmpTestPull = [TestInfo]()
+        let totalGroups = (self.allTestPull.count / self.groupSize) + (self.allTestPull.count % self.groupSize == 0 ? 0 : 1 )
+        for i in 0..<totalGroups {
+            let oneGroup = Setup.changeArryyOrder(forArray: self.allTestPull, fromPosition: i * self.groupSize, count: self.groupSize)
+            tmpTestPull.append(contentsOf: oneGroup)
+        }
+        print("new Pull: \(tmpTestPull)")
+    }
     func changeQueue(forRow row: inout [RawTest], fileNumber number: Int, errorCorrect: Bool = true) {
         var newRow: [RawTest] = [RawTest]()
         guard row.count > 0 else {   return   }
