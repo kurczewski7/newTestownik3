@@ -34,6 +34,11 @@ let pictureLibrary = PictureLibrary()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print("S T A R T\n")
+        let tm = TestManager(8)
+        let ar = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+        let xx = Setup.changeArryyOrder(forArray: ar, fromPosition: 0, count: 25)
+        print("XX:\(xx)")
+        
         let fullHomePath = NSHomeDirectory()
         print("\n=========\nfullHomePath = file:///\(fullHomePath)")
 

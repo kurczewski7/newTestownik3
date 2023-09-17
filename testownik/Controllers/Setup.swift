@@ -261,7 +261,6 @@ class Setup {
         let toast = UILabel(frame:
             CGRect(x: 16, y: ctx.view.frame.size.height / 2,
                    width: ctx.view.frame.size.width - 32, height: height))
-
         
         toast.backgroundColor =  backgroundColorList[PopViewType.popUpBlink.rawValue]
         toast.textColor =  textColorList[PopViewType.popUpBlink.rawValue]      
@@ -284,5 +283,23 @@ class Setup {
                 toast.removeFromSuperview()
                 completionFinish()
             })
+    }
+    class func changeArryyOrder<T>(forArray array: [T],fromPosition start: Int, count: Int) -> [T] {
+        var position = 0
+        var sortedArray = [T]()
+        //var elemDel: Set <Int>
+        let len = array.count
+        let end = array.index(start, offsetBy: count, limitedBy: len) ?? len
+        //array.index(start, offsetBy: count)
+        guard start < len, end <= len else {   return sortedArray      }
+        var tmpArray = Array(array[start..<end])
+        guard tmpArray.count > 0 else {   return sortedArray      }
+        for _ in 1...tmpArray.count {
+            position = randomOrder(toMax: tmpArray.count)
+            sortedArray.append(tmpArray[position])
+            tmpArray.remove(at: position)
+        }
+        return sortedArray
+        //let elem = srcAnswerOptions[position]
     }
 }
