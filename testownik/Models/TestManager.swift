@@ -46,7 +46,7 @@ class TestManager: TestManagerDataSource {
     var rawTestList = [Int]()
     
     var allTestPull: [TestInfo] = [TestInfo]()
-    let loteryTestBasket: [TestInfo] = [TestInfo]()
+    var loteryTestBasket: [TestInfo] = [TestInfo]()
     let wrongAnswersTest: [TestInfo] = [TestInfo]()
     let finishedTest: [TestInfo] = [TestInfo]()
     init(_ rawTestListCount: Int, maxValueLive: Int = 3) {
@@ -61,6 +61,7 @@ class TestManager: TestManagerDataSource {
             self.allTestPull.append(tmpElem)
         }
         loteryQueue()
+        getNextTest()
         
 //        let number = database.testDescriptionTable.count
 //        var  rawTestList = [Int]()
@@ -79,6 +80,18 @@ class TestManager: TestManagerDataSource {
         }
         print("new Pull: \(tmpTestPull)")
         self.allTestPull = tmpTestPull
+    }
+    func getNextTest() {
+        if self.loteryTestBasket.isEmpty {
+            let moreTests = self.allTestPull[0..<self.groupSize]
+            self.loteryTestBasket.append(contentsOf: moreTests)
+        }
+        else    {
+            if let oneTest = self.allTestPull.first {
+                self.loteryTestBasket.append(oneTest)
+                self.allTestPull.remove(at: 0)
+            }
+        }
     }
     func changeQueue(forRow row: inout [RawTest], fileNumber number: Int, errorCorrect: Bool = true) {
         var newRow: [RawTest] = [RawTest]()
