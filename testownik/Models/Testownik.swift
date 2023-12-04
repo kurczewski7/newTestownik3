@@ -85,7 +85,7 @@ class Testownik: DataOperations, TestownikDataSource {
             let elemCount = database.testDescriptionTable.count
             // TODO: DELETE
             self.testManager = TestManager(elemCount, maxValueLive: 2)
-            self.manager = Manager(testList)
+            self.manager = Manager(&testList)
             // TODO: duplicate testToDo
             
 //            if let context = self.viewContext {

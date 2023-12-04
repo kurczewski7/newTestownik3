@@ -7,28 +7,13 @@
 
 import Foundation
 
-protocol ArrayProperty {
-    var currentIndex: Int { get }
-}
+//protocol ArrayProperty {
+//    var currentIndex: Int { get }
+//}
 
 // MARK: extension
 typealias TestDataArr = [Manager.TestData]
-extension TestDataArr: ArrayProperty {
-    var currentIndex: Int {
-        get {
-            return 99
-        }
-    }
-    //var currentIndex: Int = 0
-    func isInRange(_ index: Int) -> Bool {
-        return index < self.count
-    }
-    func isLast(_ index: Int) -> Bool {
-        return index == self.count - 1
-    }
-    func isExistNext(_ index: Int) -> Bool {
-        return index < self.count - 1
-    }
+extension TestDataArr {
     func createSortKey() -> [Int] {
         let len = self.count
         guard len > 0 else { return [Int]() }
@@ -67,22 +52,23 @@ protocol ManagerDataSource {
     func save()
     func restore()
 
-//    var rawTestList : [Int] { get }
-//    var allTestPull: [Manager.TestData] { get }
-//    var loteryTestBasket: [Manager.TestData] { get }
-//    var historycalTest: [Manager.TestData] { get }
-    
+    var testList : [Test] { get }
+    var allTestPull: TestDataArr { get }
+    var loteryTestBasket: TestDataArr { get }
+    var historycalTest: TestDataArr { get }
+    var finishedTest: TestDataArr { get }
 }
 // MARK: class
 class Manager: ManagerDataSource  {
-    func save() {
-        
-    }
-    
-    func restore() {
-        
-    }
     //DataOperations TestManagerDataSource
+    // MARK: type
+    enum HistoryArrayType: Int {
+        case undefined = 0
+        case allPool   = 1
+        case basket    = 2
+        case history   = 3
+        case finished  = 4
+    }
     struct AnswerShort {
             let isOK: Bool
             var lastYourCheck: Bool = false
@@ -94,13 +80,14 @@ class Manager: ManagerDataSource  {
         let oneWasSelected: Bool = false
         var isCorect: Bool = false
         var keySort: [Int] = [Int]()
-        
-        //        let groupNr: Int
-        //        let errorReapad: Int
-        //        let reapadNr: Int
-        //        let checked: Bool
-        //        let extra: String // ???
     }
+    //        let groupNr: Int
+    //        let errorReapad: Int
+    //        let reapadNr: Int
+    //        let checked: Bool
+    //        let extra: String // ???
+
+    // MARK: variable
     var count: Int = 0
     var currentPosition: Int = 0
     var fileNumber: Int = 0
@@ -111,9 +98,24 @@ class Manager: ManagerDataSource  {
     var historycalTest: TestDataArr = TestDataArr()
     var finishedTest: TestDataArr = TestDataArr()
     var finishedAdd = false
-    init(_ testList: [Test]) {
+    init(_ testList: inout [Test]) {
         self.testList = testList
     }
+    // MARK: method
+    func fillAllTestPull() {
+        
+    }
+    func fillLoteryBasket() {
+        
+    }
+    func fillHistorycal() {
+        
+    }
+    func fillFinished() {
+        
+    }
+    
+    
     
     func next() -> Bool  {
         let isNext = historycalTest.isExistNext(currentPosition)
@@ -138,6 +140,12 @@ class Manager: ManagerDataSource  {
     func reverseSortedKey(_ key: [Int]) -> [Int] {
         return [0]
     }
+    func save() {
+        
+    }
     
+    func restore() {
+        
+    }
 }
 
