@@ -33,8 +33,29 @@ extension TestDataArr: ArrayProperty {
         let len = self.count
         guard len > 0 else { return [Int]() }
         var retVal = [Int](repeating: 0, count: len)
-        //retVal = Setup.randomOrder(toMax: 555)
-        return [0]
+        for i in 0..<len {
+            retVal[i] = i
+        }
+        return Setup.changeArryyOrder(forArray: retVal, fromPosition: 0, count: retVal.count)
+    }
+    func sortArray(forUserKey key: [Int]) -> [Element?] {  // [aa, bb, cc] ->  [bb, cc, aa]
+        let len = Swift.min(self.count, key.count)
+        var retVal: [Element] = [Element]() // [1, 2, 0]
+        for i in 0..<len {
+            retVal.append(self[key[i]])
+        }
+        return retVal
+    }
+    func reversSortArray(forUserKey key: [Int]) -> [Element] {
+        let len = Swift.min(self.count, key.count)
+        var retVal: [Element] = [Element]()          // [1, 2, 0]
+        for _ in 0..<len {
+            retVal.append(self[0])
+        }
+        for i in 0..<len {                          // [1, 2, 0]        [bb, cc, aa] -> [aa  , bb , cc ]
+            retVal[key[i]] = self[i]
+        }
+        return retVal
     }
 }
 // MARK: protocol
