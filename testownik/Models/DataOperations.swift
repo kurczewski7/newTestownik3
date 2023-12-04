@@ -25,7 +25,6 @@ class DataOperations {
     var isCurrentValid: Bool {
         return currentTest >= 0 && currentTest < count
     }
-
     
     subscript(index: Int) -> T? {
         get {  //_ = isIndexInRange(index: index)

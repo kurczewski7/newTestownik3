@@ -70,3 +70,12 @@ extension UIView {
     //                }
 
 }
+extension Array  {
+    func isIndexInRange(_ index: Int)  -> Bool {
+        return index < self.count
+    }
+    func last() -> Element? {
+        guard self.count > 0 else { return nil }
+        return self[self.count - 1]
+    }
+}

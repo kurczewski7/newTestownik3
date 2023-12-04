@@ -13,7 +13,8 @@ protocol TestownikViewContDataSource {
     var command: Command { get }
     var gestures: Gestures { get }
 }
-class TestownikViewController: UIViewController, GesturesDelegate, TestownikDelegate, TestToDoDelegate, ListeningDelegate, TestownikViewContDataSource, CommandDelegate    {
+class TestownikViewController: UIViewController, GesturesDelegate, TestownikDelegate, ListeningDelegate, TestownikViewContDataSource, CommandDelegate, TestManagerDelegate    {
+    //  TestToDoDelegate
     // MARK: other classes
     let listening = Listening()
     let command   = Command()
@@ -51,6 +52,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 askLabel.isHidden = false
                 askPicture.isHidden = true
             }
+        }
+    }
+    var test: Test {
+        get {
+            return testownik.getCurrent()
+        }
+        set {
+            let aTest = newValue
+            let options = aTest.answerOptions
+            
         }
     }
     
@@ -114,6 +125,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         print("OBRÓT from\(fromInterfaceOrientation.rawValue)")
         checkOrientation()
     }
+    override func didReceiveMemoryWarning() {
+        print("MEMORY WWWWAAAAARRRRRNNNNIIINNNGG")
+    }
     func saveAnswerSelection() {
         let isOk = testownik.isAllAnswersOk()
         print("Twoj wybór: \(isOk)")
@@ -162,7 +176,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         guard count > 0 else { return }
         let promil = Int((currentPosition * 1000)/count) ?? 0
         print("progress:\(promil),currentPosition:\(currentPosition),count:\(count)")
-        print("fileNumber:\(testownik.testToDo?.getCurFileNumber() ?? -9)")
+        print("fileNumber:\(testownik.testManager?.getCurFileNumber() ?? -9)")
         let title = tabBarItem.title
         print("title:\(title)")
         if let items = tabBarController?.tabBar.items, items.count > 3 {
@@ -218,9 +232,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 })
            }
             if (0...9).contains(nr) {
+                let test = testownik.currentElement
                 if let button = sender.view as? UIButton {
                     testownik.switchYourAnsfer(selectedOptionForTest: nr)
-                    markSelected(forButton: button, optionNr: nr)
+                    markSelected(forCurrentTest: test, forButton: button, optionNr: nr)
+                    //(forCurrentTest test: Test, forButton: button, optionNr: nr)
                     
                     //let mark =  testownik[0]?.answerOptions[nr].lastYourCheck ?? false //button.layer.borderWidth == 1
                     // let txtLabel = button.titleLabel?.text
@@ -236,9 +252,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             print("tapRefreshUI NOWY zz:\(sender.view?.tag ?? 0)")
         }
     }
-    func markSelected(forButton button: UIButton, optionNr nr: Int) {
-        guard nr < testownik.currentElement.answerOptions.count else {     return     }
-        let isMark =  testownik.currentElement.answerOptions[nr].lastYourCheck ?? false
+    func markSelected(forCurrentTest test: Test, forButton button: UIButton, optionNr nr: Int) {
+//        let curElem = testownik.currentElement
+        guard nr < test.answerOptions.count else {     return     }
+        let isMark =  test.answerOptions[nr].lastYourCheck ?? false
         button.layer.borderWidth = isMark ? 3 : 1
         button.layer.borderColor = isMark ? UIColor.systemYellow.cgColor : UIColor.brown.cgColor
         //button.layer.borderColor = button.layer.borderColor == UIColor.brown.cgColor ? UIColor.systemYellow.cgColor : UIColor.brown.cgColor
@@ -372,7 +389,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 //
 //        // MARK: To do
 //    }
-    func refreshButtonUI(forFilePosition filePosition: TestToDo.FilePosition) {
+    func refreshButtonUI(forFilePosition filePosition: TestManager.FilePosition) {
         print("filePosition=\(filePosition)")
         if filePosition == .first {
             hideButton(forButtonNumber: 0)
@@ -502,7 +519,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         askLabel.isUserInteractionEnabled = true
         askLabel.addGestureRecognizer(gesture)
         Settings.shared.checkResetRequest(forUIViewController: self)
-        listening.linkSpeaking = speech.self
+        //listening.linkSpeaking = speech.self
         listening.delegate     = self
         command.delegate       = self
         //testownik.viewContext  = self
@@ -552,10 +569,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         
         // TODO: POPRAW
         //testownik.createStartedTest()
-        if testownik.testToDo == nil {
-            print("testownik.testToDo == nil")
+        if testownik.testManager == nil {
+            print("testownik.testManager == nil")
         }
-        testownik.testToDo?.delegate = self
+        testownik.testManager?.delegate = self
         testownik.refreshData()
     }
     override func viewWillAppear(_ animated: Bool) {
@@ -735,10 +752,11 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         var i = 0
         //let totalQuest = 7
         askLabel.text = "\(Setup.placeHolderTitle)"
+        let test = testownik.currentElement
         for curButt in stackView.arrangedSubviews     {
             if let butt = curButt as? UIButton {
                 butt.isHidden =  false
-                markSelected(forButton: butt, optionNr: i)
+                markSelected(forCurrentTest: test, forButton: butt, optionNr: i)
                 butt.setTitle("\(Setup.placeHolderButtons) \(i)", for: .normal)
                 i += 1
             }
@@ -750,7 +768,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         let image = UIImage(named: "002.png")
         let set = Set([6,8,9])
         
-        testownik.currentTest = testownik.testToDo?.getCurFileNumber() ?? 555
+        //testownik.currentTest = testownik.testManager?.getCurFileNumber() ?? 555
+        let cur = testownik.testManager?.getCurrent()
      
         print("__ refreshView:\(testownik.currentTest)")
         guard testownik.currentTest < testownik.count else {
@@ -766,13 +785,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         askLabel.text = testownik[testownik.currentTest]!.ask
         //askPicture.image = testownik[testownik.currentTest].pict
         //testownik[testownik.currentTest].pict = UIImage(named: "004.png")
+        
         if  let currPict = testownik[testownik.currentTest]!.pict {
             askPicture.image = currPict
             pictureSwitchOn = true
         }
         else {
             pictureSwitchOn = false
-        }        
+        }     
+        let test = testownik.currentElement
         for curButt in stackView.arrangedSubviews     {
             if let butt = curButt as? UIButton {
                 butt.contentHorizontalAlignment =  (Setup.isNumericQuestions ? .left : .center)
@@ -783,7 +804,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 butt.layer.borderColor = UIColor.brown.cgColor
                 let isSelect = testownik[testownik.currentTest]?.youAnswer2.contains(i) ?? false
                 butt.layer.backgroundColor = isSelect ? selectedColor.cgColor: unSelectedColor.cgColor
-     markSelected(forButton: butt, optionNr: i)
+                markSelected(forCurrentTest: test, forButton: butt, optionNr: i)
                 // MARK: ggggg ffffff
                 if set.contains(i)  {
                     butt.setTitle(" \(i+1)", for: .normal)
@@ -830,7 +851,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(true)
         listening.stopRecording()
-        speech.stopSpeak()
+        //speech.stopSpeak()
     }
     
         //    let button = UIButton(frame: CGRect(x: 100, y: 100, width: 100, height: 50))

@@ -19,7 +19,7 @@ let database       = Database(context: coreData.persistentContainer.viewContext)
 
 let testownik: Testownik = Testownik()
 let ratings        = Ratings()
-let speech         = Speech()
+//let speech         = Speech()
 let pictureLibrary = PictureLibrary()
 
 //let allLanguages = ["en", "pl", "de", "fr", "es" ]
@@ -34,11 +34,13 @@ let pictureLibrary = PictureLibrary()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         print("S T A R T\n")
-        let tm = TestManager(28)
-        let ar = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
-        let ar2 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"]
-        let xx = Setup.changeArryyOrder(forArray: ar2, fromPosition: 0, count: 25)
-        print("XX:\(xx)")
+//        let tm = TestManager(28)
+//        let curr = tm.getCurrent()
+//        print("curr:\(curr)")
+//        let ar = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+//        //let ar2 = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N"]
+//        let xx = Setup.changeArryyOrder(forArray: ar, fromPosition: 0, count: 25)
+//        print("XX:\(xx)")
         
         let fullHomePath = NSHomeDirectory()
         print("\n=========\nfullHomePath = file:///\(fullHomePath)")
@@ -73,7 +75,7 @@ let pictureLibrary = PictureLibrary()
             createStartedTest()
             
         }
-        testownik.createTestToDo()
+        // testownik.createTestToDo()
         
 //        let newVal = Settings.CodePageEnum.iso9
 //        let listen = Settings.shared.getValue(boolForKey: .listening_key)
@@ -88,19 +90,19 @@ let pictureLibrary = PictureLibrary()
 
         //testownik = Testownik()
         
-        testownik.xcts_random(size: 3, forCount: 500)
+//        testownik.xcts_random(size: 3, forCount: 500)
         var answerList: [Testownik.Answer] = [Testownik.Answer]()
         answerList.append(Testownik.Answer(isOK: true, answerOption: "1"))
         answerList.append(Testownik.Answer(isOK: true, answerOption: "2"))
         answerList.append(Testownik.Answer(isOK: true, answerOption: "3"))
-        let wyn1 = testownik.changeOrder(forAnswerOptions: answerList)
-        let wyn2 = testownik.changeOrder(forAnswerOptions: answerList)
-        let wyn3 = testownik.changeOrder(forAnswerOptions: answerList)
-        let wyn4 = testownik.changeOrder(forAnswerOptions: answerList)
-        print(wyn1)
-        print(wyn2)
-        print(wyn3)
-        print(wyn4)
+//        let wyn1 = testownik.changeOrder(forAnswerOptions: answerList)
+//        let wyn2 = testownik.changeOrder(forAnswerOptions: answerList)
+//        let wyn3 = testownik.changeOrder(forAnswerOptions: answerList)
+ //       let wyn4 = testownik.changeOrder(forAnswerOptions: answerList)
+//        print(wyn1)
+//        print(wyn2)
+//        print(wyn3)
+//        print(wyn4)
         
         var xxList: [Int] = [Int]()
         for i in 0..<32 {
@@ -108,19 +110,19 @@ let pictureLibrary = PictureLibrary()
         }
         
         if let path0 = Bundle.main.path(forResource: "543", ofType: "txt") {
-            let aa0 = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: UInt(15)))
-            print("aa0=\(aa0)")
-            let aa1 = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: UInt(4)))
-            print("aa1=\(aa1)")
+//            let aa0 = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: UInt(15)))
+//            print("aa0=\(aa0)")
+//            let aa1 = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: UInt(4)))
+//            print("aa1=\(aa1)")
             var val: String.Encoding.RawValue = 0
-            let aa3 = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: val))
-            print("aa3=\(aa3)")
+//            let aa3 = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: val))
+//            print("aa3=\(aa3)")
             val = 1
-            let bb = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: val))
-            print("bb=\(bb)")
+//            let bb = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: val))
+//            print("bb=\(bb)")
             val = 14
-            let cc = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: val))
-            print("cc=\(cc)")
+//            let cc = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: val))
+//            print("cc=\(cc)")
         }
         // TODO: test ratings
         ratings.xxxxxx()
@@ -187,9 +189,9 @@ let pictureLibrary = PictureLibrary()
 //        }
         
 
-        speech.setLanguage(selectedLanguage: 3)
-        speech.startSpeak()
-        
+//        speech.setLanguage(selectedLanguage: 3)
+//        speech.startSpeak()
+//        
         
         //database.allTestsTable.loadData(fieldName: "user_name", fieldValue: "trzeci")
         
@@ -307,12 +309,12 @@ let pictureLibrary = PictureLibrary()
                record.file_url = "Home"
                record.file_name = "Name\(i)"
                let name = prefLang + String(format: "%03d", i)
-               let textLines = testownik.getText(fileName: name)
-               for tmp in textLines {
-                   text += tmp + "\n"
-               }
-               record.text =  text
-               print("textLines:\(textLines)")
+              // let textLines = testownik.getText(fileName: name)
+//               for tmp in textLines {
+//                   text += tmp + "\n"
+//               }
+//               record.text =  text
+//               print("textLines:\(textLines)")
 
                database.testDescriptionTable.append(record)
                database.testDescriptionTable.save()
