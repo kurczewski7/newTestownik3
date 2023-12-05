@@ -42,7 +42,46 @@ extension TestDataArr {
         }
         return retVal
     }
+    func sortFullArrayIntoGroups(forGroupLenth lenth: Int) -> [Element] {
+        let emptyArr = [Element]()
+        guard lenth > 0 else { return emptyArr }
+        //let groups = Int(self.count / lenth)
+        let totalGroups = (self.count / lenth) + (self.count % lenth == 0 ? 0 : 1 )
+        // TODO: fill it
+        return emptyArr
+    }    
+    func sortArrayByFragment(fromStartIndex start: Int, count: Int)  -> [Element]  {
+        let emptyArr = [Element]()
+        guard self.isInRange(start) else { return emptyArr }
+        let end = start + count - 1
+        guard self.isInRange(end) else { return emptyArr }
+        var tmpArr = Array(self[start...end])
+        tmpArr = self.changeSubArryyOrder(fromPosition: 0, count: tmpArr.count)
+        return tmpArr
+    }
+    // MARKT : Method randomOrder: for toMax = 10 get from 0 to 9
+    func randomOrder(toMax: Int) -> Int {
+        return Int(arc4random_uniform(UInt32(toMax)))
+    }
+    func changeSubArryyOrder(fromPosition start: Int, count: Int) -> [Element] {
+        let array = self
+        var position = 0
+        var sortedArray = [Element]()
+        let len = array.count
+        let end = array.index(start, offsetBy: count, limitedBy: len) ?? len
+        //array.index(start, offsetBy: count)
+        guard start < len, end <= len else {   return sortedArray      }
+        var tmpArray = Array(array[start..<end])
+        guard tmpArray.count > 0 else {   return sortedArray      }
+        for _ in 1...tmpArray.count {
+            position = self.randomOrder(toMax: tmpArray.count)
+            sortedArray.append(tmpArray[position])
+            tmpArray.remove(at: position)
+        }
+        return sortedArray
+    }
 }
+
 // MARK: protocol
 protocol ManagerDataSource {
     var count: Int { get }
@@ -103,7 +142,13 @@ class Manager: ManagerDataSource  {
     }
     // MARK: method
     func fillAllTestPull() {
-        
+        let lifeValue = 1
+        for i in 0..<self.testList.count {
+            let el = TestData(fileNumber: i, lifeValue: lifeValue)
+            allTestPull.append(el)
+        }
+//        let sortKey = allTestPull.createSortKey()
+//        allTestPull = allTestPull.sortArray(forUserKey: sortKey)
     }
     func fillLoteryBasket() {
         
@@ -112,7 +157,7 @@ class Manager: ManagerDataSource  {
         
     }
     func fillFinished() {
-        
+        allTestPull.sortArray(forUserKey: [2, 0, 1])
     }
     
     
