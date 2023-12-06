@@ -44,12 +44,18 @@ extension TestDataArr {
     }
     func sortFullArrayIntoGroups(forGroupLenth lenth: Int) -> [Element] {
         let emptyArr = [Element]()
+        var retValue = [Element]()
         guard lenth > 0 else { return emptyArr }
         //let groups = Int(self.count / lenth)
         let totalGroups = (self.count / lenth) + (self.count % lenth == 0 ? 0 : 1 )
+        retValue.removeAll()
+        for i in 0..<totalGroups {
+            let tmpArr = sortArrayByFragment(fromStartIndex: i * lenth, count: lenth)
+            retValue.append(contentsOf: tmpArr)
+        }
         // TODO: fill it
-        return emptyArr
-    }    
+        return retValue
+    }
     func sortArrayByFragment(fromStartIndex start: Int, count: Int)  -> [Element]  {
         let emptyArr = [Element]()
         guard self.isInRange(start) else { return emptyArr }
@@ -139,14 +145,17 @@ class Manager: ManagerDataSource  {
     var finishedAdd = false
     init(_ testList: inout [Test]) {
         self.testList = testList
+        
     }
     // MARK: method
     func fillAllTestPull() {
         let lifeValue = 1
-        for i in 0..<self.testList.count {
+        let groupSize = 5
+        for i in 0..<self.testList.count {
             let el = TestData(fileNumber: i, lifeValue: lifeValue)
             allTestPull.append(el)
         }
+        allTestPull = allTestPull.sortFullArrayIntoGroups(forGroupLenth: groupSize)
 //        let sortKey = allTestPull.createSortKey()
 //        allTestPull = allTestPull.sortArray(forUserKey: sortKey)
     }
