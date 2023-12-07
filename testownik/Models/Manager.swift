@@ -43,6 +43,7 @@ extension TestDataArr {
         return retVal
     }
     func sortFullArrayIntoGroups(forGroupLenth lenth: Int) -> [Element] {
+        // FIXME: not last group
         let emptyArr = [Element]()
         var retValue = [Element]()
         guard lenth > 0 else { return emptyArr }
@@ -68,6 +69,19 @@ extension TestDataArr {
     // MARKT : Method randomOrder: for toMax = 10 get from 0 to 9
     func randomOrder(toMax: Int) -> Int {
         return Int(arc4random_uniform(UInt32(toMax)))
+    }
+    mutating func removeRandomElement() -> Element? {
+        var retVal: Element        
+        guard self.count > 0 else { return nil }
+        guard self.count == 1 else {
+            retVal = self[0]
+            self.remove(at: 0)
+            return retVal
+        }
+        let idx = randomOrder(toMax: self.count)
+        retVal = self[idx]
+        self.remove(at: idx)
+        return retVal
     }
     func changeSubArryyOrder(fromPosition start: Int, count: Int) -> [Element] {
         let array = self
@@ -143,22 +157,38 @@ class Manager: ManagerDataSource  {
     var historycalTest: TestDataArr = TestDataArr()
     var finishedTest: TestDataArr = TestDataArr()
     var finishedAdd = false
-    init(_ testList: inout [Test]) {
-        self.testList = testList
-        
-    }
-    // MARK: method
-    func fillAllTestPull() {
+    
+    // MARK: init
+    init(_ testListCount: Int, maxValueLive: Int, groupSize: Int ) {
+        //  _ testList: inout [Test])
         let lifeValue = 1
         let groupSize = 5
-        for i in 0..<self.testList.count {
+        //self.testList = testList
+        self.fillAllTestPull(testListCount: testListCount, forLiveValue: maxValueLive, groupSize: groupSize)
+        print("\(allTestPull)")
+    }
+    // MARK: methods
+    func fillAllTestPull(testListCount: Int, forLiveValue lifeValue: Int, groupSize: Int = 5) {
+        for i in 0..<testListCount {
             let el = TestData(fileNumber: i, lifeValue: lifeValue)
             allTestPull.append(el)
         }
         allTestPull = allTestPull.sortFullArrayIntoGroups(forGroupLenth: groupSize)
-//        let sortKey = allTestPull.createSortKey()
-//        allTestPull = allTestPull.sortArray(forUserKey: sortKey)
     }
+    //        let sortKey = allTestPull.createSortKey()
+    //        allTestPull = allTestPull.sortArray(forUserKey: sortKey)
+    
+//    func loteryQueue() {
+//        var tmpTestPull = [TestInfo]()
+//        let totalGroups = (self.allTestPull.count / self.groupSize) + (self.allTestPull.count % self.groupSize == 0 ? 0 : 1 )
+//        for i in 0..<totalGroups {
+//            let oneGroup = Setup.changeArryyOrder(forArray: self.allTestPull, fromPosition: i * self.groupSize, count: self.groupSize)
+//            tmpTestPull.append(contentsOf: oneGroup)
+//        }
+//        print("new Pull: \(tmpTestPull)")
+//        self.allTestPull = tmpTestPull
+//    }
+
     func fillLoteryBasket() {
         
     }
