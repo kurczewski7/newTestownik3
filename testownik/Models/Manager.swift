@@ -46,13 +46,15 @@ extension TestDataArr {
         // FIXME: not last group
         let emptyArr = [Element]()
         var retValue = [Element]()
+        var row = [Element]()
         guard lenth > 0 else { return emptyArr }
         //let groups = Int(self.count / lenth)
         let totalGroups = (self.count / lenth) + (self.count % lenth == 0 ? 0 : 1 )
         retValue.removeAll()
         for i in 0..<totalGroups {
-            let tmpArr = sortArrayByFragment(fromStartIndex: i * lenth, count: lenth)
-            retValue.append(contentsOf: tmpArr)
+            row.removeAll()
+            row = sortArrayByFragment(fromStartIndex: i * lenth, count: lenth)
+            retValue.append(contentsOf: row)
         }
         // TODO: fill it
         return retValue
@@ -60,17 +62,18 @@ extension TestDataArr {
     func sortArrayByFragment(fromStartIndex start: Int, count: Int)  -> [Element]  {
         let emptyArr = [Element]()
         guard self.isInRange(start) else { return emptyArr }
-        let end = start + count - 1
+        let end = Swift.min(start + count - 1, self.endIndex - 1)
         guard self.isInRange(end) else { return emptyArr }
         var tmpArr = Array(self[start...end])
-        tmpArr = self.changeSubArryyOrder(fromPosition: 0, count: tmpArr.count)
+        // FIXME: changeSubArryyOrder
+        tmpArr = self.changeSubArryyOrder(forSubArray: tmpArr, fromPosition: 0, count: tmpArr.count)
         return tmpArr
     }
     // MARKT : Method randomOrder: for toMax = 10 get from 0 to 9
     func randomOrder(toMax: Int) -> Int {
         return Int(arc4random_uniform(UInt32(toMax)))
     }
-    mutating func removeRandomElement() -> Element? {
+    mutating func moveRandomElement() -> Element? {
         var retVal: Element        
         guard self.count > 0 else { return nil }
         guard self.count == 1 else {
@@ -79,16 +82,43 @@ extension TestDataArr {
             return retVal
         }
         let idx = randomOrder(toMax: self.count)
+        guard self.isInRange(idx) else { return nil }
         retVal = self[idx]
         self.remove(at: idx)
         return retVal
     }
-    func changeSubArryyOrder(fromPosition start: Int, count: Int) -> [Element] {
-        let array = self
+//    func changeArryyOrder<T>(forArray array: [T],fromPosition start: Int, count: Int) -> [T] {
+//        var position = 0
+//        var sortedArray = [T]()
+//        var tmpArray: ArraySlice<T> = ArraySlice<T>()
+//        //var elemDel: Set <Int>
+//        let len = array.count
+//        let end = array.index(start, offsetBy: count, limitedBy: len) ?? len
+//        //array.index(start, offsetBy: count)
+//        guard start < len, end <= len else {   return sortedArray      }
+//        let xx = [start..<end]
+//        tmpArray.removeAll()
+//        for el in xx {
+//            tmpArray.append(el)
+//        }
+//        var tmpArray = self(array[start..<end])
+//        guard tmpArray.count > 0 else {   return sortedArray      }
+//        for _ in 1...tmpArray.count {
+//            position = randomOrder(toMax: tmpArray.count)
+//            sortedArray.append(tmpArray[position])
+//            tmpArray.remove(at: position)
+//        }
+//        return sortedArray
+//        //let elem = srcAnswerOptions[position]
+//    }
+    func changeSubArryyOrder(forSubArray array: [Element], fromPosition start: Int, count: Int) -> [Element] {
+        //let array = self
         var position = 0
         var sortedArray = [Element]()
         let len = array.count
-        let end = array.index(start, offsetBy: count, limitedBy: len) ?? len
+        let newLen = Swift.min(array.endIndex, count)
+        let end = array.index(array.startIndex, offsetBy: newLen)
+        //let end = array.index(start, offsetBy: count, limitedBy: len) ?? len
         //array.index(start, offsetBy: count)
         guard start < len, end <= len else {   return sortedArray      }
         var tmpArray = Array(array[start..<end])

@@ -82,6 +82,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "Array&lt;&#x3c4;_0_0&gt;.sortFullArrayIntoGroups(forGroupLenth:):Manager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "row.map({ $0.fileNumber })">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "CloudPicker.getTextEncoding(filePath:defaultEncoding:):CloudPicker.swift">
          <PersistentStrings>
             <PersistentString

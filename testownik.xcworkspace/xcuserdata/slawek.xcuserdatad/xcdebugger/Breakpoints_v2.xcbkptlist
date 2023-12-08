@@ -2121,13 +2121,13 @@
             filePath = "testownik/Models/Manager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "176"
-            endingLineNumber = "176"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
             landmarkName = "fillAllTestPull(testListCount:forLiveValue:groupSize:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "97B140F5-4110-4B62-AA65-E335432F2B44 - 27fc47806797828a"
+                  uuid = "97B140F5-4110-4B62-AA65-E335432F2B44 - 27fc478067979e68"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2137,12 +2137,12 @@
                   urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "176"
-                  endingLineNumber = "176"
+                  startingLineNumber = "206"
+                  endingLineNumber = "206"
                   offsetFromSymbolStart = "920">
                </Location>
                <Location
-                  uuid = "97B140F5-4110-4B62-AA65-E335432F2B44 - 27fc47806797828a"
+                  uuid = "97B140F5-4110-4B62-AA65-E335432F2B44 - 27fc478067979e68"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2152,8 +2152,8 @@
                   urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "176"
-                  endingLineNumber = "176"
+                  startingLineNumber = "206"
+                  endingLineNumber = "206"
                   offsetFromSymbolStart = "839">
                </Location>
             </Locations>
@@ -2169,13 +2169,13 @@
             filePath = "testownik/Models/Manager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "168"
-            endingLineNumber = "168"
+            startingLineNumber = "198"
+            endingLineNumber = "198"
             landmarkName = "init(_:maxValueLive:groupSize:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "8CCAF81E-A9B1-46B5-A538-9DEEBB8FE69C - 7713d9b46f4737f7"
+                  uuid = "8CCAF81E-A9B1-46B5-A538-9DEEBB8FE69C - 7713d9b46f472b15"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2185,12 +2185,12 @@
                   urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "168"
-                  endingLineNumber = "168"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
                   offsetFromSymbolStart = "939">
                </Location>
                <Location
-                  uuid = "8CCAF81E-A9B1-46B5-A538-9DEEBB8FE69C - 7713d9b46f4737f7"
+                  uuid = "8CCAF81E-A9B1-46B5-A538-9DEEBB8FE69C - 7713d9b46f472b15"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2200,8 +2200,8 @@
                   urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "168"
-                  endingLineNumber = "168"
+                  startingLineNumber = "198"
+                  endingLineNumber = "198"
                   offsetFromSymbolStart = "478">
                </Location>
             </Locations>
@@ -2217,13 +2217,13 @@
             filePath = "testownik/Models/Manager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "167"
-            endingLineNumber = "167"
+            startingLineNumber = "197"
+            endingLineNumber = "197"
             landmarkName = "init(_:maxValueLive:groupSize:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "C4187159-5247-468A-99F8-61EAB3A0A239 - 7713d9b46f473716"
+                  uuid = "C4187159-5247-468A-99F8-61EAB3A0A239 - 7713d9b46f472b34"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2233,12 +2233,12 @@
                   urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "167"
-                  endingLineNumber = "167"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
                   offsetFromSymbolStart = "478">
                </Location>
                <Location
-                  uuid = "C4187159-5247-468A-99F8-61EAB3A0A239 - 7713d9b46f473716"
+                  uuid = "C4187159-5247-468A-99F8-61EAB3A0A239 - 7713d9b46f472b34"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
@@ -2248,8 +2248,8 @@
                   urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "167"
-                  endingLineNumber = "167"
+                  startingLineNumber = "197"
+                  endingLineNumber = "197"
                   offsetFromSymbolStart = "393">
                </Location>
             </Locations>
@@ -2265,11 +2265,26 @@
             filePath = "testownik/Models/Manager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "49"
-            endingLineNumber = "49"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
             landmarkName = "sortFullArrayIntoGroups(forGroupLenth:)"
             landmarkType = "7">
             <Locations>
+               <Location
+                  uuid = "B8C411F7-194C-4671-A4E9-2513F7F67609 - 96ff2037f9470d04"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift.Array&lt;&#x3c4;_0_0 where &#x3c4;_0_0 == Testownik.Manager.TestData&gt;.sortFullArrayIntoGroups(forGroupLenth: Swift.Int) -&gt; Swift.Array&lt;Testownik.Manager.TestData&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "51"
+                  endingLineNumber = "51"
+                  offsetFromSymbolStart = "273">
+               </Location>
                <Location
                   uuid = "B8C411F7-194C-4671-A4E9-2513F7F67609 - 96ff2037f9470d27"
                   shouldBeEnabled = "Yes"
@@ -2283,22 +2298,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "50"
                   endingLineNumber = "50"
-                  offsetFromSymbolStart = "273">
-               </Location>
-               <Location
-                  uuid = "B8C411F7-194C-4671-A4E9-2513F7F67609 - 96ff2037f9470d46"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Swift.Array&lt;&#x3c4;_0_0 where &#x3c4;_0_0 == Testownik.Manager.TestData&gt;.sortFullArrayIntoGroups(forGroupLenth: Swift.Int) -&gt; Swift.Array&lt;Testownik.Manager.TestData&gt;"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "49"
-                  endingLineNumber = "49"
-                  offsetFromSymbolStart = "255">
+                  offsetFromSymbolStart = "272">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2313,9 +2313,57 @@
             filePath = "testownik/Models/Manager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
             landmarkName = "sortFullArrayIntoGroups(forGroupLenth:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "320D7AB0-2F6C-48F1-B8D0-A491352E177A - 96ff2037f947f261"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift.Array&lt;&#x3c4;_0_0 where &#x3c4;_0_0 == Testownik.Manager.TestData&gt;.sortFullArrayIntoGroups(forGroupLenth: Swift.Int) -&gt; Swift.Array&lt;Testownik.Manager.TestData&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "1633">
+               </Location>
+               <Location
+                  uuid = "320D7AB0-2F6C-48F1-B8D0-A491352E177A - 96ff2037f947f261"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Swift.Array&lt;&#x3c4;_0_0 where &#x3c4;_0_0 == Testownik.Manager.TestData&gt;.sortFullArrayIntoGroups(forGroupLenth: Swift.Int) -&gt; Swift.Array&lt;Testownik.Manager.TestData&gt;"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "1563">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C80E2441-F78C-4026-95DD-B968E6918676"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testownik/Models/Manager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "sortArrayByFragment(fromStartIndex:count:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
