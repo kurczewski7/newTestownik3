@@ -87,6 +87,7 @@ extension Array  {
     func isExistNext(_ index: Int) -> Bool {
         return index < self.count - 1
     }
+    // MARKT : Method randomOrder: for toMax = 10 get from 0 to 9
     func randomOrder(toMax: Int) -> Int {
         return Int(arc4random_uniform(UInt32(toMax)))
     }

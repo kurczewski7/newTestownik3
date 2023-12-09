@@ -51,8 +51,6 @@ extension TestDataArr {
         tmpArr = self.changeSubArryyOrder(forSubArray: tmpArr, fromPosition: 0, count: tmpArr.count)
         return tmpArr
     }
-    // MARKT : Method randomOrder: for toMax = 10 get from 0 to 9
-
 }
 
 // MARK: protocol
@@ -124,9 +122,6 @@ class Manager: ManagerDataSource  {
                 print("\n\(newOptions)")
             }
             print("\(options)")
-           
-           
-            
             return test
         }
         set {
@@ -153,6 +148,20 @@ class Manager: ManagerDataSource  {
     //         self.testList = testList
 
     // MARK: methods
+    func first() {
+        if historycalTest.isEmpty {
+            fillHistorycal()
+        }
+        if historycalTest.isNotEmpty() {
+            self.fileNumber = historycalTest.first!.fileNumber
+        }
+    }
+    func fillTestList(forTestList testList: [Test]) {
+        self.testList = testList
+        if self.testList.isEmpty {
+            print("testList IS EMPTY")
+        }
+    }
     func fillAllTestPull(testListCount: Int, forLiveValue lifeValue: Int, groupSize: Int = 5) {
         allTestPull.removeAll()
         for i in 0..<testListCount {
@@ -191,7 +200,6 @@ class Manager: ManagerDataSource  {
             self.fileNumber = test.fileNumber
             historycalTest.append(test)
         }
-        
     }
     func getFirst(onlyNewElement onlyNew: Bool = false)  -> TestData? {
         if historycalTest.isEmpty {

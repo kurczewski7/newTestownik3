@@ -128,10 +128,19 @@ class Testownik: DataOperations, TestownikDataSource {
         return super.getCurrent()
     }
     override func first() {
-        if  let number = testManager?.getFirst()?.fileNumber, number >= 0 {
-            self.currentTest = number
-            print("first NUMER:   \(number)")
-        }
+        self.manager?.first()
+//        if let position = self.manager?.currentPosition, self.testList.isInRange(position) {
+//            self.manager?.fileNumber = self.testList[position].fileNumber
+//        }
+//        if let number = manager?.fileNumber {
+//            
+//        }
+
+        
+        //        if  let number = testManager?.getFirst()?.fileNumber, number >= 0 {
+//            self.currentTest = number
+//            print("first NUMER:   \(number)")
+//        }
     }
     override func last() {
         if  let number = testManager?.getLast()?.fileNumber, number < count {
@@ -226,7 +235,7 @@ class Testownik: DataOperations, TestownikDataSource {
                 self.testList.append(test)
             }
         }
-        self.manager?.testList = self.testList
+        self.manager?.fillTestList(forTestList: testList)
 //        // TODO:  comment here
         print("testownik.count after:\(self.count)")
 }
