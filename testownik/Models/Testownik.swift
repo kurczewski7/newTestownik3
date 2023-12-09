@@ -226,18 +226,20 @@ class Testownik: DataOperations, TestownikDataSource {
                 self.testList.append(test)
             }
         }
+        self.manager?.testList = self.testList
 //        // TODO:  comment here
-//        var  rawTestList = [Int]()
-//        for i in 0..<self.testList.count {
-//            rawTestList.append(i)
-//        }
-//                
-//        if let elem = testToDo?[0] {
-//            self.currentTest = elem.fileNumber
-//        }
-        
         print("testownik.count after:\(self.count)")
-     }
+}
+    //        var  rawTestList = [Int]()
+    //        for i in 0..<self.testList.count {
+    //            rawTestList.append(i)
+    //        }
+    //
+    //        if let elem = testToDo?[0] {
+    //            self.currentTest = elem.fileNumber
+    //        }
+            
+
     func fillDemoData() {
         
     }

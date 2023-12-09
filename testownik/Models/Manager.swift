@@ -17,31 +17,14 @@ extension TestDataArr {
     func createSortKey() -> [Int] {
         let len = self.count
         guard len > 0 else { return [Int]() }
-        var retVal = [Int](repeating: 0, count: len)
+        var retVal: [Int] = [Int](repeating: 0, count: len)
         for i in 0..<len {
             retVal[i] = i
         }
         return Setup.changeArryyOrder(forArray: retVal, fromPosition: 0, count: retVal.count)
     }
-    func sortArray(forUserKey key: [Int]) -> [Element?] {  // [aa, bb, cc] ->  [bb, cc, aa]
-        let len = Swift.min(self.count, key.count)
-        var retVal: [Element] = [Element]() // [1, 2, 0]
-        for i in 0..<len {
-            retVal.append(self[key[i]])
-        }
-        return retVal
-    }
-    func reversSortArray(forUserKey key: [Int]) -> [Element] {
-        let len = Swift.min(self.count, key.count)
-        var retVal: [Element] = [Element]()          // [1, 2, 0]
-        for _ in 0..<len {
-            retVal.append(self[0])
-        }
-        for i in 0..<len {                          // [1, 2, 0]        [bb, cc, aa] -> [aa  , bb , cc ]
-            retVal[key[i]] = self[i]
-        }
-        return retVal
-    }
+    //            let sortedArr = self.changeSubArryyOrder(forSubArray: retVal, fromPosition: 0, count: retVal.count)
+    //            return sortedArr
     func sortFullArrayIntoGroups(forGroupLenth lenth: Int) -> [Element] {
         // FIXME: not last group
         let emptyArr = [Element]()
@@ -53,83 +36,23 @@ extension TestDataArr {
         retValue.removeAll()
         for i in 0..<totalGroups {
             row.removeAll()
-            row = sortArrayByFragment(fromStartIndex: i * lenth, count: lenth)
+            row = sortOneArrayFragment(fromStartIndex: i * lenth, count: lenth)
             retValue.append(contentsOf: row)
         }
         // TODO: fill it
         return retValue
     }
-    func sortArrayByFragment(fromStartIndex start: Int, count: Int)  -> [Element]  {
+    func sortOneArrayFragment(fromStartIndex start: Int, count: Int)  -> [Element]  {
         let emptyArr = [Element]()
         guard self.isInRange(start) else { return emptyArr }
         let end = Swift.min(start + count - 1, self.endIndex - 1)
         guard self.isInRange(end) else { return emptyArr }
         var tmpArr = Array(self[start...end])
-        // FIXME: changeSubArryyOrder
         tmpArr = self.changeSubArryyOrder(forSubArray: tmpArr, fromPosition: 0, count: tmpArr.count)
         return tmpArr
     }
     // MARKT : Method randomOrder: for toMax = 10 get from 0 to 9
-    func randomOrder(toMax: Int) -> Int {
-        return Int(arc4random_uniform(UInt32(toMax)))
-    }
-    mutating func moveRandomElement() -> Element? {
-        var retVal: Element        
-        guard self.count > 0 else { return nil }
-        guard self.count == 1 else {
-            retVal = self[0]
-            self.remove(at: 0)
-            return retVal
-        }
-        let idx = randomOrder(toMax: self.count)
-        guard self.isInRange(idx) else { return nil }
-        retVal = self[idx]
-        self.remove(at: idx)
-        return retVal
-    }
-//    func changeArryyOrder<T>(forArray array: [T],fromPosition start: Int, count: Int) -> [T] {
-//        var position = 0
-//        var sortedArray = [T]()
-//        var tmpArray: ArraySlice<T> = ArraySlice<T>()
-//        //var elemDel: Set <Int>
-//        let len = array.count
-//        let end = array.index(start, offsetBy: count, limitedBy: len) ?? len
-//        //array.index(start, offsetBy: count)
-//        guard start < len, end <= len else {   return sortedArray      }
-//        let xx = [start..<end]
-//        tmpArray.removeAll()
-//        for el in xx {
-//            tmpArray.append(el)
-//        }
-//        var tmpArray = self(array[start..<end])
-//        guard tmpArray.count > 0 else {   return sortedArray      }
-//        for _ in 1...tmpArray.count {
-//            position = randomOrder(toMax: tmpArray.count)
-//            sortedArray.append(tmpArray[position])
-//            tmpArray.remove(at: position)
-//        }
-//        return sortedArray
-//        //let elem = srcAnswerOptions[position]
-//    }
-    func changeSubArryyOrder(forSubArray array: [Element], fromPosition start: Int, count: Int) -> [Element] {
-        //let array = self
-        var position = 0
-        var sortedArray = [Element]()
-        let len = array.count
-        let newLen = Swift.min(array.endIndex, count)
-        let end = array.index(array.startIndex, offsetBy: newLen)
-        //let end = array.index(start, offsetBy: count, limitedBy: len) ?? len
-        //array.index(start, offsetBy: count)
-        guard start < len, end <= len else {   return sortedArray      }
-        var tmpArray = Array(array[start..<end])
-        guard tmpArray.count > 0 else {   return sortedArray      }
-        for _ in 1...tmpArray.count {
-            position = self.randomOrder(toMax: tmpArray.count)
-            sortedArray.append(tmpArray[position])
-            tmpArray.remove(at: position)
-        }
-        return sortedArray
-    }
+
 }
 
 // MARK: protocol
@@ -180,6 +103,7 @@ class Manager: ManagerDataSource  {
     var count: Int = 0
     var currentPosition: Int = 0
     var fileNumber: Int = 0
+    var groupSize = 0
     
     var testList : [Test] = [Test]()
     var allTestPull: TestDataArr = TestDataArr()
@@ -188,49 +112,102 @@ class Manager: ManagerDataSource  {
     var finishedTest: TestDataArr = TestDataArr()
     var finishedAdd = false
     
+    var currentTest: Test? {
+        get {
+            var test: Test?
+            // FIXME: empty testList
+            guard testownik.testList.isInRange(fileNumber) else { return nil }
+            test = testownik.testList[fileNumber]
+            let options = test?.answerOptions
+            if let sortKey = options?.createSortKey() {
+                let newOptions = options?.sortArray(forUserKey: sortKey)
+                print("\n\(newOptions)")
+            }
+            print("\(options)")
+           
+           
+            
+            return test
+        }
+        set {
+            
+        }
+    }
+    var currentHistory: TestData? {
+        get {
+            return self.historycalTest.first 
+        }
+    }
+    
     // MARK: init
     init(_ testListCount: Int, maxValueLive: Int, groupSize: Int ) {
-        //  _ testList: inout [Test])
-        let lifeValue = 1
-        let groupSize = 5
-        //self.testList = testList
+        self.groupSize = groupSize
         self.fillAllTestPull(testListCount: testListCount, forLiveValue: maxValueLive, groupSize: groupSize)
+        _ = self.fillLoteryBasket()
         print("\(allTestPull)")
+        let xx = currentTest
     }
+    //        _ testList: inout [Test])
+    //        let lifeValue = 1
+    //        let groupSize = 5
+    //         self.testList = testList
+
     // MARK: methods
     func fillAllTestPull(testListCount: Int, forLiveValue lifeValue: Int, groupSize: Int = 5) {
+        allTestPull.removeAll()
         for i in 0..<testListCount {
             let el = TestData(fileNumber: i, lifeValue: lifeValue)
             allTestPull.append(el)
         }
         allTestPull = allTestPull.sortFullArrayIntoGroups(forGroupLenth: groupSize)
     }
-    //        let sortKey = allTestPull.createSortKey()
-    //        allTestPull = allTestPull.sortArray(forUserKey: sortKey)
-    
-//    func loteryQueue() {
-//        var tmpTestPull = [TestInfo]()
-//        let totalGroups = (self.allTestPull.count / self.groupSize) + (self.allTestPull.count % self.groupSize == 0 ? 0 : 1 )
-//        for i in 0..<totalGroups {
-//            let oneGroup = Setup.changeArryyOrder(forArray: self.allTestPull, fromPosition: i * self.groupSize, count: self.groupSize)
-//            tmpTestPull.append(contentsOf: oneGroup)
-//        }
-//        print("new Pull: \(tmpTestPull)")
-//        self.allTestPull = tmpTestPull
-//    }
-
-    func fillLoteryBasket() {
-        
+    func fillLoteryBasket() -> Bool {
+        guard allTestPull.isNotEmpty() else { return false }
+        if self.loteryTestBasket.isEmpty {
+            let end = min(groupSize, allTestPull.count)
+            guard end > 0 else { return  false }
+            let moreTests = allTestPull[0..<end]
+            loteryTestBasket.append(contentsOf: moreTests)
+            for _ in 0..<moreTests.count {
+                allTestPull.remove(at: 0)
+            }
+        }
+         if loteryTestBasket.count < groupSize {  // 3,5,7             !    1,2
+            let newLen = groupSize - loteryTestBasket.count
+            for _ in 0..<newLen {
+                if let oneTest = allTestPull.first {
+                    loteryTestBasket.append(oneTest)
+                    allTestPull.remove(at: 0)
+                }
+                else {
+                    break
+                }
+            }
+        }
+        return true
     }
     func fillHistorycal() {
+        if let test = loteryTestBasket.getRandomElement(deleteItAfter: true) {
+            self.fileNumber = test.fileNumber
+            historycalTest.append(test)
+        }
         
     }
-    func fillFinished() {
-        allTestPull.sortArray(forUserKey: [2, 0, 1])
+    func getFirst(onlyNewElement onlyNew: Bool = false)  -> TestData? {
+        if historycalTest.isEmpty {
+            return nil
+        }
+        else {
+            return historycalTest.first
+        }
     }
-    
-    
-    
+
+    func moveToFinished(forLoteryBasket index: Int) {
+        guard loteryTestBasket.isInRange(index) else { return }
+        let oneTest = loteryTestBasket[index]
+        finishedTest.append(oneTest)
+        loteryTestBasket.remove(at: index)
+    }
     func next() -> Bool  {
         let isNext = historycalTest.isExistNext(currentPosition)
         let finishedAdd = loteryTestBasket.isEmpty

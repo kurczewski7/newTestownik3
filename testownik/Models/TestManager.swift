@@ -131,15 +131,6 @@ class TestManager: TestManagerDataSource {
         }
         loteryQueue()
         _ = getNext()
-        //getNextTest()
-        
-        //        let number = database.testDescriptionTable.count
-        //        var  rawTestList = [Int]()
-        //        for i in 0..<number  { // self.testList.count
-        //            rawTestList.append(i)
-        //        }
-        //        self.rawTestList = rawTestList
-        //        self.testToDo = TestToDo(rawTestList: self.rawTestList)
     }
     func loteryQueue() {
         var tmpTestPull = [TestInfo]()
@@ -164,6 +155,7 @@ class TestManager: TestManagerDataSource {
         //        return getElem(numberFrom0: currentPosition)
         return nil
     }
+    // MARK: getNext
     func getNext(onlyNewElement onlyNew: Bool = false)  -> TestInfo? {
         if self.loteryTestBasket.isEmpty {
             let end = min(groupSize, allTestPull.count)
