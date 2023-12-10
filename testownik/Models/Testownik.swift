@@ -47,14 +47,14 @@ class Testownik: DataOperations, TestownikDataSource {
             return testManager?.filePosition ?? TestManager.FilePosition.first
         }
     }
-    override var currentTest: Int  {
-        didSet {
-            print("currentTest:\(oldValue),\(currentTest), testownik.testManager ?.currentPosition=\(testManager?.currentPosition ?? 77), testownik.currentTest=\(currentTest), \(filePosition) ")
-            // TODO: ???
-            delegate?.refreshButtonUI(forFilePosition: filePosition)
-            // currentRow = currentTest < count ? currentTest : count-1
-        }
-    }
+//    override var currentTest: Int  {
+//        didSet {
+//            print("currentTest:\(oldValue),\(currentTest), testownik.testManager ?.currentPosition=\(testManager?.currentPosition ?? 77), testownik.currentTest=\(currentTest), \(filePosition) ")
+//            // TODO: ???
+//            delegate?.refreshButtonUI(forFilePosition: filePosition)
+//            // currentRow = currentTest < count ? currentTest : count-1
+//        }
+//    }
     var visableLevel: Int = 4 {
         didSet {
             // TODO: ????
@@ -62,13 +62,15 @@ class Testownik: DataOperations, TestownikDataSource {
             print("Visable Level:\(visableLevel)")
         }
     }
-    var currentElement: Test {
-        get {
-            let pos = testManager?.currentPosition
-            print("P   O   S  I  T  I  O  N : \(pos)")
-            return    testList[pos ?? 0]
-        }
-    }
+    var test: Test? = nil
+//    var currentElement: Test? = nil
+//    {
+//        get {
+//            let pos = testManager?.currentPosition
+//            print("P   O   S  I  T  I  O  N : \(pos)")
+//            return    testList[pos ?? 0]
+//        }
+//    }
     //var chooseOpions: [Bool] = [Bool](repeating: false, count: 10)
 //    subscript(index: Int)  -> Test? {
 //        guard index < testList.count else {  return nil   }
@@ -129,35 +131,27 @@ class Testownik: DataOperations, TestownikDataSource {
     }
     override func first() {
         self.manager?.first()
-//        if let position = self.manager?.currentPosition, self.testList.isInRange(position) {
-//            self.manager?.fileNumber = self.testList[position].fileNumber
-//        }
-//        if let number = manager?.fileNumber {
-//            
-//        }
-
-        
-        //        if  let number = testManager?.getFirst()?.fileNumber, number >= 0 {
-//            self.currentTest = number
-//            print("first NUMER:   \(number)")
-//        }
-    }
-    override func last() {
-        if  let number = testManager?.getLast()?.fileNumber, number < count {
-            self.currentTest = number
-        }
+        self.test = manager?.currentTest
+        print("first NUMER:   \(manager?.fileNumber)")
     }
     override func next() {
-        if  let number = testManager?.getNext()?.fileNumber, number < count {
-            self.currentTest = number
-            print("next NUMER:   \(number)")
-        }
+        self.manager?.next()
+        self.test = manager?.currentTest
+        print("next NUMER:   \(manager?.fileNumber)")
+//        if  let number = testManager?.getNext()?.fileNumber, number < count {
+//            self.currentTest = number
+
+//        }
     }
     override func previous() {
-        if  let number = testManager?.getPrev()?.fileNumber, number >= 0 {
-            self.currentTest = number
-            print("prev NUMER:   \(number)")
-        }
+       if  let number = testManager?.getPrev()?.fileNumber, number >= 0 {
+           self.currentTest = number
+           print("prev NUMER:   \(manager?.fileNumber)")
+       }
+   }
+    override func last() {
+        self.manager?.last()
+        self.test = manager?.currentTest
     }
 
     // MARK: Perform protocol TestownikDelegate

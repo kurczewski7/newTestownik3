@@ -54,14 +54,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             }
         }
     }
-    var test: Test {
+    var test: Test? {
         get {
-            return testownik.getCurrent()
+            return testownik.test
         }
         set {
-            let aTest = newValue
-            let options = aTest.answerOptions
-            
+            testownik.test = newValue
         }
     }
     
@@ -232,23 +230,22 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 })
            }
             if (0...9).contains(nr) {
-                let test = testownik.currentElement
-                if let button = sender.view as? UIButton {
+                if let aTest = test, let button = sender.view as? UIButton {
                     testownik.switchYourAnsfer(selectedOptionForTest: nr)
-                    markSelected(forCurrentTest: test, forButton: button, optionNr: nr)
-                    //(forCurrentTest test: Test, forButton: button, optionNr: nr)
-                    
-                    //let mark =  testownik[0]?.answerOptions[nr].lastYourCheck ?? false //button.layer.borderWidth == 1
-                    // let txtLabel = button.titleLabel?.text
-//                    self.lastButton.Tag = nr
-//                    self.lastButton.Color = button.tintColor
-                    //let currTest = testownik[testownik.currentTest]
-                    //button.tintColor = UIColor.purple
-                    //currTest.answerOptions[nr].isOK ? 3 : 1
-                    //currTest.answerOptions[nr].isOK ? UIColor.systemGreen.cgColor : UIColor.brown.cgColor
-                    //let xxx = testownik.isAnswersOk(selectedOptionForTest: nr)
+                    markSelected(forCurrentTest: aTest, forButton: button, optionNr: nr)
                 }
             }
+            //(forCurrentTest test: Test, forButton: button, optionNr: nr)
+            //let mark =  testownik[0]?.answerOptions[nr].lastYourCheck ?? false //button.layer.borderWidth == 1
+            // let txtLabel = button.titleLabel?.text
+//                    self.lastButton.Tag = nr
+//                    self.lastButton.Color = button.tintColor
+            //let currTest = testownik[testownik.currentTest]
+            //button.tintColor = UIColor.purple
+            //currTest.answerOptions[nr].isOK ? 3 : 1
+            //currTest.answerOptions[nr].isOK ? UIColor.systemGreen.cgColor : UIColor.brown.cgColor
+            //let xxx = testownik.isAnswersOk(selectedOptionForTest: nr)
+
             print("tapRefreshUI NOWY zz:\(sender.view?.tag ?? 0)")
         }
     }
@@ -552,7 +549,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 i += 1
             }
         }
-        
         tabHigh.append(highButton1)
         tabHigh.append(highButton2)
         tabHigh.append(highButton3)
@@ -569,9 +565,10 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         
         // TODO: POPRAW
         //testownik.createStartedTest()
-        if testownik.testManager == nil {
-            print("testownik.testManager == nil")
+        if testownik.manager == nil {
+            print("testownik.manager == nil")
         }
+        testownik.manager?.first()
         testownik.testManager?.delegate = self
         testownik.refreshData()
     }
@@ -750,19 +747,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     }
     func clearView() {
         var i = 0
-        //let totalQuest = 7
         askLabel.text = "\(Setup.placeHolderTitle)"
-        let test = testownik.currentElement
         for curButt in stackView.arrangedSubviews     {
-            if let butt = curButt as? UIButton {
+            if let aTest = test, let butt = curButt as? UIButton {
                 butt.isHidden =  false
-                markSelected(forCurrentTest: test, forButton: butt, optionNr: i)
+                markSelected(forCurrentTest: aTest, forButton: butt, optionNr: i)
                 butt.setTitle("\(Setup.placeHolderButtons) \(i)", for: .normal)
                 i += 1
             }
         }
     }
     func refreshView() {
+        // FIXME: testownik.first()
+        testownik.first()
+        print("COUNT:: \(testownik.manager?.testList.count)")
         print("refreshView")
         var i = 0
         let image = UIImage(named: "002.png")
@@ -770,41 +768,49 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         
         //testownik.currentTest = testownik.testManager?.getCurFileNumber() ?? 555
         let cur = testownik.testManager?.getCurrent()
-     
+        guard var aTest = test else { return }
         print("__ refreshView:\(testownik.currentTest)")
         guard testownik.currentTest < testownik.count else {
             print("JEST \(testownik.count)  TESTOW")
             return            
         }
-        guard let txtFile = testownik[testownik.currentTest]?.fileName, testownik.currentTest < testownik.count else {   return   }
+        //guard let txtFile = testownik[testownik.currentTest]?.fileName, testownik.currentTest < testownik.count else {   return   }
+        guard var aTest = test  else {   return   }
+        let txtFile = aTest.fileName
+        
         self.title = "Test \(txtFile)"
         // TODO: check it
-        testownik[testownik.currentTest]!.youAnswer2 = []
-        let totalQuest = testownik[testownik.currentTest]!.answerOptions.count
-        testownik[testownik.currentTest]!.youAnswers5 = []
-        askLabel.text = testownik[testownik.currentTest]!.ask
-        //askPicture.image = testownik[testownik.currentTest].pict
-        //testownik[testownik.currentTest].pict = UIImage(named: "004.png")
+        aTest.youAnswer2.removeAll()
+        let totalQuest = aTest.answerOptions.count
+        aTest.youAnswers5.removeAll()
+        askLabel.text = aTest.ask
         
-        if  let currPict = testownik[testownik.currentTest]!.pict {
+//        testownik[testownik.currentTest]!.youAnswer2 = []
+//        let totalQuest = testownik[testownik.currentTest]!.answerOptions.count
+//        testownik[testownik.currentTest]!.youAnswers5 = []
+//        askLabel.text = testownik[testownik.currentTest]!.ask
+//        //askPicture.image = testownik[testownik.currentTest].pict
+//        //testownik[testownik.currentTest].pict = UIImage(named: "004.png")
+        
+        if  let currPict = aTest.pict {
             askPicture.image = currPict
             pictureSwitchOn = true
         }
         else {
             pictureSwitchOn = false
         }     
-        let test = testownik.currentElement
+        //let test = testownik.currentElement
         for curButt in stackView.arrangedSubviews     {
-            if let butt = curButt as? UIButton {
+            if let aTest = test, let butt = curButt as? UIButton {
                 butt.contentHorizontalAlignment =  (Setup.isNumericQuestions ? .left : .center)
                 butt.isHidden = (i < totalQuest) ? false : true
                 guard testownik.isCurrentValid else {   return     }
-                butt.setTitle((i < totalQuest) ? Setup.getNumericPict(number: i) + testownik[testownik.currentTest]!.answerOptions[i].answerOption : "", for: .normal)
+                butt.setTitle((i < totalQuest) ? Setup.getNumericPict(number: i) + aTest.answerOptions[i].answerOption : "", for: .normal)
                 butt.layer.borderWidth = 1
                 butt.layer.borderColor = UIColor.brown.cgColor
-                let isSelect = testownik[testownik.currentTest]?.youAnswer2.contains(i) ?? false
+                let isSelect = aTest.youAnswer2.contains(i) ?? false
                 butt.layer.backgroundColor = isSelect ? selectedColor.cgColor: unSelectedColor.cgColor
-                markSelected(forCurrentTest: test, forButton: butt, optionNr: i)
+                markSelected(forCurrentTest: aTest, forButton: butt, optionNr: i)
                 // MARK: ggggg ffffff
                 if set.contains(i)  {
                     butt.setTitle(" \(i+1)", for: .normal)

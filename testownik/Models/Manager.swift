@@ -114,8 +114,8 @@ class Manager: ManagerDataSource  {
         get {
             var test: Test?
             // FIXME: empty testList
-            guard testownik.testList.isInRange(fileNumber) else { return nil }
-            test = testownik.testList[fileNumber]
+            guard testList.isInRange(fileNumber) else { return nil }
+            test = testList[fileNumber]
             let options = test?.answerOptions
             if let sortKey = options?.createSortKey() {
                 let newOptions = options?.sortArray(forUserKey: sortKey)
@@ -140,7 +140,7 @@ class Manager: ManagerDataSource  {
         self.fillAllTestPull(testListCount: testListCount, forLiveValue: maxValueLive, groupSize: groupSize)
         _ = self.fillLoteryBasket()
         print("\(allTestPull)")
-        let xx = currentTest
+        //let xx = currentTest
     }
     //        _ testList: inout [Test])
     //        let lifeValue = 1
@@ -155,6 +155,23 @@ class Manager: ManagerDataSource  {
         if historycalTest.isNotEmpty() {
             self.fileNumber = historycalTest.first!.fileNumber
         }
+    }
+    func next() -> Bool  {
+        let isNext = historycalTest.isExistNext(currentPosition)
+        let finishedAdd = loteryTestBasket.isEmpty
+        guard !(finishedAdd && historycalTest.isLast(currentPosition)) else { return false }
+        if isNext {
+            readNext()
+        } else {
+            addNext()
+        }
+        return true
+    }
+    func previous() {
+        
+    }
+    func last() {
+        
     }
     func fillTestList(forTestList testList: [Test]) {
         self.testList = testList
@@ -216,17 +233,7 @@ class Manager: ManagerDataSource  {
         finishedTest.append(oneTest)
         loteryTestBasket.remove(at: index)
     }
-    func next() -> Bool  {
-        let isNext = historycalTest.isExistNext(currentPosition)
-        let finishedAdd = loteryTestBasket.isEmpty
-        guard !(finishedAdd && historycalTest.isLast(currentPosition)) else { return false }
-        if isNext {
-            readNext()
-        } else {
-            addNext()
-        }
-        return true
-    }
+
     func readNext() {
         
     }
