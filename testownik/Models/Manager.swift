@@ -68,6 +68,14 @@ protocol ManagerDataSource {
     var historycalTest: TestDataArr { get }
     var finishedTest: TestDataArr { get }
 }
+protocol ManagerDelegate {
+    func allTestDone()
+    func progress(forCurrentPosition currentPosition: Int, totalCount count:Int)
+    func refreshContent(forFileNumber fileNumber: Int)
+    func refreshButtonUI(forFilePosition filePosition: TestManager.FilePosition)
+    
+    //func refreshButtonUI(forFilePosition filePosition: TestManager.FilePosition)
+}
 // MARK: class
 class Manager: ManagerDataSource  {
     //DataOperations TestManagerDataSource
@@ -98,6 +106,7 @@ class Manager: ManagerDataSource  {
     //        let extra: String // ???
 
     // MARK: variable
+    var delegate: ManagerDelegate?
     var count: Int = 0
     var currentPosition: Int = 0
     var fileNumber: Int = 0
@@ -139,7 +148,8 @@ class Manager: ManagerDataSource  {
         self.groupSize = groupSize
         self.fillAllTestPull(testListCount: testListCount, forLiveValue: maxValueLive, groupSize: groupSize)
         _ = self.fillLoteryBasket()
-        print("\(allTestPull)")
+        print("\(allTestPull.map({$0.fileNumber}))")
+        print("TEST LIST=\(testList.map({$0.fileNumber}))")
         //let xx = currentTest
     }
     //        _ testList: inout [Test])
@@ -173,7 +183,7 @@ class Manager: ManagerDataSource  {
     func last() {
         
     }
-    func fillTestList(forTestList testList: [Test]) {
+    func fillTestList(forTestList testList : inout [Test]) {
         self.testList = testList
         if self.testList.isEmpty {
             print("testList IS EMPTY")

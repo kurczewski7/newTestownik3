@@ -64,6 +64,7 @@ class TestManager: TestManagerDataSource {
     var lastFileNumber: Int = 0
     var rawTestListCount: Int = 0
     var rawTestList = [Int]()
+    
     var allTestPull: [TestInfo] = [TestInfo]()
     var loteryTestBasket: [TestInfo] = [TestInfo]()
     var historycalTest: [TestInfo] = [TestInfo]()

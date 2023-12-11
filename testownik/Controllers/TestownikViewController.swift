@@ -13,7 +13,8 @@ protocol TestownikViewContDataSource {
     var command: Command { get }
     var gestures: Gestures { get }
 }
-class TestownikViewController: UIViewController, GesturesDelegate, TestownikDelegate, ListeningDelegate, TestownikViewContDataSource, CommandDelegate, TestManagerDelegate    {
+class TestownikViewController: UIViewController, GesturesDelegate, TestownikDelegate, ListeningDelegate, TestownikViewContDataSource, CommandDelegate,
+                                ManagerDelegate    {
     //  TestToDoDelegate
     // MARK: other classes
     let listening = Listening()
@@ -56,10 +57,12 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     }
     var test: Test? {
         get {
-            return testownik.test
+            return testownik.manager?.currentTest
+            //return testownik.test
         }
         set {
-            testownik.test = newValue
+            testownik.manager?.currentTest = newValue
+            //testownik.test = newValue
         }
     }
     
@@ -119,6 +122,101 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             }
         }
     }
+    
+    // MARK: viewDidLoad - initial method
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        testownik.delegate = self
+                
+        //testownik.first()
+        
+        print("TestownikViewController viewDidLoad-testownik.count:\(testownik.count)")
+        Settings.shared.saveTestPreferences()
+        
+        self.view?.tag = 111
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        gesture.numberOfTouchesRequired = 1
+        askLabel.isUserInteractionEnabled = true
+        askLabel.addGestureRecognizer(gesture)
+        Settings.shared.checkResetRequest(forUIViewController: self)
+        //listening.linkSpeaking = speech.self
+        listening.delegate     = self
+        command.delegate       = self
+        //testownik.viewContext  = self
+        //testownik.delegate     = self
+        gestures.delegate      = self
+        gestures.setView(forView: view)
+        
+        listeningText.text = loremIpsum
+        listeningText.userAnimation(12.8, type: .push, subType: .fromLeft, timing: .defaultTiming)
+        //listeningText.alpha = alphaLabel
+        listening.requestAuth()
+        print("Test name 2:\(database.selectedTestTable[0]?.toAllRelationship?.user_name ?? "brak")")
+        
+        var i = 0
+        self.title = "Test (001)"
+        // MARKT: MAYBY ERROR
+        //testownik.loadTestFromDatabase()
+        print("Stack count: \(actionsButtonStackView.arrangedSubviews.count)")
+        stackView.arrangedSubviews.forEach { (button) in
+            if let butt = button as? UIButton {
+                butt.backgroundColor = #colorLiteral(red: 0.8469454646, green: 0.9804453254, blue: 0.9018514752, alpha: 1)
+                butt.layer.cornerRadius = self.cornerRadius
+                butt.layer.borderWidth = 1
+                butt.layer.borderColor = UIColor.brown.cgColor
+                //butt.addTarget(self, action: #selector(buttonAnswerPress), for: .touchUpInside) //touchUpInside
+                gestures.addTapGestureToView(forView: butt)
+                gestures.addForcePressGesture(forView: butt)
+                gestures.addLongPressGesture(forView: butt)
+                 butt.tag = i
+                i += 1
+            }
+        }
+        tabHigh.append(highButton1)
+        tabHigh.append(highButton2)
+        tabHigh.append(highButton3)
+        tabHigh.append(highButton4)
+        tabHigh.append(highButton5)
+        tabHigh.append(highButton6)
+        tabHigh.append(highButton7)
+        tabHigh.append(highButton8)
+        tabHigh.append(highButton9)
+        tabHigh.append(highButton10)
+        
+        addAllRequiredGestures(sender: gestures)
+        askLabel.layer.cornerRadius = self.cornerRadius
+        
+        // TODO: POPRAW
+        //testownik.createStartedTest()
+        if testownik.manager == nil {
+            print("testownik.manager == nil")
+        }
+        //testownik.first()
+        //testownik.manager?.testList.append(Test(code: "AAA", ask: "BBB", pict: nil, fileName: "COS TAM"))
+        testownik.manager?.delegate = self
+        testownik.refreshData()
+    }
+    // MARK: viewWillAppear - initial method
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear viewWillAppear")
+        Settings.shared.readCurrentLanguae()
+        
+        print("Test name 3:\(database.selectedTestTable[0]?.toAllRelationship?.user_name ?? "brak")")
+//       if database.testToUpgrade {
+//            testownik.loadTestFromDatabase()
+//       }
+        if testownik.isChanged {
+            //testownik.refreshData()
+            clearView()
+        }
+        // FIXME: fix testownik.first()
+        //testownik.first()
+        refreshView()
+        self.view.setNeedsUpdateConstraints()
+        super.viewWillAppear(animated)
+        Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(startMe), userInfo: nil, repeats: false)
+    }
+
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
         print("OBRÓT from\(fromInterfaceOrientation.rawValue)")
         checkOrientation()
@@ -500,95 +598,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     }
         //window?.rootViewController?.dismiss(animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
     //}
-    // MARK: viewDidLoad - initial method
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        testownik.delegate = self
-                
-        //testownik.first()
-        
-        print("TestownikViewController viewDidLoad-testownik.count:\(testownik.count)")        
-        Settings.shared.saveTestPreferences()
-        
-        self.view?.tag = 111
-        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
-        gesture.numberOfTouchesRequired = 1
-        askLabel.isUserInteractionEnabled = true
-        askLabel.addGestureRecognizer(gesture)
-        Settings.shared.checkResetRequest(forUIViewController: self)
-        //listening.linkSpeaking = speech.self
-        listening.delegate     = self
-        command.delegate       = self
-        //testownik.viewContext  = self
-        //testownik.delegate     = self
-        gestures.delegate      = self
-        gestures.setView(forView: view)
-        
-        listeningText.text = loremIpsum
-        listeningText.userAnimation(12.8, type: .push, subType: .fromLeft, timing: .defaultTiming)
-        //listeningText.alpha = alphaLabel
-        listening.requestAuth()
-        print("Test name 2:\(database.selectedTestTable[0]?.toAllRelationship?.user_name ?? "brak")")
-        
-        var i = 0
-        self.title = "Test (001)"
-        // MARKT: MAYBY ERROR
-        //testownik.loadTestFromDatabase()
-        print("Stack count: \(actionsButtonStackView.arrangedSubviews.count)")
-        stackView.arrangedSubviews.forEach { (button) in
-            if let butt = button as? UIButton {
-                butt.backgroundColor = #colorLiteral(red: 0.8469454646, green: 0.9804453254, blue: 0.9018514752, alpha: 1)
-                butt.layer.cornerRadius = self.cornerRadius
-                butt.layer.borderWidth = 1
-                butt.layer.borderColor = UIColor.brown.cgColor
-                //butt.addTarget(self, action: #selector(buttonAnswerPress), for: .touchUpInside) //touchUpInside
-                gestures.addTapGestureToView(forView: butt)
-                gestures.addForcePressGesture(forView: butt)
-                gestures.addLongPressGesture(forView: butt)
-                 butt.tag = i
-                i += 1
-            }
-        }
-        tabHigh.append(highButton1)
-        tabHigh.append(highButton2)
-        tabHigh.append(highButton3)
-        tabHigh.append(highButton4)
-        tabHigh.append(highButton5)
-        tabHigh.append(highButton6)
-        tabHigh.append(highButton7)
-        tabHigh.append(highButton8)
-        tabHigh.append(highButton9)
-        tabHigh.append(highButton10)
-        
-        addAllRequiredGestures(sender: gestures)        
-        askLabel.layer.cornerRadius = self.cornerRadius
-        
-        // TODO: POPRAW
-        //testownik.createStartedTest()
-        if testownik.manager == nil {
-            print("testownik.manager == nil")
-        }
-        testownik.manager?.first()
-        testownik.testManager?.delegate = self
-        testownik.refreshData()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        print("viewWillAppear viewWillAppear")
-        Settings.shared.readCurrentLanguae()
-        
-        print("Test name 3:\(database.selectedTestTable[0]?.toAllRelationship?.user_name ?? "brak")")       
-//       if database.testToUpgrade {
-//            testownik.loadTestFromDatabase()
-//       }
-        if testownik.isChanged {
-            //testownik.refreshData()
-            clearView()
-        }
-        refreshView()
-        self.view.setNeedsUpdateConstraints()
-        super.viewWillAppear(animated)
-        Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(startMe), userInfo: nil, repeats: false)
-    }
     //--------------------------------
     // TODO: Check content
     func resizeView() {
@@ -758,8 +767,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         }
     }
     func refreshView() {
-        // FIXME: testownik.first()
-        testownik.first()
+        //testownik.first()
         print("COUNT:: \(testownik.manager?.testList.count)")
         print("refreshView")
         var i = 0

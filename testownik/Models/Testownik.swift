@@ -76,6 +76,7 @@ class Testownik: DataOperations, TestownikDataSource {
 //        guard index < testList.count else {  return nil   }
 //        return testList[index]
 //    }
+    
     // MARK: Init Testownik class
     override init() {
         super.init()
@@ -87,7 +88,15 @@ class Testownik: DataOperations, TestownikDataSource {
             let elemCount = database.testDescriptionTable.count
             // TODO: DELETE
             self.testManager = TestManager(elemCount, maxValueLive: 2)
+            
             self.manager = Manager(elemCount, maxValueLive: 2, groupSize: 5)
+            fillDataDbToTestList()
+            self.manager?.fillTestList(forTestList: &self.testList)
+            print("self.testList.count=\(self.testList.count)")
+            print("self.manager.testList.count=\(self.manager?.testList.count)")
+            self.manager?.first()
+            
+            //self.manager?.fillTestList(forTestList: &testList)
             // TODO: duplicate testToDo
             
 //            if let context = self.viewContext {
@@ -156,8 +165,9 @@ class Testownik: DataOperations, TestownikDataSource {
 
     // MARK: Perform protocol TestownikDelegate
     func refreshData() {
-        self.loadTestFromDatabase()
-        self.fillDataDb()
+        //self.loadTestFromDatabase()
+        self.fillDataDbToTestList()
+        self.manager?.fillTestList(forTestList: &testList)
         
         // TODO: check this
         //self.currentTest = 0
@@ -185,7 +195,7 @@ class Testownik: DataOperations, TestownikDataSource {
                 }
                 else    {
                     print("Pełny rekord")
-                    fillDataDb()
+                    fillDataDbToTestList()
                     // MARK: INITIAL
 //                    let xxxx = testToDo?.mainTests
 //                    let yyy = testToDo?.mainTests.first
@@ -200,7 +210,7 @@ class Testownik: DataOperations, TestownikDataSource {
         }
     }
 // MARK: fillDataDb
-    func fillDataDb() {
+    func fillDataDbToTestList() {
         var titles = [String]()
         var textLines = [String]()
         var pict: UIImage? = nil
@@ -229,20 +239,9 @@ class Testownik: DataOperations, TestownikDataSource {
                 self.testList.append(test)
             }
         }
-        self.manager?.fillTestList(forTestList: testList)
-//        // TODO:  comment here
+        // TODO:  comment here
         print("testownik.count after:\(self.count)")
 }
-    //        var  rawTestList = [Int]()
-    //        for i in 0..<self.testList.count {
-    //            rawTestList.append(i)
-    //        }
-    //
-    //        if let elem = testToDo?[0] {
-    //            self.currentTest = elem.fileNumber
-    //        }
-            
-
     func fillDemoData() {
         
     }
