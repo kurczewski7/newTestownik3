@@ -62,7 +62,7 @@ class Testownik: DataOperations, TestownikDataSource {
             print("Visable Level:\(visableLevel)")
         }
     }
-    var test: Test? = nil
+    //var test: Test? = nil
 //    var currentElement: Test? = nil
 //    {
 //        get {
@@ -81,6 +81,9 @@ class Testownik: DataOperations, TestownikDataSource {
     override init() {
         super.init()
         print("init sss")
+        initNewTestlist()
+    }
+    func initNewTestlist() {
         database.selectedTestTable.loadData()
         guard database.selectedTestTable.isNotEmpty else {  return  }
         if let uuId = database.selectedTestTable[0]?.uuId {
@@ -92,29 +95,19 @@ class Testownik: DataOperations, TestownikDataSource {
             self.manager = Manager(elemCount, maxValueLive: 2, groupSize: 5)
             fillDataDbToTestList()
             self.manager?.fillTestList(forTestList: &self.testList)
+            
             print("self.testList.count=\(self.testList.count)")
             print("self.manager.testList.count=\(self.manager?.testList.count)")
-            self.manager?.first()
-            
-            //self.manager?.fillTestList(forTestList: &testList)
-            // TODO: duplicate testToDo
-            
-//            if let context = self.viewContext {
-//                self.testToDo?.delegate = context
-//            }
-        }
-            
-        //
-        //testToDo?.delegate = self
+         }
     }
     func createTestToDo() {
-        let number = database.testDescriptionTable.count
-        var  rawTestList = [Int]()
-        for i in 0..<number  { // self.testList.count
-            rawTestList.append(i)
-        }
-        self.rawTestList = rawTestList
-        //self.testToDo = TestToDo(rawTestList: self.rawTestList)
+//        let number = database.testDescriptionTable.count
+//        var  rawTestList = [Int]()
+//        for i in 0..<number  { // self.testList.count
+//            rawTestList.append(i)
+//        }
+//        self.rawTestList = rawTestList
+//        //self.testToDo = TestToDo(rawTestList: self.rawTestList)
     }
     // MARK: Perform protocol TestToDoDelegate
 //    func getCurrentTest(forFileNumber number: Int) -> Test? {
@@ -140,27 +133,21 @@ class Testownik: DataOperations, TestownikDataSource {
     }
     override func first() {
         self.manager?.first()
-        self.test = manager?.currentTest
+        //self.test = manager?.currentTest
         print("first NUMER:   \(manager?.fileNumber)")
     }
     override func next() {
         self.manager?.next()
-        self.test = manager?.currentTest
+        //self.test = manager?.currentTest
         print("next NUMER:   \(manager?.fileNumber)")
-//        if  let number = testManager?.getNext()?.fileNumber, number < count {
-//            self.currentTest = number
-
-//        }
     }
     override func previous() {
-       if  let number = testManager?.getPrev()?.fileNumber, number >= 0 {
-           self.currentTest = number
-           print("prev NUMER:   \(manager?.fileNumber)")
-       }
+        self.manager?.previous()
+        print("previous NUMER:   \(manager?.fileNumber)")
    }
     override func last() {
         self.manager?.last()
-        self.test = manager?.currentTest
+        print("last NUMER:   \(manager?.fileNumber)")
     }
 
     // MARK: Perform protocol TestownikDelegate
