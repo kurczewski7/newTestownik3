@@ -1688,10 +1688,10 @@
             filePath = "testownik/Models/Manager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "151"
-            endingLineNumber = "151"
-            landmarkName = "init(_:maxValueLive:groupSize:)"
-            landmarkType = "7">
+            startingLineNumber = "159"
+            endingLineNumber = "159"
+            landmarkName = "Manager"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "8CCAF81E-A9B1-46B5-A538-9DEEBB8FE69C - 55b74531898386f4"
@@ -1878,8 +1878,8 @@
             filePath = "testownik/Models/Manager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "134"
+            endingLineNumber = "134"
             landmarkName = "currentTest"
             landmarkType = "24">
             <Locations>
@@ -1926,8 +1926,8 @@
             filePath = "testownik/Models/Manager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "127"
-            endingLineNumber = "127"
+            startingLineNumber = "135"
+            endingLineNumber = "135"
             landmarkName = "currentTest"
             landmarkType = "24">
          </BreakpointContent>
@@ -1942,8 +1942,8 @@
             filePath = "testownik/Models/Manager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "132"
+            endingLineNumber = "132"
             landmarkName = "currentTest"
             landmarkType = "24">
             <Locations>
@@ -2230,10 +2230,10 @@
             filePath = "testownik/Models/Manager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "148"
-            endingLineNumber = "148"
-            landmarkName = "init(_:maxValueLive:groupSize:)"
-            landmarkType = "7">
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "Manager"
+            landmarkType = "3">
             <Locations>
                <Location
                   uuid = "7B13CF31-4937-4552-ABD3-EADF43DE49A6 - 7713d9b46f473283"

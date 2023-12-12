@@ -78,6 +78,14 @@ protocol ManagerDelegate {
 }
 // MARK: class
 class Manager: ManagerDataSource  {
+    func save() {
+        <#code#>
+    }
+    
+    func restore() {
+        <#code#>
+    }
+    
     //DataOperations TestManagerDataSource
     // MARK: type
     enum HistoryArrayType: Int {
@@ -159,6 +167,7 @@ class Manager: ManagerDataSource  {
 
     // MARK: methods
     func first() {
+        self.currentPosition = 0
         if historycalTest.isEmpty {
             fillHistorycal()
         }
@@ -170,18 +179,29 @@ class Manager: ManagerDataSource  {
         let isNext = historycalTest.isExistNext(currentPosition)
         let finishedAdd = loteryTestBasket.isEmpty
         guard !(finishedAdd && historycalTest.isLast(currentPosition)) else { return false }
+        self.currentPosition += 1
         if isNext {
-            readNext()
+            self.fileNumber = readNext()
         } else {
-            addNext()
+            self.fileNumber = addNext()
         }
         return true
     }
+    func readNext() -> Int {
+        return 0
+    }
+    func addNext() -> Int {
+        return 0
+    }
+
     func previous() {
         
     }
     func last() {
-        
+        self.currentPosition = historycalTest.count - 1
+        if let aTest = historycalTest.last {
+            self.fileNumber = aTest.fileNumber
+        }
     }
     func fillTestList(forTestList testList : inout [Test]) {
         self.testList = testList
@@ -243,13 +263,6 @@ class Manager: ManagerDataSource  {
         finishedTest.append(oneTest)
         loteryTestBasket.remove(at: index)
     }
-
-    func readNext() {
-        
-    }
-    func addNext() {
-        
-    }
     func createSortedKey() -> [Int] {
         return [0]
     }
@@ -259,7 +272,6 @@ class Manager: ManagerDataSource  {
     func save() {
         
     }
-    
     func restore() {
         
     }
