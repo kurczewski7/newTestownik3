@@ -12,7 +12,7 @@ import UIKit
 protocol TestownikDelegate {
     //func refreshButtonUI(forFilePosition filePosition: TestToDo.FilePosition)
     func refreshTabbarUI(visableLevel: Int)
-    func refreshButtonUI(forFilePosition: TestManager.FilePosition)
+//    func refreshButtonUI(forFilePosition: TestManager.FilePosition)
 //    func refreshContent(forCurrentTest test: Test)
     //    func allTestDone()
     //    func progress()
@@ -21,12 +21,10 @@ protocol TestownikDelegate {
 protocol TestownikDataSource {
     var delegate: TestownikDelegate? { get }
     var rawTestList: [Int] { get }
-    var testManager: TestManager? { get }
     var manager: Manager? { get }
     func getCurrent() -> Test
 }
 class Testownik: DataOperations, TestownikDataSource {
-    var testManager: TestManager?
     var manager: Manager?
     
     struct Answer {
@@ -41,20 +39,21 @@ class Testownik: DataOperations, TestownikDataSource {
     var isChanged = false
     //var testToDo: TestToDo?
     
-    var filePosition: TestManager.FilePosition  {
-        get {
-            // delegate?.refreshButtonUI(forFilePosition: filePosition)
-            return testManager?.filePosition ?? TestManager.FilePosition.first
+    var filePosition: Manager.FilePosition  {
+        get
+        {
+//                    // delegate?.refreshButtonUI(forFilePosition: filePosition)
+//                    return testManager?.filePosition ?? TestManager.FilePosition.first
+            return Manager.FilePosition.first
+                }}
+    override var currentTest: Int  {
+        didSet {
+//            print("currentTest:\(oldValue),\(currentTest), testownik.testManager ?.currentPosition=\(testManager?.currentPosition ?? 77), testownik.currentTest=\(currentTest), \(filePosition) ")
+            // TODO: ???
+            //delegate?.refreshButtonUI(forFilePosition: filePosition)
+            // currentRow = currentTest < count ? currentTest : count-1
         }
     }
-//    override var currentTest: Int  {
-//        didSet {
-//            print("currentTest:\(oldValue),\(currentTest), testownik.testManager ?.currentPosition=\(testManager?.currentPosition ?? 77), testownik.currentTest=\(currentTest), \(filePosition) ")
-//            // TODO: ???
-//            delegate?.refreshButtonUI(forFilePosition: filePosition)
-//            // currentRow = currentTest < count ? currentTest : count-1
-//        }
-//    }
     var visableLevel: Int = 4 {
         didSet {
             // TODO: ????
@@ -90,7 +89,7 @@ class Testownik: DataOperations, TestownikDataSource {
             database.testDescriptionTable.loadData(forUuid: "uuid_parent", fieldValue: uuId)
             let elemCount = database.testDescriptionTable.count
             // TODO: DELETE
-            self.testManager = TestManager(elemCount, maxValueLive: 2)
+ //           self.testManager = TestManager(elemCount, maxValueLive: 2)
             
             self.manager = Manager(elemCount, maxValueLive: 2, groupSize: 5)
             fillDataDbToTestList()
@@ -128,7 +127,7 @@ class Testownik: DataOperations, TestownikDataSource {
 //    }
     // MARK: Metod for navigation
     override func getCurrent() -> Test {        
-        self.currentTest = testManager?.getCurrentRawTest()?.fileNumber ?? 0
+//        self.currentTest = testManager?.getCurrentRawTest()?.fileNumber ?? 0
         return super.getCurrent()
     }
     override func first() {

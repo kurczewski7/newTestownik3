@@ -272,7 +272,6 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         guard count > 0 else { return }
         let promil = Int((currentPosition * 1000)/count) ?? 0
         print("progress:\(promil),currentPosition:\(currentPosition),count:\(count)")
-        print("fileNumber:\(testownik.testManager?.getCurFileNumber() ?? -9)")
         let title = tabBarItem.title
         print("title:\(title)")
         if let items = tabBarController?.tabBar.items, items.count > 3 {
@@ -484,7 +483,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 //
 //        // MARK: To do
 //    }
-    func refreshButtonUI(forFilePosition filePosition: TestManager.FilePosition) {
+    func refreshButtonUI(forFilePosition filePosition: Manager.FilePosition) {
         print("filePosition=\(filePosition)")
         if filePosition == .first {
             hideButton(forButtonNumber: 0)
@@ -775,7 +774,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         let set = Set([6,8,9])
         
         //testownik.currentTest = testownik.testManager?.getCurFileNumber() ?? 555
-        let cur = testownik.testManager?.getCurrent()
+        //let cur = test
         guard var aTest = test else { return }
         print("__ refreshView:\(testownik.currentTest)")
         guard testownik.currentTest < testownik.count else {

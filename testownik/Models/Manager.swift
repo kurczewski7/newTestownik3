@@ -72,22 +72,18 @@ protocol ManagerDelegate {
     func allTestDone()
     func progress(forCurrentPosition currentPosition: Int, totalCount count:Int)
     func refreshContent(forFileNumber fileNumber: Int)
-    func refreshButtonUI(forFilePosition filePosition: TestManager.FilePosition)
+//    func refreshButtonUI(forFilePosition filePosition: TestManager.FilePosition)
     
     //func refreshButtonUI(forFilePosition filePosition: TestManager.FilePosition)
 }
 // MARK: class
-class Manager: ManagerDataSource  {
-    func save() {
-        <#code#>
-    }
-    
-    func restore() {
-        <#code#>
-    }
-    
-    //DataOperations TestManagerDataSource
+class Manager: ManagerDataSource  {    
     // MARK: type
+    enum FilePosition {
+        case first
+        case last
+        case other
+    }
     enum HistoryArrayType: Int {
         case undefined = 0
         case allPool   = 1
@@ -170,6 +166,8 @@ class Manager: ManagerDataSource  {
         self.currentPosition = 0
         if historycalTest.isEmpty {
             fillHistorycal()
+            fillHistorycal()
+            fillHistorycal()
         }
         if historycalTest.isNotEmpty() {
             self.fileNumber = historycalTest.first!.fileNumber
@@ -188,7 +186,8 @@ class Manager: ManagerDataSource  {
         return true
     }
     func readNext() -> Int {
-        return 0
+        guard historycalTest.isInRange(self.currentPosition) else { return 0 }
+        return historycalTest[self.currentPosition].fileNumber
     }
     func addNext() -> Int {
         return 0
