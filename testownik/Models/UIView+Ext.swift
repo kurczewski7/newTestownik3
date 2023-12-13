@@ -145,7 +145,7 @@ extension Array  {
         }
         return sortedArray
     }
-    func sortArray(forUserKey key: [Int]) -> [Element?] {  // [aa, bb, cc] ->  [bb, cc, aa]
+    func sortArray(forUserKey key: [Int]) -> [Element] {  // [aa, bb, cc] ->  [bb, cc, aa]
         let len = Swift.min(self.count, key.count)
         var retVal: [Element] = [Element]() // [1, 2, 0]
         for i in 0..<len {

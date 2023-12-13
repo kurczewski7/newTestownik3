@@ -13,8 +13,7 @@ protocol TestownikViewContDataSource {
     var command: Command { get }
     var gestures: Gestures { get }
 }
-class TestownikViewController: UIViewController, GesturesDelegate, TestownikDelegate, ListeningDelegate, TestownikViewContDataSource, CommandDelegate,
-                                ManagerDelegate    {
+class TestownikViewController: UIViewController, GesturesDelegate, TestownikDelegate, ListeningDelegate, TestownikViewContDataSource, CommandDelegate, ManagerDelegate  {
     //  TestToDoDelegate
     // MARK: other classes
     let listening = Listening()
@@ -127,6 +126,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     override func viewDidLoad() {
         super.viewDidLoad()
         testownik.delegate = self
+        testownik.manager?.delegate = self
                 
         //testownik.first()
         
@@ -193,7 +193,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         }
         //testownik.first()
         //testownik.manager?.testList.append(Test(code: "AAA", ask: "BBB", pict: nil, fileName: "COS TAM"))
-        testownik.manager?.delegate = self
+        //testownik.manager?.delegate = self
         testownik.refreshData()
     }
     // MARK: viewWillAppear - initial method

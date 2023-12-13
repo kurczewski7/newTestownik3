@@ -72,7 +72,7 @@ protocol ManagerDelegate {
     func allTestDone()
     func progress(forCurrentPosition currentPosition: Int, totalCount count:Int)
     func refreshContent(forFileNumber fileNumber: Int)
-//    func refreshButtonUI(forFilePosition filePosition: TestManager.FilePosition)
+    func refreshButtonUI(forFilePosition filePosition: Manager.FilePosition)
     
     //func refreshButtonUI(forFilePosition filePosition: TestManager.FilePosition)
 }
@@ -99,7 +99,7 @@ class Manager: ManagerDataSource  {
         let fileNumber: Int
         let lifeValue: Int
         var answerOptions = [AnswerShort]()
-        let oneWasSelected: Bool = false
+        var oneWasSelected: Bool = false
         var isCorect: Bool = false
         var keySort: [Int] = [Int]()
     }
@@ -129,16 +129,28 @@ class Manager: ManagerDataSource  {
             // FIXME: empty testList
             guard testList.isInRange(fileNumber) else { return nil }
             test = testList[fileNumber]
-            let options = test?.answerOptions
-            if let sortKey = options?.createSortKey() {
-                let newOptions = options?.sortArray(forUserKey: sortKey)
-                print("\n\(newOptions)")
+            
+            if let options = test?.answerOptions {
+                print("\(options)")
+                let sortKey = options.createSortKey()
+                let sortOptions = options.sortArray(forUserKey: sortKey)
+                if test != nil {
+                    test!.answerOptions = sortOptions
+                }
+                print("\(sortOptions)")
             }
-            print("\(options)")
             return test
         }
         set {
-            
+            guard testList.isInRange(fileNumber) else { return  }
+            if var test = newValue {
+                let options = test.answerOptions
+                let sortKey = options.createSortKey()
+                let sortOptions = options.reversSortArray(forUserKey: sortKey)
+                test.answerOptions = sortOptions
+                testList[fileNumber] = test
+                setHistoryAnswers(forOptions: options)
+            }
         }
     }
     var currentHistory: TestData? {
@@ -162,6 +174,21 @@ class Manager: ManagerDataSource  {
     //         self.testList = testList
 
     // MARK: methods
+    func setHistoryAnswers(forOptions options: [Testownik.Answer]) {
+        var isCorect = true
+        let youAnswerArr = options.map({ $0.lastYourCheck ? 1 : 0 })
+        let isOkArr = options.map({$0.isOK ? 1 : 0 })
+        for i in 0..<options.count {
+            if youAnswerArr[i] != isOkArr[i]  {
+                isCorect = false
+                break
+            }
+        }
+        let oneWasSelected = youAnswerArr.reduce(0) { $0 + $1 } > 0 ? true : false
+        guard historycalTest.isInRange(currentPosition) else { return }
+        historycalTest[currentPosition].isCorect = isCorect
+        historycalTest[currentPosition].oneWasSelected = oneWasSelected            
+    }
     func first() {
         self.currentPosition = 0
         if historycalTest.isEmpty {
