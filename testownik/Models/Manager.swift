@@ -113,7 +113,20 @@ class Manager: ManagerDataSource  {
     // MARK: variable
     var delegate: ManagerDelegate?
     var count: Int = 0
-    var currentPosition: Int = 0
+    var currentPosition: Int = 0 {
+        didSet {
+            var curFilePos: FilePosition = .other
+            if currentPosition != oldValue {
+                if currentPosition == 0 {
+                    curFilePos = .first
+                }
+                else if historycalTest.isLast(currentPosition) && self.finishedAdd {
+                    curFilePos = .last
+                }
+                delegate?.refreshButtonUI(forFilePosition: curFilePos)
+            }
+        }
+    }
     var fileNumber: Int = -1 {
         didSet {
             if fileNumber != oldValue {
@@ -128,7 +141,7 @@ class Manager: ManagerDataSource  {
     var loteryTestBasket: TestDataArr = TestDataArr()
     var historycalTest: TestDataArr = TestDataArr()
     var finishedTest: TestDataArr = TestDataArr()
-    var finishedAdd = false
+    var finishedAdd = true
     
     var currentTest: Test? {
         get {
