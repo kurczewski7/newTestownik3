@@ -128,7 +128,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         testownik.delegate = self
         testownik.manager?.delegate = self
                 
-        //testownik.first()
+        testownik.first()
         
         print("TestownikViewController viewDidLoad-testownik.count:\(testownik.count)")
         Settings.shared.saveTestPreferences()
@@ -469,19 +469,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     }
     
     // MARK: TestownikDelegate protocol "refreshUI" metods
-    func refreshContent(forFileNumber fileNumber: Int) {
-        let test = testownik[fileNumber]
-        
-    }
-//    func refreshContent(forCurrentTest test: Test) {
-//        if let fileNumber = testownik.testToDo?.getCurrent()?.fileNumber {
-//            if fileNumber < testownik.count {
-//                testownik.currentTest = fileNumber
-//                refreshView()
-//            }
-//        }
-//
-//        // MARK: To do
+//    func refreshContent(forFileNumber fileNumber: Int) {
+//        refreshView()
 //    }
     func refreshButtonUI(forFilePosition filePosition: Manager.FilePosition) {
         print("filePosition=\(filePosition)")

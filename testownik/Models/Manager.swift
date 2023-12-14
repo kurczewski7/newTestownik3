@@ -71,7 +71,8 @@ protocol ManagerDataSource {
 protocol ManagerDelegate {
     func allTestDone()
     func progress(forCurrentPosition currentPosition: Int, totalCount count:Int)
-    func refreshContent(forFileNumber fileNumber: Int)
+    //func refreshContent(forFileNumber fileNumber: Int)
+    func refreshView()
     func refreshButtonUI(forFilePosition filePosition: Manager.FilePosition)
     
     //func refreshButtonUI(forFilePosition filePosition: TestManager.FilePosition)
@@ -113,7 +114,13 @@ class Manager: ManagerDataSource  {
     var delegate: ManagerDelegate?
     var count: Int = 0
     var currentPosition: Int = 0
-    var fileNumber: Int = 0
+    var fileNumber: Int = -1 {
+        didSet {
+            if fileNumber != oldValue {
+                delegate?.refreshView()
+            }
+        }
+    }
     var groupSize = 0
     
     var testList : [Test] = [Test]()
@@ -198,23 +205,25 @@ class Manager: ManagerDataSource  {
         }
         if historycalTest.isNotEmpty() {
             self.fileNumber = historycalTest.first!.fileNumber
+            self.delegate?.refreshView()
         }
     }
     func next() -> Bool  {
+        self.finishedAdd = loteryTestBasket.isEmpty
+        guard !(self.finishedAdd && historycalTest.isLast(currentPosition)) else { return false }
         let isNext = historycalTest.isExistNext(currentPosition)
-        let finishedAdd = loteryTestBasket.isEmpty
-        guard !(finishedAdd && historycalTest.isLast(currentPosition)) else { return false }
-        self.currentPosition += 1
+
         if isNext {
             self.fileNumber = readNext()
         } else {
             self.fileNumber = addNext()
         }
+        self.currentPosition += 1
         return true
     }
     func readNext() -> Int {
-        guard historycalTest.isInRange(self.currentPosition) else { return 0 }
-        return historycalTest[self.currentPosition].fileNumber
+        guard historycalTest.isInRange(self.currentPosition + 1) else { return 0 }
+        return historycalTest[self.currentPosition + 1].fileNumber
     }
     func addNext() -> Int {
         return 0
@@ -224,10 +233,10 @@ class Manager: ManagerDataSource  {
         
     }
     func last() {
-        self.currentPosition = historycalTest.count - 1
         if let aTest = historycalTest.last {
             self.fileNumber = aTest.fileNumber
         }
+        self.currentPosition = historycalTest.count - 1
     }
     func fillTestList(forTestList testList : inout [Test]) {
         self.testList = testList

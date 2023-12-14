@@ -46,6 +46,17 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "Manager.next():Manager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "historycalTest.count">
+            </PersistentString>
+            <PersistentString
+               value = "currentPosition">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TestToDo.createTests():TestToDo.swift">
       </ContextState>
       <ContextState

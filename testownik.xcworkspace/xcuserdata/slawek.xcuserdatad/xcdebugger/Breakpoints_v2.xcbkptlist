@@ -250,8 +250,8 @@
             filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "789"
-            endingLineNumber = "789"
+            startingLineNumber = "778"
+            endingLineNumber = "778"
             landmarkName = "refreshView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -298,42 +298,10 @@
             filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "487"
-            endingLineNumber = "487"
+            startingLineNumber = "476"
+            endingLineNumber = "476"
             landmarkName = "refreshButtonUI(forFilePosition:)"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "8B0A6243-136B-4D41-9DD4-D22EA3F9B7CD - 8d51b32bd694d412"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.TestownikViewController.refreshButtonUI(forFilePosition: Testownik.Manager.FilePosition) -&gt; ()"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Controllers/TestownikViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "487"
-                  endingLineNumber = "487"
-                  offsetFromSymbolStart = "439">
-               </Location>
-               <Location
-                  uuid = "8B0A6243-136B-4D41-9DD4-D22EA3F9B7CD - 8d51b32bd694d412"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.TestownikViewController.refreshButtonUI(forFilePosition: Testownik.Manager.FilePosition) -&gt; ()"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Controllers/TestownikViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "487"
-                  endingLineNumber = "487"
-                  offsetFromSymbolStart = "115">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1362,54 +1330,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "1CF7DE90-DA3F-494C-976E-4145AC46B570"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "testownik/Controllers/TestownikViewController.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "473"
-            endingLineNumber = "473"
-            landmarkName = "refreshContent(forFileNumber:)"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1CF7DE90-DA3F-494C-976E-4145AC46B570 - eba3b6c47fb95b26"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.TestownikViewController.refreshContent(forFileNumber: Swift.Int) -&gt; ()"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Controllers/TestownikViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "474"
-                  endingLineNumber = "474"
-                  offsetFromSymbolStart = "139">
-               </Location>
-               <Location
-                  uuid = "1CF7DE90-DA3F-494C-976E-4145AC46B570 - eba3b6c47fb95b07"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.TestownikViewController.refreshContent(forFileNumber: Swift.Int) -&gt; ()"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Controllers/TestownikViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "473"
-                  endingLineNumber = "473"
-                  offsetFromSymbolStart = "61">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "3B1E85CA-D16B-4249-8177-1A0C4571B9D7"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -1417,42 +1337,10 @@
             filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "779"
-            endingLineNumber = "779"
+            startingLineNumber = "768"
+            endingLineNumber = "768"
             landmarkName = "refreshView()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3B1E85CA-D16B-4249-8177-1A0C4571B9D7 - 11c01f3c9a7a0120"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.TestownikViewController.refreshView() -&gt; ()"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Controllers/TestownikViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "779"
-                  endingLineNumber = "779"
-                  offsetFromSymbolStart = "2004">
-               </Location>
-               <Location
-                  uuid = "3B1E85CA-D16B-4249-8177-1A0C4571B9D7 - 11c01f3c9a7a0120"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.TestownikViewController.refreshView() -&gt; ()"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Controllers/TestownikViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "779"
-                  endingLineNumber = "779"
-                  offsetFromSymbolStart = "1535">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1465,42 +1353,10 @@
             filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "776"
-            endingLineNumber = "776"
+            startingLineNumber = "765"
+            endingLineNumber = "765"
             landmarkName = "refreshView()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "AD2DD1F6-AE5C-439B-BFA5-88958CA275D2 - 11c01f3c9a7a0162"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.TestownikViewController.refreshView() -&gt; ()"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Controllers/TestownikViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "777"
-                  endingLineNumber = "777"
-                  offsetFromSymbolStart = "1392">
-               </Location>
-               <Location
-                  uuid = "AD2DD1F6-AE5C-439B-BFA5-88958CA275D2 - 11c01f3c9a7a0143"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.TestownikViewController.refreshView() -&gt; ()"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Controllers/TestownikViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "778"
-                  endingLineNumber = "778"
-                  offsetFromSymbolStart = "1392">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1592,8 +1448,8 @@
             filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "758"
-            endingLineNumber = "758"
+            startingLineNumber = "747"
+            endingLineNumber = "747"
             landmarkName = "clearView()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1708,148 +1564,6 @@
             endingLineNumber = "47"
             landmarkName = "sortOneArrayFragment(fromStartIndex:count:)"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1FF7343A-EEFC-4AEB-862A-D5E569AC6DF1"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "testownik/Models/Manager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "130"
-            endingLineNumber = "130"
-            landmarkName = "currentTest"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "1FF7343A-EEFC-4AEB-862A-D5E569AC6DF1 - b3fff23b8f980dc6"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.Manager.currentTest.getter : Swift.Optional&lt;Testownik.Test&gt;"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "125"
-                  endingLineNumber = "125"
-                  offsetFromSymbolStart = "2416">
-               </Location>
-               <Location
-                  uuid = "1FF7343A-EEFC-4AEB-862A-D5E569AC6DF1 - b3fff23b8f980c27"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.Manager.currentTest.getter : Swift.Optional&lt;Testownik.Test&gt;"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "242">
-               </Location>
-               <Location
-                  uuid = "1FF7343A-EEFC-4AEB-862A-D5E569AC6DF1 - b3fff23b8f980c9b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.Manager.currentTest.getter : Swift.Optional&lt;Testownik.Test&gt;"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "242">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "F02E5F86-AF7B-4D22-BB07-6C541D8A62FB"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "testownik/Models/Manager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
-            landmarkName = "currentTest"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "3AD3C022-A49C-424E-9335-AB286719D9D2"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "testownik/Models/Manager.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
-            landmarkName = "currentTest"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "3AD3C022-A49C-424E-9335-AB286719D9D2 - b3fff23b8f980d80"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.Manager.currentTest.getter : Swift.Optional&lt;Testownik.Test&gt;"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "123"
-                  endingLineNumber = "123"
-                  offsetFromSymbolStart = "1665">
-               </Location>
-               <Location
-                  uuid = "3AD3C022-A49C-424E-9335-AB286719D9D2 - b3fff23b8f980c27"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.Manager.currentTest.getter : Swift.Optional&lt;Testownik.Test&gt;"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "126"
-                  endingLineNumber = "126"
-                  offsetFromSymbolStart = "242">
-               </Location>
-               <Location
-                  uuid = "3AD3C022-A49C-424E-9335-AB286719D9D2 - b3fff23b8f980c9b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.Manager.currentTest.getter : Swift.Optional&lt;Testownik.Test&gt;"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "130"
-                  endingLineNumber = "130"
-                  offsetFromSymbolStart = "242">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1988,42 +1702,10 @@
             filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "769"
-            endingLineNumber = "769"
+            startingLineNumber = "758"
+            endingLineNumber = "758"
             landmarkName = "refreshView()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "3BE0BC5E-9B99-4B12-AE82-5ADFAADE116C - 11c01f3c9a7a039a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.TestownikViewController.refreshView() -&gt; ()"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Controllers/TestownikViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "769"
-                  endingLineNumber = "769"
-                  offsetFromSymbolStart = "308">
-               </Location>
-               <Location
-                  uuid = "3BE0BC5E-9B99-4B12-AE82-5ADFAADE116C - 11c01f3c9a7a027b"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.TestownikViewController.refreshView() -&gt; ()"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Controllers/TestownikViewController.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "770"
-                  endingLineNumber = "770"
-                  offsetFromSymbolStart = "308">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2077,49 +1759,17 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EA714709-8D0C-406D-B441-88F14A96F65C"
+            uuid = "C0400A81-0584-4D96-B728-67A30EE095FE"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "testownik/Models/Manager.swift"
+            filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "204"
-            endingLineNumber = "204"
-            landmarkName = "next()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "EA714709-8D0C-406D-B441-88F14A96F65C - 1b13273b84f77704"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.Manager.last() -&gt; ()"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "204"
-                  endingLineNumber = "204"
-                  offsetFromSymbolStart = "74">
-               </Location>
-               <Location
-                  uuid = "EA714709-8D0C-406D-B441-88F14A96F65C - 1ea29d8ecf10f9bd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Testownik.Manager.next() -&gt; Swift.Bool"
-                  moduleName = "Testownik"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Models/Manager.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "204"
-                  endingLineNumber = "204"
-                  offsetFromSymbolStart = "87">
-               </Location>
-            </Locations>
+            startingLineNumber = "473"
+            endingLineNumber = "473"
+            landmarkName = "TestownikViewController"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
