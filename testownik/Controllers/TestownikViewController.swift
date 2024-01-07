@@ -739,7 +739,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     }
     func hideButton(forButtonNumber buttonNumber: Int, isHide: Bool = true) {
         if let button = actionsButtonStackView.arrangedSubviews[buttonNumber] as? UIButton {
-            button.isHidden = isHide
+            button.isHidden = false //isHide
         }
     }
     func clearView() {

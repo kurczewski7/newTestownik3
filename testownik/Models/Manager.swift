@@ -116,7 +116,7 @@ class Manager: ManagerDataSource  {
     var currentPosition: Int = 0 {
         didSet {
             var curFilePos: FilePosition = .other
-            if currentPosition != oldValue {
+            if currentPosition != oldValue || true {
                 if currentPosition == 0 {
                     curFilePos = .first
                 }
@@ -148,6 +148,7 @@ class Manager: ManagerDataSource  {
             var test: Test?
             // FIXME: empty testList
             guard testList.isInRange(fileNumber) else { return nil }
+            
             test = testList[fileNumber]
             
             if let options = test?.answerOptions {
@@ -213,8 +214,7 @@ class Manager: ManagerDataSource  {
         self.currentPosition = 0
         if historycalTest.isEmpty {
             fillHistorycal()
-            fillHistorycal()
-            fillHistorycal()
+            fillHistorycal(forSeveralTimes: 11)
         }
         if historycalTest.isNotEmpty() {
             self.fileNumber = historycalTest.first!.fileNumber
@@ -290,10 +290,17 @@ class Manager: ManagerDataSource  {
         }
         return true
     }
-    func fillHistorycal() {
-        if let test = loteryTestBasket.getRandomElement(deleteItAfter: true) {
-            self.fileNumber = test.fileNumber
-            historycalTest.append(test)
+    func fillHistorycal(forSeveralTimes times: Int = 1) {
+        for i in 1...times {
+            if let test = loteryTestBasket.getRandomElement(deleteItAfter: true) {
+                self.fileNumber = test.fileNumber
+                historycalTest.append(test)
+                if loteryTestBasket.count < self.groupSize {
+                    if let elem = allTestPull.getFirsElement(deleteItAfter: true) {  //if let elem = allTestPull.first
+                        loteryTestBasket.append(elem)
+                    }
+                }
+            }
         }
     }
     func getFirst(onlyNewElement onlyNew: Bool = false)  -> TestData? {

@@ -79,13 +79,13 @@ extension Array  {
         return self[self.count - 1]
     }
     func isInRange(_ index: Int) -> Bool {
-        return index < self.count
+        return index >= 0 && index < self.count
     }
     func isLast(_ index: Int) -> Bool {
         return index == self.count - 1
     }
     func isExistNext(_ index: Int) -> Bool {
-        return index < self.count - 1
+        return index >= 0 && index < self.count - 1
     }
     // MARKT : Method randomOrder: for toMax = 10 get from 0 to 9
     func randomOrder(toMax: Int) -> Int {
@@ -110,6 +110,15 @@ extension Array  {
         }
         return sortedArray
     } 
+    mutating func getFirsElement(deleteItAfter delete: Bool) -> Element? {
+        var retVal: Element
+        guard self.isNotEmpty() else { return nil }
+        retVal = self.first!
+        if delete {
+            self.remove(at: 0)
+        }
+        return retVal
+    }
     mutating func getRandomElement(deleteItAfter delete: Bool) -> Element? {
         var retVal: Element
         guard self.count > 0 else { return nil }

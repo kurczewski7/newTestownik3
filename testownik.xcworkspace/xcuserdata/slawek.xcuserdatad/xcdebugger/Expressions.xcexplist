@@ -30,6 +30,14 @@
          contextName = "CloudPicker.tryEncodingFile(filePath:encoding:):CloudPicker.swift">
       </ContextState>
       <ContextState
+         contextName = "Manager.readNext():Manager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "fileNumber">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "TestToDo.getNext(onlyNewElement:):TestToDo.swift">
          <PersistentStrings>
             <PersistentString
