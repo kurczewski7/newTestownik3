@@ -268,15 +268,15 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     func allTestDone() {
         print("allTestDone")
     }
-    func progress(forCurrentPosition currentPosition: Int, totalCount count:Int) {
-        guard count > 0 else { return }
-        let promil = Int((currentPosition * 1000)/count) ?? 0
-        print("progress:\(promil),currentPosition:\(currentPosition),count:\(count)")
+    func progress(forCurrentPosition currentPosition: Int, totalPercent percent: Int) {
+        //guard count > 0 else { return }
+        //let promil = Int((currentPosition * 1000)/count) ?? 0
+        print("progress: currentPosition:\(currentPosition),percent:\(percent)")
         let title = tabBarItem.title
         print("title:\(title)")
         if let items = tabBarController?.tabBar.items, items.count > 3 {
-            items[0].badgeValue = "\(currentPosition)"
-            items[3].badgeValue = "\(Int(promil/10)) %"
+            items[0].badgeValue = "\(currentPosition + 1)"
+            items[3].badgeValue = "\(percent) %"
         }
     }
 //    func refreshFilePosition(newFilePosition filePosition: TestToDo.FilePosition) {
@@ -474,6 +474,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 //    }
     func refreshButtonUI(forFilePosition filePosition: Manager.FilePosition) {
         print("filePosition=\(filePosition)")
+        //testownik.filePosition = filePosition
         if filePosition == .first {
             hideButton(forButtonNumber: 0)
             hideButton(forButtonNumber: 1)
@@ -738,8 +739,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         return found
     }
     func hideButton(forButtonNumber buttonNumber: Int, isHide: Bool = true) {
+        guard buttonNumber < actionsButtonStackView.arrangedSubviews.count else { return }
         if let button = actionsButtonStackView.arrangedSubviews[buttonNumber] as? UIButton {
-            button.isHidden = false //isHide
+            button.isHidden = isHide 
         }
     }
     func clearView() {
@@ -820,6 +822,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         }
         actionsButtonStackView.arrangedSubviews[0].isHidden = (testownik.filePosition == .first)
         actionsButtonStackView.arrangedSubviews[1].isHidden = (testownik.filePosition == .first)
+        actionsButtonStackView.arrangedSubviews[3].isHidden = (testownik.filePosition == .last)
     }
     func getText(fileName: String, encodingSystem encoding: String.Encoding = .utf8) -> [String] {  //windowsCP1250
         var texts: [String] = ["brak"]

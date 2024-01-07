@@ -70,7 +70,7 @@ protocol ManagerDataSource {
 }
 protocol ManagerDelegate {
     func allTestDone()
-    func progress(forCurrentPosition currentPosition: Int, totalCount count:Int)
+    func progress(forCurrentPosition currentPosition: Int, totalPercent percent:Int)
     //func refreshContent(forFileNumber fileNumber: Int)
     func refreshView()
     func refreshButtonUI(forFilePosition filePosition: Manager.FilePosition)
@@ -113,9 +113,13 @@ class Manager: ManagerDataSource  {
     // MARK: variable
     var delegate: ManagerDelegate?
     var count: Int = 0
-    var currentPosition: Int = 0 {
+    var totalCount: Int {
+        return allTestPull.count + loteryTestBasket.count + finishedTest.count
+    }
+    var curFilePos: FilePosition = .first
+    var currentPosition: Int = -1 {
         didSet {
-            var curFilePos: FilePosition = .other
+            curFilePos = .other
             if currentPosition != oldValue || true {
                 if currentPosition == 0 {
                     curFilePos = .first
@@ -123,7 +127,11 @@ class Manager: ManagerDataSource  {
                 else if historycalTest.isLast(currentPosition) && self.finishedAdd {
                     curFilePos = .last
                 }
+                curFilePos = .other
                 delegate?.refreshButtonUI(forFilePosition: curFilePos)
+                //let percent =  testList.count > 0 ? Int((finishedTest.count * 100) / testList.count) : 0
+                let percent =  historycalTest.count > 0 ? Int(((currentPosition + 1) * 100) / historycalTest.count) : 0
+                delegate?.progress(forCurrentPosition: currentPosition, totalPercent: percent)
             }
         }
     }

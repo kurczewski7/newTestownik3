@@ -3,18 +3,29 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "GLOBAL">
+         contextName = "Testownik.first():Testownik.swift">
          <PersistentStrings>
             <PersistentString
-               value = "extraCount">
+               value = "filePosition">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TestToDo.currentPosition.didset:TestToDo.swift">
+         contextName = "Manager.currentPosition.didset:Manager.swift">
          <PersistentStrings>
             <PersistentString
-               value = "filePosition">
+               value = "testownik.filePosition">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TestToDo.createTests():TestToDo.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TestToDo.getNext(onlyNewElement:):TestToDo.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "currentPosition">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -27,18 +38,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CloudPicker.tryEncodingFile(filePath:encoding:):CloudPicker.swift">
-      </ContextState>
-      <ContextState
-         contextName = "Manager.readNext():Manager.swift">
+         contextName = "Testownik.previous():Testownik.swift">
          <PersistentStrings>
             <PersistentString
-               value = "fileNumber">
+               value = "number">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TestToDo.getNext(onlyNewElement:):TestToDo.swift">
+         contextName = "Testownik.fillDataDb():Testownik.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TestToDo.getPrev(onlyNewElement:):TestToDo.swift">
          <PersistentStrings>
             <PersistentString
                value = "currentPosition">
@@ -46,10 +57,46 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Manager.init(_:maxValueLive:groupSize:):Manager.swift">
+         contextName = "Array&lt;&#x3c4;_0_0&gt;.sortFullArrayIntoGroups(forGroupLenth:):Manager.swift">
          <PersistentStrings>
             <PersistentString
-               value = "testList.count">
+               value = "row.map({ $0.fileNumber })">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TestManager.getNext(onlyNewElement:):TestManager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "testownik.testList.count">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "TestToDo.currentPosition.didset:TestToDo.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "filePosition">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "CloudPicker.getText(fromCloudFilePath:):CloudPicker.swift">
+      </ContextState>
+      <ContextState
+         contextName = "TestownikViewController.refreshView():TestownikViewController.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CloudPicker.tryEncodingFile(filePath:encoding:):CloudPicker.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CloudPicker.getTextEncoding(filePath:defaultEncoding:):CloudPicker.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "sss">
+            </PersistentString>
+            <PersistentString
+               value = "val">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -65,35 +112,34 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "TestToDo.createTests():TestToDo.swift">
-      </ContextState>
-      <ContextState
-         contextName = "Testownik.previous():Testownik.swift">
+         contextName = "GLOBAL">
          <PersistentStrings>
             <PersistentString
-               value = "number">
+               value = "extraCount">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "CloudPicker.getText(fromCloudFilePath:):CloudPicker.swift">
+         contextName = "Manager.readNext():Manager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "fileNumber">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "Testownik.fillDataDb():Testownik.swift">
+         contextName = "Manager.init(_:maxValueLive:groupSize:):Manager.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "testList.count">
+            </PersistentString>
+         </PersistentStrings>
       </ContextState>
       <ContextState
          contextName = "Testownik.currentTest.didset:Testownik.swift">
          <PersistentStrings>
             <PersistentString
                value = "testownik.currentElement.answerOptions">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TestToDo.getPrev(onlyNewElement:):TestToDo.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "currentPosition">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -105,33 +151,6 @@
             </PersistentString>
             <PersistentString
                value = "ssf">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "TestManager.getNext(onlyNewElement:):TestManager.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "testownik.testList.count">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "Array&lt;&#x3c4;_0_0&gt;.sortFullArrayIntoGroups(forGroupLenth:):Manager.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "row.map({ $0.fileNumber })">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "CloudPicker.getTextEncoding(filePath:defaultEncoding:):CloudPicker.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "sss">
-            </PersistentString>
-            <PersistentString
-               value = "val">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
