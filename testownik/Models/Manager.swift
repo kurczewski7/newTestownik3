@@ -116,19 +116,23 @@ class Manager: ManagerDataSource  {
     var totalCount: Int {
         return allTestPull.count + loteryTestBasket.count + finishedTest.count
     }
-    var curFilePos: FilePosition = .first
+    var curFilePos: FilePosition = .first {
+        didSet {
+            if curFilePos != oldValue {
+                delegate?.refreshButtonUI(forFilePosition: self.curFilePos)
+            }
+        }
+    }
     var currentPosition: Int = -1 {
         didSet {
-            if currentPosition != oldValue || true {
+            if currentPosition != oldValue  {
                 self.curFilePos = .other
                 if currentPosition == 0 {
                     self.curFilePos = .first
                 }
-                else if historycalTest.isLast(currentPosition) && (self.finishedAdd || true)  {                    
+                else if historycalTest.isLast(currentPosition) && self.finishedAdd   {      //    || true
                     self.curFilePos = .last
                 }
-                //curFilePos = .other
-                delegate?.refreshButtonUI(forFilePosition: self.curFilePos)
                 //let percent =  testList.count > 0 ? Int((finishedTest.count * 100) / testList.count) : 0
                 let percent =  historycalTest.count > 0 ? Int(((currentPosition + 1) * 100) / historycalTest.count) : 0
                 delegate?.progress(forCurrentPosition: currentPosition, totalPercent: percent)
@@ -220,7 +224,7 @@ class Manager: ManagerDataSource  {
         self.currentPosition = 0
         if historycalTest.isEmpty {
             fillHistorycal()
-            fillHistorycal(forSeveralTimes: 11)
+            fillHistorycal(forSeveralTimes: 2)
         }
         if historycalTest.isNotEmpty() {
             self.fileNumber = historycalTest.first!.fileNumber
@@ -231,7 +235,6 @@ class Manager: ManagerDataSource  {
         self.finishedAdd = loteryTestBasket.isEmpty
         guard !(self.finishedAdd && historycalTest.isLast(currentPosition)) else { return false }
         let isNext = historycalTest.isExistNext(currentPosition)
-
         if isNext {
             self.fileNumber = readNext()
         } else {

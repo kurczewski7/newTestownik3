@@ -820,9 +820,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             }
             i += 1
         }
-        actionsButtonStackView.arrangedSubviews[0].isHidden = (testownik.filePosition == .first)
-        actionsButtonStackView.arrangedSubviews[1].isHidden = (testownik.filePosition == .first)
-        actionsButtonStackView.arrangedSubviews[3].isHidden = (testownik.filePosition == .last)
+//        actionsButtonStackView.arrangedSubviews[0].isHidden = (testownik.filePosition == .first)
+//        actionsButtonStackView.arrangedSubviews[1].isHidden = (testownik.filePosition == .first)
+//        actionsButtonStackView.arrangedSubviews[3].isHidden = (testownik.filePosition == .last)
     }
     func getText(fileName: String, encodingSystem encoding: String.Encoding = .utf8) -> [String] {  //windowsCP1250
         var texts: [String] = ["brak"]
