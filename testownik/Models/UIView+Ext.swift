@@ -119,6 +119,15 @@ extension Array  {
         }
         return retVal
     }
+    mutating func getElement(forIndex index : Int, deleteItAfter delete: Bool) -> Element? {
+        var retVal: Element
+        guard self.isInRange(index) else { return nil }
+        retVal = self[index]
+        if delete {
+            self.remove(at: index)
+        }
+        return retVal
+    }
     mutating func getRandomElement(deleteItAfter delete: Bool) -> Element? {
         var retVal: Element
         guard self.count > 0 else { return nil }

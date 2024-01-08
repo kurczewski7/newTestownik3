@@ -143,14 +143,12 @@ class Manager: ManagerDataSource  {
         }
     }
     var groupSize = 0
-    
+    var finishedAdd = true
     var testList : [Test] = [Test]()
     var allTestPull: TestDataArr = TestDataArr()
     var loteryTestBasket: TestDataArr = TestDataArr()
     var historycalTest: TestDataArr = TestDataArr()
     var finishedTest: TestDataArr = TestDataArr()
-    var finishedAdd = true
-    
     var currentTest: Test? {
         get {
             var test: Test?
@@ -226,7 +224,7 @@ class Manager: ManagerDataSource  {
         }
         if historycalTest.isNotEmpty() {
             self.fileNumber = historycalTest.first!.fileNumber
-            self.delegate?.refreshView()
+            //self.delegate?.refreshView()
         }
     }
     func next() -> Bool  {
@@ -251,7 +249,10 @@ class Manager: ManagerDataSource  {
     }
 
     func previous() {
-        
+        self.currentPosition -= self.currentPosition > 0 ? 1 : 0
+        guard let aTest = historycalTest.getElement(forIndex: self.currentPosition, deleteItAfter: false) else { return }
+        self.fileNumber = aTest.fileNumber
+        //self.delegate?.refreshView()
     }
     func last() {
         if let aTest = historycalTest.last {
