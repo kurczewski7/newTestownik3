@@ -119,16 +119,16 @@ class Manager: ManagerDataSource  {
     var curFilePos: FilePosition = .first
     var currentPosition: Int = -1 {
         didSet {
-            curFilePos = .other
             if currentPosition != oldValue || true {
+                self.curFilePos = .other
                 if currentPosition == 0 {
-                    curFilePos = .first
+                    self.curFilePos = .first
                 }
-                else if historycalTest.isLast(currentPosition) && self.finishedAdd {
-                    curFilePos = .last
+                else if historycalTest.isLast(currentPosition) && (self.finishedAdd || true)  {                    
+                    self.curFilePos = .last
                 }
-                curFilePos = .other
-                delegate?.refreshButtonUI(forFilePosition: curFilePos)
+                //curFilePos = .other
+                delegate?.refreshButtonUI(forFilePosition: self.curFilePos)
                 //let percent =  testList.count > 0 ? Int((finishedTest.count * 100) / testList.count) : 0
                 let percent =  historycalTest.count > 0 ? Int(((currentPosition + 1) * 100) / historycalTest.count) : 0
                 delegate?.progress(forCurrentPosition: currentPosition, totalPercent: percent)

@@ -44,7 +44,7 @@ class Testownik: DataOperations, TestownikDataSource {
         {
 //                    // delegate?.refreshButtonUI(forFilePosition: filePosition)
 //                    return testManager?.filePosition ?? TestManager.FilePosition.first
-            return .first  // manager?.curFilePos ?? .first
+                    return manager?.curFilePos ?? .first
                 }}
     override var currentTest: Int  {
         didSet {
