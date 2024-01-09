@@ -78,7 +78,7 @@ protocol ManagerDelegate {
     //func refreshButtonUI(forFilePosition filePosition: TestManager.FilePosition)
 }
 // MARK: class
-class Manager: ManagerDataSource  {    
+class Manager: ManagerDataSource  {
     // MARK: type
     enum FilePosition {
         case first
@@ -237,10 +237,11 @@ class Manager: ManagerDataSource  {
         let isNext = historycalTest.isExistNext(currentPosition)
         if isNext {
             self.fileNumber = readNext()
+            self.currentPosition += 1
         } else {
             self.fileNumber = addNext()
-        }
-        self.currentPosition += 1
+            self.currentPosition = historycalTest.count - 1
+        }        
         return true
     }
     func readNext() -> Int {
@@ -248,9 +249,38 @@ class Manager: ManagerDataSource  {
         return historycalTest[self.currentPosition + 1].fileNumber
     }
     func addNext() -> Int {
+        //var aTest: TestData
+        guard loteryTestBasket.isNotEmpty() else { return 0 }
+        if let aTest = getUniqueElement(forLastValue: self.fileNumber) {
+            historycalTest.append(aTest)
+            return aTest.fileNumber
+        }
         return 0
     }
-
+    func getUniqueElement(forLastValue last: Int) -> TestData? {
+        guard loteryTestBasket.isNotEmpty() else { return nil }
+        if let aTest1 = loteryTestBasket.getRandomElement(deleteItAfter: false), aTest1.fileNumber != last  {
+            self.fileNumber = aTest1.fileNumber
+            print("RANDOM 1: \(aTest1.fileNumber)")
+            return aTest1
+        }
+        if let aTest2 = loteryTestBasket.getRandomElement(deleteItAfter: false), aTest2.fileNumber != last  {
+            self.fileNumber = aTest2.fileNumber
+            print("RANDOM 2: \(aTest2.fileNumber)")
+            return aTest2
+        }
+        if let aTest3 = loteryTestBasket.getRandomElement(deleteItAfter: false), aTest3.fileNumber != last  {
+            self.fileNumber = aTest3.fileNumber
+            print("RANDOM 3: \(aTest3.fileNumber)")
+            return aTest3
+        }
+        if let aTest4 = loteryTestBasket.getRandomElement(deleteItAfter: false), aTest4.fileNumber != last  {
+            self.fileNumber = aTest4.fileNumber
+            print("RANDOM 4: \(aTest4.fileNumber)")
+            return aTest4
+        }
+        return nil
+    }
     func previous() {
         self.currentPosition -= self.currentPosition > 0 ? 1 : 0
         guard let aTest = historycalTest.getElement(forIndex: self.currentPosition, deleteItAfter: false) else { return }

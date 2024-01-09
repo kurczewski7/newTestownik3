@@ -91,6 +91,9 @@ extension Array  {
     func randomOrder(toMax: Int) -> Int {
         return Int(arc4random_uniform(UInt32(toMax)))
     }
+    func randomRange(_ range: Range<Int>) -> Int {
+        return Int.random(in: range)
+    }
     func changeSubArryyOrder(forSubArray array: [Element], fromPosition start: Int, count: Int) -> [Element] {
         //let array = self
         var position = 0
@@ -138,7 +141,9 @@ extension Array  {
             }
             return retVal
         }
-        let idx = randomOrder(toMax: self.count)
+        //let idx = randomOrder(toMax: self.count)
+        let idx = randomRange(0..<self.count)
+        print("IDX:   \(idx)")
         guard self.isInRange(idx) else { return nil }
         retVal = self[idx]
         if delete {
