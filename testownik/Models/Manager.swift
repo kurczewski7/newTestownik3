@@ -150,7 +150,8 @@ class Manager: ManagerDataSource  {
     }
     var groupSize = 0
     var finishedAdd = true
-    let isSortDisplay = false
+    let isSortDisplay = true
+    
     var testList : [Test] = [Test]()
     var allTestPull: TestDataArr = TestDataArr()
     var loteryTestBasket: TestDataArr = TestDataArr()
@@ -240,6 +241,10 @@ class Manager: ManagerDataSource  {
     }
     func next() -> Bool  {
         self.finishedAdd = loteryTestBasket.isEmpty
+        
+        
+        //historycalTest.removeElem { $0.fileNumber == 5 ? true : false }
+        
         guard !(self.finishedAdd && historycalTest.isLast(currentPosition)) else { return false }
         let isNext = historycalTest.isExistNext(currentPosition)
         if isNext {
@@ -352,6 +357,7 @@ class Manager: ManagerDataSource  {
             }
         }
     }
+    // TODO: remove param
     func getFirst(onlyNewElement onlyNew: Bool = false)  -> TestData? {
         if historycalTest.isEmpty {
             return nil
@@ -360,19 +366,32 @@ class Manager: ManagerDataSource  {
             return historycalTest.first
         }
     }
-
     func moveToFinished(forLoteryBasket index: Int) {
         guard loteryTestBasket.isInRange(index) else { return }
         let oneTest = loteryTestBasket[index]
         finishedTest.append(oneTest)
         loteryTestBasket.remove(at: index)
     }
-    func createSortedKey() -> [Int] {
-        return [0]
+    func removeElemFromHistory(forFileNumber fileNumber: Int) {
+        var index = -1
+        guard loteryTestBasket.isNotEmpty() else { return }
+        let tmpArr = loteryTestBasket.map({$0.fileNumber})
+        for i  in 0..<tmpArr.count {
+            if tmpArr[i] == fileNumber {
+                index = i
+                break
+            }
+        }
+        if index >= 0 {
+            loteryTestBasket.remove(at: index)
+        }
     }
-    func reverseSortedKey(_ key: [Int]) -> [Int] {
-        return [0]
-    }
+//    func createSortedKey() -> [Int] {
+//        return [0]
+//    }
+//    func reverseSortedKey(_ key: [Int]) -> [Int] {
+//        return [0]
+//    }
     func save() {
         
     }

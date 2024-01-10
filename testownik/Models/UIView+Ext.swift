@@ -187,5 +187,22 @@ extension Array  {
         }
         return retVal
     }
+    //historycalTest.removeElem({$0.fileNumber == 2 ? true : false})
+    mutating func removeElem(_ conditionForDelete: (Self.Element) -> Bool)  -> [Element] {
+        var index = -1
+        guard self.isNotEmpty() else { return [] }
+        let tmpArr = self.map(conditionForDelete)
+        print("tmpArr: \(tmpArr)")
+        for i  in (0..<tmpArr.count).reversed() {
+            if tmpArr[i] == true {
+                index = i
+                break
+            }
+        }
+        if index >= 0 {
+            self.remove(at: index)
+        }
+        return self
+    }
 }
 
