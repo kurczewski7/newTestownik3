@@ -134,7 +134,7 @@ extension Array  {
     mutating func getRandomElement(deleteItAfter delete: Bool) -> Element? {
         var retVal: Element
         guard self.count > 0 else { return nil }
-        guard self.count == 1 else {
+        guard self.count > 1 else {
             retVal = self[0]
             if delete {
                 self.remove(at: 0)

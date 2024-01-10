@@ -11,6 +11,7 @@ import Foundation
 //    var currentIndex: Int { get }
 //}
 
+//---------------------------------
 // MARK: extension
 typealias TestDataArr = [Manager.TestData]
 extension TestDataArr {
@@ -52,7 +53,7 @@ extension TestDataArr {
         return tmpArr
     }
 }
-
+//---------------------------------
 // MARK: protocol
 protocol ManagerDataSource {
     var count: Int { get }
@@ -77,6 +78,7 @@ protocol ManagerDelegate {
     
     //func refreshButtonUI(forFilePosition filePosition: TestManager.FilePosition)
 }
+//---------------------------------
 // MARK: class
 class Manager: ManagerDataSource  {
     // MARK: type
@@ -148,6 +150,7 @@ class Manager: ManagerDataSource  {
     }
     var groupSize = 0
     var finishedAdd = true
+    let isSortDisplay = false
     var testList : [Test] = [Test]()
     var allTestPull: TestDataArr = TestDataArr()
     var loteryTestBasket: TestDataArr = TestDataArr()
@@ -155,12 +158,12 @@ class Manager: ManagerDataSource  {
     var finishedTest: TestDataArr = TestDataArr()
     var currentTest: Test? {
         get {
+            
             var test: Test?
             // FIXME: empty testList
             guard testList.isInRange(fileNumber) else { return nil }
-            
             test = testList[fileNumber]
-            
+            guard isSortDisplay else { return test }
             if let options = test?.answerOptions {
                 print("\(options)")
                 let sortKey = options.createSortKey()
@@ -175,6 +178,10 @@ class Manager: ManagerDataSource  {
         set {
             guard testList.isInRange(fileNumber) else { return  }
             if var test = newValue {
+                guard isSortDisplay else {
+                    testList[fileNumber] = test
+                    return
+                }
                 let options = test.answerOptions
                 let sortKey = options.createSortKey()
                 let sortOptions = options.reversSortArray(forUserKey: sortKey)
