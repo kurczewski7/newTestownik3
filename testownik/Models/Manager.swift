@@ -152,6 +152,7 @@ class Manager: ManagerDataSource  {
                 else if historycalTest.isLast(currentPosition) && self.finishedAdd   {      //    || true
                     self.curFilePos = .last
                 }
+                //self.currentTest = getCurrentTest()
                 //let percent =  testList.count > 0 ? Int((finishedTest.count * 100) / testList.count) : 0
                 let percent =  historycalTest.count > 0 ? Int(((currentPosition + 1) * 100) / historycalTest.count) : 0
                 delegate?.progress(forCurrentPosition: currentPosition, totalPercent: percent)
@@ -160,22 +161,7 @@ class Manager: ManagerDataSource  {
     }
     var currentTest: Test? {
         get {
-            
-            var test: Test?
-            // FIXME: empty testList
-            guard testList.isInRange(fileNumber) else { return nil }
-            test = testList[fileNumber]
-            guard isSortDisplay else { return test }
-            if let options = test?.answerOptions {
-                print("\(options)")
-                let sortKey = options.createSortKey()
-                let sortOptions = options.sortArray(forUserKey: sortKey)
-                if test != nil {
-                    test!.answerOptions = sortOptions
-                }
-                print("\(sortOptions)")
-            }
-            return test
+            return  getCurrentTest()
         }
         set {
             guard testList.isInRange(fileNumber) else { return  }
@@ -208,12 +194,24 @@ class Manager: ManagerDataSource  {
         print("TEST LIST=\(testList.map({$0.fileNumber}))")
         //let xx = currentTest
     }
-    //        _ testList: inout [Test])
-    //        let lifeValue = 1
-    //        let groupSize = 5
-    //         self.testList = testList
-
     // MARK: methods
+    func getCurrentTest() -> Test? {
+        var test: Test?
+        // FIXME: empty testList
+        guard testList.isInRange(fileNumber) else { return nil }
+        test = testList[fileNumber]
+        guard isSortDisplay else { return test }
+        if let options = test?.answerOptions {
+            print("\(options)")
+            let sortKey = options.createSortKey()
+            let sortOptions = options.sortArray(forUserKey: sortKey)
+            if test != nil {
+                test!.answerOptions = sortOptions
+            }
+            print("\(sortOptions)")
+        }
+        return test
+    }
     func setHistoryAnswers(forOptions options: [Testownik.Answer]) {
         var isCorect = true
         let youAnswerArr = options.map({ $0.lastYourCheck ? 1 : 0 })
