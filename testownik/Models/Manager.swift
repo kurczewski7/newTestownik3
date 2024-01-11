@@ -115,6 +115,23 @@ class Manager: ManagerDataSource  {
     // MARK: variable
     var delegate: ManagerDelegate?
     var count: Int = 0
+    var groupSize = 0
+    var finishedAdd = true
+    let isSortDisplay = true
+    
+    var testList : [Test] = [Test]()
+    var allTestPull: TestDataArr = TestDataArr()
+    var loteryTestBasket: TestDataArr = TestDataArr()
+    var historycalTest: TestDataArr = TestDataArr()
+    var finishedTest: TestDataArr = TestDataArr()
+
+    var fileNumber: Int = -1 {
+        didSet {
+            if fileNumber != oldValue {
+                delegate?.refreshView()
+            }
+        }
+    }
     var totalCount: Int {
         return allTestPull.count + loteryTestBasket.count + finishedTest.count
     }
@@ -141,22 +158,6 @@ class Manager: ManagerDataSource  {
             }
         }
     }
-    var fileNumber: Int = -1 {
-        didSet {
-            if fileNumber != oldValue {
-                delegate?.refreshView()
-            }
-        }
-    }
-    var groupSize = 0
-    var finishedAdd = true
-    let isSortDisplay = true
-    
-    var testList : [Test] = [Test]()
-    var allTestPull: TestDataArr = TestDataArr()
-    var loteryTestBasket: TestDataArr = TestDataArr()
-    var historycalTest: TestDataArr = TestDataArr()
-    var finishedTest: TestDataArr = TestDataArr()
     var currentTest: Test? {
         get {
             
