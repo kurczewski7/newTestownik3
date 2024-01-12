@@ -145,6 +145,7 @@ class Manager: ManagerDataSource  {
     var currentPosition: Int = -1 {
         didSet {
             if currentPosition != oldValue  {
+                
                 self.curFilePos = .other
                 if currentPosition == 0 {
                     self.curFilePos = .first
@@ -159,29 +160,19 @@ class Manager: ManagerDataSource  {
             }
         }
     }
+    var tmpTest: Test?
     var currentTest: Test? {
         get {
             return  getCurrentTest()
         }
         set {
-            guard testList.isInRange(fileNumber) else { return  }
-            if var test = newValue {
-                guard isSortDisplay else {
-                    testList[fileNumber] = test
-                    return
-                }
-                let options = test.answerOptions
-                let sortKey = options.createSortKey()
-                let sortOptions = options.reversSortArray(forUserKey: sortKey)
-                test.answerOptions = sortOptions
-                testList[fileNumber] = test
-                setHistoryAnswers(forOptions: options)
-            }
+            setCurrenTest(forNewValue: newValue)
         }
     }
     var currentHistory: TestData? {
         get {
-            return self.historycalTest.first 
+            guard historycalTest.isInRange(currentPosition) else { return nil }
+            return historycalTest[currentPosition]
         }
     }
     
@@ -211,6 +202,22 @@ class Manager: ManagerDataSource  {
             print("\(sortOptions)")
         }
         return test
+    }
+    func setCurrenTest(forNewValue newValue: Test?) {
+        guard testList.isInRange(fileNumber) else { return  }
+        if var test = newValue {
+            guard isSortDisplay else {
+                testList[fileNumber] = test
+                return
+            }
+            let options = test.answerOptions
+            let sortKey = options.createSortKey()
+            let sortOptions = options.reversSortArray(forUserKey: sortKey)
+            test.answerOptions = sortOptions
+            testList[fileNumber] = test
+            setHistoryAnswers(forOptions: options)
+        }
+
     }
     func setHistoryAnswers(forOptions options: [Testownik.Answer]) {
         var isCorect = true
