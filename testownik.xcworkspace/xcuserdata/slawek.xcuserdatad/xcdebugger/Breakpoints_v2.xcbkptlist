@@ -1702,8 +1702,8 @@
             filePath = "testownik/Models/Manager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "266"
-            endingLineNumber = "266"
+            startingLineNumber = "269"
+            endingLineNumber = "269"
             landmarkName = "readNext()"
             landmarkType = "7">
             <Locations>
@@ -1798,8 +1798,8 @@
             filePath = "testownik/Models/Manager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "249"
-            endingLineNumber = "249"
+            startingLineNumber = "252"
+            endingLineNumber = "252"
             landmarkName = "next()"
             landmarkType = "7">
          </BreakpointContent>
@@ -1908,8 +1908,8 @@
             filePath = "testownik/Models/Manager.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "271"
-            endingLineNumber = "271"
+            startingLineNumber = "274"
+            endingLineNumber = "274"
             landmarkName = "addNext()"
             landmarkType = "7">
          </BreakpointContent>

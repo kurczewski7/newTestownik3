@@ -145,7 +145,7 @@ class Manager: ManagerDataSource  {
     var currentPosition: Int = -1 {
         didSet {
             if currentPosition != oldValue  {
-                
+                self.currentTest = getCurrentTest()
                 self.curFilePos = .other
                 if currentPosition == 0 {
                     self.curFilePos = .first
@@ -162,12 +162,15 @@ class Manager: ManagerDataSource  {
     }
     var tmpTest: Test?
     var currentTest: Test? {
-        get {
-            return  getCurrentTest()
+        willSet {
+                setCurrenTest(forNewValue: newValue)
         }
-        set {
-            setCurrenTest(forNewValue: newValue)
-        }
+//        get {
+//            return  getCurrentTest()
+//        }
+//        set {
+//            setCurrenTest(forNewValue: newValue)
+//        }
     }
     var currentHistory: TestData? {
         get {
