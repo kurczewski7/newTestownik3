@@ -125,13 +125,6 @@ class Manager: ManagerDataSource  {
     var historycalTest: TestDataArr = TestDataArr()
     var finishedTest: TestDataArr = TestDataArr()
 
-    var fileNumber: Int = -1 {
-        didSet {
-            if fileNumber != oldValue {
-                delegate?.refreshView()
-            }
-        }
-    }
     var totalCount: Int {
         return allTestPull.count + loteryTestBasket.count + finishedTest.count
     }
@@ -142,9 +135,19 @@ class Manager: ManagerDataSource  {
             }
         }
     }
+    var fileNumber: Int = -1 {
+        didSet {
+            if fileNumber != oldValue {
+                delegate?.refreshView()
+            }
+        }
+    }
     var currentPosition: Int = -1 {
         didSet {
             if currentPosition != oldValue  {
+                if let fileNr = currentHistory?.fileNumber {
+                    self.fileNumber = fileNr
+                }
                 self.currentTest = getCurrentTest()
                 self.curFilePos = .other
                 if currentPosition == 0 {
@@ -153,7 +156,6 @@ class Manager: ManagerDataSource  {
                 else if historycalTest.isLast(currentPosition) && self.finishedAdd   {      //    || true
                     self.curFilePos = .last
                 }
-                //self.currentTest = getCurrentTest()
                 //let percent =  testList.count > 0 ? Int((finishedTest.count * 100) / testList.count) : 0
                 let percent =  historycalTest.count > 0 ? Int(((currentPosition + 1) * 100) / historycalTest.count) : 0
                 delegate?.progress(forCurrentPosition: currentPosition, totalPercent: percent)
