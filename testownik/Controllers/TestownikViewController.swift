@@ -112,7 +112,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         if testownik.filePosition != .first  {       testownik.previous()  }
     }
     @IBAction func checkButtonPress(_ sender: UIButton) {
-        guard let currTest = testownik[testownik.currentTest] else {    return        }
+        guard let currTest = testownik[testownik.currentTestNumber] else {    return        }
         let countTest = currTest.answerOptions.count        //okAnswers.count
         for i in 0..<countTest {
             if let button = stackView.arrangedSubviews[i] as? UIButton {
@@ -228,7 +228,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         let isOk = testownik.isAllAnswersOk()
         print("Twoj wybór: \(isOk)")
         
-        guard let currTest = testownik[testownik.currentTest] else {    return        }
+        guard let currTest = testownik[testownik.currentTestNumber] else {    return        }
         let countTest = currTest.answerOptions.count        //okAnswers.count
     }
     func checkOrientation() {
@@ -441,7 +441,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         }
     }
     func swipeRefreshUI(direction: UISwipeGestureRecognizer.Direction) {
-        print("=====\nA currentTest: \(testownik.currentTest)")
+        print("=====\nA currentTest: \(testownik.currentTestNumber)")
         //if let tag =
         switch direction {
             case .right:
@@ -465,7 +465,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             default:
                 print("Swipe unrecognized")
             }
-         print("Y pos: \(testownik.currentTest)")
+         print("Y pos: \(testownik.currentTestNumber)")
     }
     
     // MARK: TestownikDelegate protocol "refreshUI" metods
@@ -689,13 +689,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         var isChecked:Bool = false
         
         print("buttonAnswerPress:\(youSelectedNumber)")
-        guard testownik.currentTest < testownik.count else {  return   }
-        isChecked = testownik[testownik.currentTest]?.youAnswer2.contains(youSelectedNumber) ?? false
+        guard testownik.currentTestNumber < testownik.count else {  return   }
+        isChecked = testownik[testownik.currentTestNumber]?.youAnswer2.contains(youSelectedNumber) ?? false
         if isChecked {
-            testownik[testownik.currentTest]?.youAnswer2.remove(youSelectedNumber)
+            testownik[testownik.currentTestNumber]?.youAnswer2.remove(youSelectedNumber)
             isChecked = false
         } else  {
-            testownik[testownik.currentTest]?.youAnswer2.insert(youSelectedNumber)
+            testownik[testownik.currentTestNumber]?.youAnswer2.insert(youSelectedNumber)
             isChecked = true
         }
         //#colorLiteral(red: 0.9995340705, green: 0.988355577, blue: 0.4726552367, alpha: 1)
@@ -721,13 +721,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 //            button.layer.borderWidth = 3
 //            button.layer.borderColor = okAnswer ? UIColor.green.cgColor : UIColor.red.cgColor
 //        }
-        print("aswers:\(testownik[testownik.currentTest]?.youAnswers5)")
-        print("aswers2:\(testownik[testownik.currentTest]?.youAnswer2.sorted())")
+        print("aswers:\(testownik[testownik.currentTestNumber]?.youAnswers5)")
+        print("aswers2:\(testownik[testownik.currentTestNumber]?.youAnswer2.sorted())")
     }
     func isAnswerOk(selectedOptionForTest selectedOption: Int) -> Bool {
          var value = false
-        if  selectedOption < testownik[testownik.currentTest]?.answerOptions.count ?? 0 {
-            value = testownik[testownik.currentTest]?.answerOptions[selectedOption].isOK ?? false
+        if  selectedOption < testownik[testownik.currentTestNumber]?.answerOptions.count ?? 0 {
+            value = testownik[testownik.currentTestNumber]?.answerOptions[selectedOption].isOK ?? false
         }
         return value
     }
@@ -767,8 +767,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         //testownik.currentTest = testownik.testManager?.getCurFileNumber() ?? 555
         //let cur = test
         guard var aTest = test else { return }
-        print("__ refreshView:\(testownik.currentTest)")
-        guard testownik.currentTest < testownik.count else {
+        print("__ refreshView:\(testownik.currentTestNumber)")
+        guard testownik.currentTestNumber < testownik.count else {
             print("JEST \(testownik.count)  TESTOW")
             return            
         }

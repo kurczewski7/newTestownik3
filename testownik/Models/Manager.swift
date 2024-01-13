@@ -160,17 +160,11 @@ class Manager: ManagerDataSource  {
             }
         }
     }
-    var tmpTest: Test?
+    //var tmpTest: Test?
     var currentTest: Test? {
         willSet {
                 setCurrenTest(forNewValue: newValue)
         }
-//        get {
-//            return  getCurrentTest()
-//        }
-//        set {
-//            setCurrenTest(forNewValue: newValue)
-//        }
     }
     var currentHistory: TestData? {
         get {

@@ -46,7 +46,7 @@ class Testownik: DataOperations, TestownikDataSource {
 //                    return testManager?.filePosition ?? TestManager.FilePosition.first
                     return manager?.curFilePos ?? .first
                 }}
-    override var currentTest: Int  {
+    override var currentTestNumber: Int  {
         didSet {
 //            print("currentTest:\(oldValue),\(currentTest), testownik.testManager ?.currentPosition=\(testManager?.currentPosition ?? 77), testownik.currentTest=\(currentTest), \(filePosition) ")
             // TODO: ???
@@ -258,7 +258,7 @@ class Testownik: DataOperations, TestownikDataSource {
     }
     func isAllAnswersOk() -> Bool {
         var retValue = true
-        for (key, value) in testList[currentTest].answerOptions.enumerated() {
+        for (key, value) in testList[currentTestNumber].answerOptions.enumerated() {
             if value.lastYourCheck != value.isOK {
                 retValue = false
                 break
@@ -271,10 +271,10 @@ class Testownik: DataOperations, TestownikDataSource {
     }
     func switchYourAnsfer(selectedOptionForTest selectedOption: Int)     {
         var value: Bool = false
-        if  selectedOption < testList[currentTest].answerOptions.count {
-            value = testList[currentTest].answerOptions[selectedOption].lastYourCheck
+        if  selectedOption < testList[currentTestNumber].answerOptions.count {
+            value = testList[currentTestNumber].answerOptions[selectedOption].lastYourCheck
             value.toggle()
-            testList[currentTest].answerOptions[selectedOption].lastYourCheck = value
+            testList[currentTestNumber].answerOptions[selectedOption].lastYourCheck = value
         }
     }
     func findValue<T: Comparable>(currentList: [T], valueToFind: T) -> Int {
