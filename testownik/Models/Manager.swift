@@ -234,7 +234,6 @@ class Manager: ManagerDataSource  {
         historycalTest[currentPosition].oneWasSelected = oneWasSelected            
     }
     func first() {
-        self.currentPosition = 0
         if historycalTest.isEmpty {
             fillHistorycal()
             fillHistorycal(forSeveralTimes: 2)
@@ -243,6 +242,7 @@ class Manager: ManagerDataSource  {
             self.fileNumber = historycalTest.first!.fileNumber
             //self.delegate?.refreshView()
         }
+        self.currentPosition = 0
     }
     func next() -> Bool  {
         self.finishedAdd = loteryTestBasket.isEmpty

@@ -129,6 +129,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         testownik.manager?.delegate = self
                 
         testownik.first()
+        //testownik.manager?.first()
         
         print("TestownikViewController viewDidLoad-testownik.count:\(testownik.count)")
         Settings.shared.saveTestPreferences()
@@ -757,23 +758,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         }
     }
     func refreshView() {
-        //testownik.first()
+        guard var aTest = test else { return }
         print("COUNT:: \(testownik.manager?.testList.count)")
         print("refreshView")
+        print("__ refreshView:\(testownik.currentTestNumber)")
+        
         var i = 0
         let image = UIImage(named: "002.png")
         let set = Set([6,8,9])
-        
-        //testownik.currentTest = testownik.testManager?.getCurFileNumber() ?? 555
-        //let cur = test
-        guard var aTest = test else { return }
-        print("__ refreshView:\(testownik.currentTestNumber)")
-        guard testownik.currentTestNumber < testownik.count else {
-            print("JEST \(testownik.count)  TESTOW")
-            return            
-        }
-        //guard let txtFile = testownik[testownik.currentTest]?.fileName, testownik.currentTest < testownik.count else {   return   }
-        guard var aTest = test  else {   return   }
         let txtFile = aTest.fileName
         
         self.title = "Test \(txtFile)"
@@ -783,30 +775,22 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         aTest.youAnswers5.removeAll()
         askLabel.text = aTest.ask
         
-//        testownik[testownik.currentTest]!.youAnswer2 = []
-//        let totalQuest = testownik[testownik.currentTest]!.answerOptions.count
-//        testownik[testownik.currentTest]!.youAnswers5 = []
-//        askLabel.text = testownik[testownik.currentTest]!.ask
-//        //askPicture.image = testownik[testownik.currentTest].pict
-//        //testownik[testownik.currentTest].pict = UIImage(named: "004.png")
-        
         if  let currPict = aTest.pict {
             askPicture.image = currPict
             pictureSwitchOn = true
         }
         else {
             pictureSwitchOn = false
-        }     
-        //let test = testownik.currentElement
+        }
         for curButt in stackView.arrangedSubviews     {
-            if let aTest = test, let butt = curButt as? UIButton {
+            if let butt = curButt as? UIButton {
                 butt.contentHorizontalAlignment =  (Setup.isNumericQuestions ? .left : .center)
                 butt.isHidden = (i < totalQuest) ? false : true
                 guard testownik.isCurrentValid else {   return     }
                 butt.setTitle((i < totalQuest) ? Setup.getNumericPict(number: i) + aTest.answerOptions[i].answerOption : "", for: .normal)
                 butt.layer.borderWidth = 1
                 butt.layer.borderColor = UIColor.brown.cgColor
-                let isSelect = aTest.youAnswer2.contains(i) ?? false
+                let isSelect = aTest.youAnswer2.contains(i) 
                 butt.layer.backgroundColor = isSelect ? selectedColor.cgColor: unSelectedColor.cgColor
                 markSelected(forCurrentTest: aTest, forButton: butt, optionNr: i)
                 // MARK: ggggg ffffff
