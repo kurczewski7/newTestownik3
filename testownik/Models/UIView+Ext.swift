@@ -71,6 +71,8 @@ extension UIView {
 
 }
 extension Array  {
+    typealias IndexValue = (index: Int, value: Element)
+    
     func isNotEmpty() -> Bool {
         return !self.isEmpty
     }
@@ -151,6 +153,29 @@ extension Array  {
         }
         return retVal
     }
+    mutating func getRandomElemIndexValue(deleteItAfter delete: Bool) -> IndexValue? {
+        var retVal: IndexValue
+        guard self.count > 0 else { return nil }
+        guard self.count > 1 else {
+            retVal.value = self[0]
+            retVal.index = 0
+            if delete {
+                self.remove(at: 0)
+            }
+            return retVal
+        }
+        //let idx = randomOrder(toMax: self.count)
+        let idx = randomRange(0..<self.count)
+        print("IDX:   \(idx)")
+        guard self.isInRange(idx) else { return nil }
+        retVal.value = self[idx]
+        retVal.index = idx
+        if delete {
+            self.remove(at: idx)
+        }
+        return retVal
+    }
+
     func createSortKey() -> [Int] {
         let len = self.count
         guard len > 0 else { return [Int]() }

@@ -185,7 +185,7 @@ class Manager: ManagerDataSource  {
         //let xx = currentTest
     }
     // MARK: methods
-    func getCurrentTest() -> Test? {
+    fileprivate func getCurrentTest() -> Test? {
         var test: Test?
         // FIXME: empty testList
         guard testList.isInRange(fileNumber) else { return nil }
@@ -202,7 +202,7 @@ class Manager: ManagerDataSource  {
         }
         return test
     }
-    func setCurrenTest(forNewValue newValue: Test?) {
+    fileprivate func setCurrenTest(forNewValue newValue: Test?) {
         guard testList.isInRange(fileNumber) else { return  }
         if var test = newValue {
             guard isSortDisplay else {
@@ -210,13 +210,22 @@ class Manager: ManagerDataSource  {
                 return
             }
             let options = test.answerOptions
-            let sortKey = options.createSortKey()
-            let sortOptions = options.reversSortArray(forUserKey: sortKey)
-            test.answerOptions = sortOptions
+            if historycalTest.isInRange(currentPosition) {
+                var curTmp =  historycalTest[currentPosition]
+                if curTmp.keySort.isEmpty {
+                    curTmp.keySort = options.createSortKey()
+                }
+            }
+            if historycalTest.isInRange(currentPosition) {
+                let sortKey = historycalTest[currentPosition].keySort
+                if sortKey.isNotEmpty() {
+                    let sortOptions = options.reversSortArray(forUserKey: sortKey)
+                    test.answerOptions = sortOptions
+                }
+            }
             testList[fileNumber] = test
             setHistoryAnswers(forOptions: options)
         }
-
     }
     func setHistoryAnswers(forOptions options: [Testownik.Answer]) {
         var isCorect = true
@@ -265,10 +274,20 @@ class Manager: ManagerDataSource  {
         guard historycalTest.isInRange(self.currentPosition + 1) else { return 0 }
         return historycalTest[self.currentPosition + 1].fileNumber
     }
+    fileprivate func addSortedKey(toTest test: inout Manager.TestData) {
+        let fileNumber = test.fileNumber
+        if testList.isInRange(fileNumber) {
+            let keySort = testList[fileNumber].answerOptions.createSortKey()
+            if keySort.isNotEmpty() {
+                test.keySort = keySort
+            }
+        }
+    }
     func addNext() -> Int {
         //var aTest: TestData
         guard loteryTestBasket.isNotEmpty() else { return 0 }
-        if let aTest = getUniqueElement(forLastValue: self.fileNumber) {
+        if var aTest = getUniqueElement(forLastValue: self.fileNumber) {
+            addSortedKey(toTest: &aTest)
             historycalTest.append(aTest)
             return aTest.fileNumber
         }
@@ -351,9 +370,10 @@ class Manager: ManagerDataSource  {
     }
     func fillHistorycal(forSeveralTimes times: Int = 1) {
         for i in 1...times {
-            if let test = loteryTestBasket.getRandomElement(deleteItAfter: true) {
-                self.fileNumber = test.fileNumber
-                historycalTest.append(test)
+            if var aTest = loteryTestBasket.getRandomElement(deleteItAfter: true) {
+                self.fileNumber = aTest.fileNumber
+                addSortedKey(toTest: &aTest)
+                historycalTest.append(aTest)
                 if loteryTestBasket.count < self.groupSize {
                     if let elem = allTestPull.getFirsElement(deleteItAfter: true) {  //if let elem = allTestPull.first
                         loteryTestBasket.append(elem)
