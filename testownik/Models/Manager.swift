@@ -245,7 +245,7 @@ class Manager: ManagerDataSource  {
     func first() {
         if historycalTest.isEmpty {
             fillHistorycal()
-            fillHistorycal(forSeveralTimes: 2)
+            //fillHistorycal(forSeveralTimes: 2)
         }
         if historycalTest.isNotEmpty() {
             self.fileNumber = historycalTest.first!.fileNumber
@@ -289,6 +289,10 @@ class Manager: ManagerDataSource  {
         if var aTest = getUniqueElement(forLastValue: self.fileNumber) {
             addSortedKey(toTest: &aTest)
             historycalTest.append(aTest)
+            // MARK: TO DO delete
+            loteryTestBasket.removeElem { elem in
+                return elem.fileNumber == aTest.fileNumber ? true : false
+            }
             return aTest.fileNumber
         }
         return 0
