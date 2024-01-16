@@ -761,7 +761,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 //        test?.answerOptions[0].lastYourCheck
 //        test?.answerOptions[1].isOK
         guard var aTest = test else { return }
-        //aTest.answerOptions[0].
+        //aTest.answerOptions[0].lastYourCheck = true
         print("COUNT:: \(testownik.manager?.testList.count)")
         print("refreshView")
         print("__ refreshView:\(testownik.currentTestNumber)")

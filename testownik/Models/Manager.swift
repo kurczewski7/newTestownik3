@@ -185,20 +185,40 @@ class Manager: ManagerDataSource  {
         //let xx = currentTest
     }
     // MARK: methods
+    fileprivate func setOptionsParam(_ sortOptions: inout [Testownik.Answer]) {
+        //let xx = currentHistory?.answerOptions[1].lastYourCheck
+        guard let tmpOpt = currentHistory?.answerOptions else { return }
+                for i in 0..<tmpOpt.count {
+                    if sortOptions.isInRange(i) && tmpOpt.isInRange(i) {
+                        sortOptions[i].lastYourCheck = tmpOpt[i].lastYourCheck
+                    }
+                }
+        //sortOptions[1].lastYourCheck = currentHistory?.answerOptions[1].lastYourCheck
+    }
+    
     fileprivate func getCurrentTest() -> Test? {
         var test: Test?
         // FIXME: empty testList
         guard testList.isInRange(fileNumber) else { return nil }
         test = testList[fileNumber]
-        guard isSortDisplay else { return test }
+        guard isSortDisplay else {
+            var tmpOptins =  test!.answerOptions
+            setOptionsParam(&tmpOptins)
+            test?.answerOptions = tmpOptins
+            return test
+        }
         if let options = test?.answerOptions {
             print("\(options)")
-            let sortKey = options.createSortKey()
-            let sortOptions = options.sortArray(forUserKey: sortKey)
-            if test != nil {
+            if let sortKey = currentHistory?.keySort,  test != nil {  //options.createSortKey()
+                var sortOptions = options.sortArray(forUserKey: sortKey)
+                setOptionsParam(&sortOptions)
                 test!.answerOptions = sortOptions
+                print("\(sortOptions)")
             }
-            print("\(sortOptions)")
+//            if test != nil {
+//                test!.answerOptions = sortOptions
+//            }
+//            print("\(sortOptions)")
         }
         return test
     }
@@ -209,7 +229,10 @@ class Manager: ManagerDataSource  {
                 testList[fileNumber] = test
                 return
             }
-            let options = test.answerOptions
+            var options = test.answerOptions
+//            options[1].lastYourCheck = true  //aTest.answerOptions[0].lastYourCheck = true
+//            options[1].lastYourCheck = true
+//            options[0].lastYourCheck = true
             if historycalTest.isInRange(currentPosition) {
                 var curTmp =  historycalTest[currentPosition]
                 if curTmp.keySort.isEmpty {
@@ -288,6 +311,8 @@ class Manager: ManagerDataSource  {
         guard loteryTestBasket.isNotEmpty() else { return 0 }
         if var aTest = getUniqueElement(forLastValue: self.fileNumber) {
             addSortedKey(toTest: &aTest)
+            //MARK: todo
+            aTest.answerOptions[1].lastYourCheck
             historycalTest.append(aTest)
             // MARK: TO DO delete
             loteryTestBasket.removeElem { elem in

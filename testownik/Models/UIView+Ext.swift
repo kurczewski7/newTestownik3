@@ -193,9 +193,18 @@ extension Array  {
         }
         return sortedArray
     }
-    func sortArray(forUserKey key: [Int]) -> [Element] {  // [aa, bb, cc] ->  [bb, cc, aa]
+    func sortArray(forUserKey aKey: [Int]?) -> [Element] {
+        // [aa, bb, cc] ->  [bb, cc, aa]
+        var retVal: [Element] = [Element]()
+//        if key == nil {
+//            return self
+//        } else if key!.isEmpty  {
+//            return self
+//        }
+        guard let key = aKey else { return self }
+        guard key.isEmpty else { return self }        
         let len = Swift.min(self.count, key.count)
-        var retVal: [Element] = [Element]() // [1, 2, 0]
+         // [1, 2, 0]
         for i in 0..<len {
             retVal.append(self[key[i]])
         }
