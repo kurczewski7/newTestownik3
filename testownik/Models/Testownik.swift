@@ -270,6 +270,7 @@ class Testownik: DataOperations, TestownikDataSource {
         return retValue
     }
     func switchYourAnsfer(selectedOptionForTest selectedOption: Int)     {
+        // MARK: to do switchYourAnsfer
         var value: Bool = false
         if  selectedOption < testList[currentTestNumber].answerOptions.count {
             value = testList[currentTestNumber].answerOptions[selectedOption].lastYourCheck
