@@ -95,7 +95,7 @@ class Manager: ManagerDataSource  {
         case finished  = 4
     }
     struct AnswerShort {
-            let isOK: Bool
+            var isOK: Bool
             var lastYourCheck: Bool = false
     }
     struct TestData {
@@ -215,10 +215,6 @@ class Manager: ManagerDataSource  {
                 test!.answerOptions = sortOptions
                 print("\(sortOptions)")
             }
-//            if test != nil {
-//                test!.answerOptions = sortOptions
-//            }
-//            print("\(sortOptions)")
         }
         return test
     }
@@ -250,7 +246,7 @@ class Manager: ManagerDataSource  {
             setHistoryAnswers(forOptions: options)
         }
     }
-    func setHistoryAnswers(forOptions options: [Testownik.Answer]) {
+    fileprivate func setHistoryAnswers(forOptions options: [Testownik.Answer]) {
         var isCorect = true
         let youAnswerArr = options.map({ $0.lastYourCheck ? 1 : 0 })
         let isOkArr = options.map({$0.isOK ? 1 : 0 })
@@ -304,6 +300,12 @@ class Manager: ManagerDataSource  {
             if keySort.isNotEmpty() {
                 test.keySort = keySort
             }
+            let shortAnswer = AnswerShort(isOK: false, lastYourCheck: false)
+            let aArr = [AnswerShort](repeating: shortAnswer, count: keySort.count)
+            test.answerOptions.append(contentsOf: aArr)
+            test.answerOptions[1].lastYourCheck = true
+            
+            //test.answerOptions[1].isOK = true
         }
     }
     func addNext() -> Int {
