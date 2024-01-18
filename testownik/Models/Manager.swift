@@ -269,7 +269,13 @@ class Manager: ManagerDataSource  {
     }
     func getSelectedOption(forOptionNumber number: Int) -> AnswerShort? {
         guard let options = currentHistory?.answerOptions, options.isInRange(number) else { return nil }
-        return options[number]        
+        //let options = getOpions()
+        guard options.isInRange(number) else { return nil }
+        return options[number]
+    }
+    func getOpions() -> [AnswerShort] {
+        guard let options = currentHistory?.answerOptions else { return [AnswerShort]() }
+        return options
     }
     func first() {
         if historycalTest.isEmpty {

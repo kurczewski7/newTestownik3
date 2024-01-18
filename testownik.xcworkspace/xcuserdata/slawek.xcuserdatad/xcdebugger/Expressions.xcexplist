@@ -3,18 +3,18 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "Testownik.first():Testownik.swift">
-         <PersistentStrings>
-            <PersistentString
-               value = "filePosition">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "Manager.currentPosition.didset:Manager.swift">
          <PersistentStrings>
             <PersistentString
                value = "testownik.filePosition">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Testownik.first():Testownik.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "filePosition">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -26,6 +26,14 @@
          <PersistentStrings>
             <PersistentString
                value = "currentPosition">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "Testownik.next():Testownik.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "database.testDescriptionTable[0]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
