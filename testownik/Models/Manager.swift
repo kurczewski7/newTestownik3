@@ -185,6 +185,12 @@ class Manager: ManagerDataSource  {
         //let xx = currentTest
     }
     // MARK: methods
+    func changeAnswer(forNumberOption number: Int) {
+        guard historycalTest.isInRange(currentPosition), historycalTest[currentPosition].answerOptions.isInRange(number) else {  return }
+        historycalTest[currentPosition].answerOptions[number].lastYourCheck.toggle()
+        
+//        test.answerOptions[number].lastYourCheck = historycalTest[currentPosition].answerOptions[number].lastYourCheck
+    }
     fileprivate func setOptionsParam(_ sortOptions: inout [Testownik.Answer]) {
         //let xx = currentHistory?.answerOptions[1].lastYourCheck
         guard let tmpOpt = currentHistory?.answerOptions else { return }
@@ -308,7 +314,7 @@ class Manager: ManagerDataSource  {
             //test.answerOptions[1].isOK = true
         }
     }
-    func addNext() -> Int {
+    fileprivate func addNext() -> Int {
         //var aTest: TestData
         guard loteryTestBasket.isNotEmpty() else { return 0 }
         if var aTest = getUniqueElement(forLastValue: self.fileNumber) {

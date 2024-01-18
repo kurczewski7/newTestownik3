@@ -269,14 +269,21 @@ class Testownik: DataOperations, TestownikDataSource {
 //        }
         return retValue
     }
-    func switchYourAnsfer(selectedOptionForTest selectedOption: Int)     {
+    func switchYourAnsfer(selectedOptionForTest optionNumber: Int)     {
         // MARK: to do switchYourAnsfer
-        var value: Bool = false
-        if  selectedOption < testList[currentTestNumber].answerOptions.count {
-            value = testList[currentTestNumber].answerOptions[selectedOption].lastYourCheck
-            value.toggle()
-            testList[currentTestNumber].answerOptions[selectedOption].lastYourCheck = value
-        }
+        testownik.manager?.changeAnswer(forNumberOption: optionNumber)
+        
+        
+        
+ //       var value: Bool = false
+//        guard let option = testownik.manager?.currentTest?.answerOptions, option.isInRange(optionNumber) else { return }
+//        let yourCheck = option[optionNumber].lastYourCheck
+                
+//        if  selectedOption < testList[currentTestNumber].answerOptions.count {
+//            value = testList[currentTestNumber].answerOptions[selectedOption].lastYourCheck
+//            value.toggle()
+//            testList[currentTestNumber].answerOptions[selectedOption].lastYourCheck = value
+//        }
     }
     func findValue<T: Comparable>(currentList: [T], valueToFind: T) -> Int {
         var found = -1
