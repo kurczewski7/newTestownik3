@@ -112,6 +112,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         if testownik.filePosition != .first  {       testownik.previous()  }
     }
     @IBAction func checkButtonPress(_ sender: UIButton) {
+        //guard testownik.manager?.getSelectedOption(forOptionNumber: <#T##Int#>)
         guard let currTest = testownik[testownik.currentTestNumber] else {    return        }
         let countTest = currTest.answerOptions.count        //okAnswers.count
         for i in 0..<countTest {
