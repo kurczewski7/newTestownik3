@@ -13,7 +13,7 @@ import Foundation
 
 //---------------------------------
 // MARK: extension
-typealias TestDataArr = [Manager.TestData]
+typealias TestDataArr = [Manager.TestHistoryData]
 extension TestDataArr {
     func createSortKey() -> [Int] {
         let len = self.count
@@ -98,7 +98,7 @@ class Manager: ManagerDataSource  {
             var isOK: Bool
             var lastYourCheck: Bool = false
     }
-    struct TestData {
+    struct TestHistoryData {
         let fileNumber: Int
         let lifeValue: Int
         var answerOptions = [AnswerShort]()
@@ -168,7 +168,7 @@ class Manager: ManagerDataSource  {
                 setCurrenTest(forNewValue: newValue)
         }
     }
-    var currentHistory: TestData? {
+    var currentHistory: TestHistoryData? {
         get {
             guard historycalTest.isInRange(currentPosition) else { return nil }
             return historycalTest[currentPosition]
@@ -267,6 +267,10 @@ class Manager: ManagerDataSource  {
         historycalTest[currentPosition].isCorect = isCorect
         historycalTest[currentPosition].oneWasSelected = oneWasSelected            
     }
+    func getSelectedOption(forOptionNumber number: Int) -> AnswerShort? {
+        guard let options = currentHistory?.answerOptions, options.isInRange(number) else { return nil }
+        return options[number]        
+    }
     func first() {
         if historycalTest.isEmpty {
             fillHistorycal()
@@ -299,7 +303,7 @@ class Manager: ManagerDataSource  {
         guard historycalTest.isInRange(self.currentPosition + 1) else { return 0 }
         return historycalTest[self.currentPosition + 1].fileNumber
     }
-    fileprivate func addSortedKey(toTest test: inout Manager.TestData) {
+    fileprivate func addSortedKey(toTest test: inout Manager.TestHistoryData) {
         let fileNumber = test.fileNumber
         if testList.isInRange(fileNumber) {
             let keySort = testList[fileNumber].answerOptions.createSortKey()
@@ -309,9 +313,6 @@ class Manager: ManagerDataSource  {
             let shortAnswer = AnswerShort(isOK: false, lastYourCheck: false)
             let aArr = [AnswerShort](repeating: shortAnswer, count: keySort.count)
             test.answerOptions.append(contentsOf: aArr)
-            test.answerOptions[1].lastYourCheck = true
-            
-            //test.answerOptions[1].isOK = true
         }
     }
     fileprivate func addNext() -> Int {
@@ -330,7 +331,7 @@ class Manager: ManagerDataSource  {
         }
         return 0
     }
-    func getUniqueElement(forLastValue last: Int) -> TestData? {
+    func getUniqueElement(forLastValue last: Int) -> TestHistoryData? {
         guard loteryTestBasket.isNotEmpty() else { return nil }
         if let aTest1 = loteryTestBasket.getRandomElement(deleteItAfter: false), aTest1.fileNumber != last  {
             self.fileNumber = aTest1.fileNumber
@@ -375,7 +376,7 @@ class Manager: ManagerDataSource  {
     func fillAllTestPull(testListCount: Int, forLiveValue lifeValue: Int, groupSize: Int = 5) {
         allTestPull.removeAll()
         for i in 0..<testListCount {
-            let el = TestData(fileNumber: i, lifeValue: lifeValue)
+            let el = TestHistoryData(fileNumber: i, lifeValue: lifeValue)
             allTestPull.append(el)
         }
         allTestPull = allTestPull.sortFullArrayIntoGroups(forGroupLenth: groupSize)
@@ -420,7 +421,7 @@ class Manager: ManagerDataSource  {
         }
     }
     // TODO: remove param
-    func getFirst(onlyNewElement onlyNew: Bool = false)  -> TestData? {
+    func getFirst(onlyNewElement onlyNew: Bool = false)  -> TestHistoryData? {
         if historycalTest.isEmpty {
             return nil
         }

@@ -330,7 +330,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             if (0...9).contains(nr) {
                 if let aTest = test, let button = sender.view as? UIButton {
                     testownik.switchYourAnsfer(selectedOptionForTest: nr)
-                    markSelected(forCurrentTest: aTest, forButton: button, optionNr: nr)
+                    markSelected(forButton: button, optionNr: nr)
                 }
             }
             //(forCurrentTest test: Test, forButton: button, optionNr: nr)
@@ -347,12 +347,17 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             print("tapRefreshUI NOWY zz:\(sender.view?.tag ?? 0)")
         }
     }
-    func markSelected(forCurrentTest test: Test, forButton button: UIButton, optionNr nr: Int) {
-//        let curElem = testownik.currentElement
-        guard nr < test.answerOptions.count else {     return     }
-        let isMark =  test.answerOptions[nr].lastYourCheck ?? false
+    func markSelected(forButton button: UIButton, optionNr nr: Int) {
+        guard let option = testownik.manager?.getSelectedOption(forOptionNumber: nr) else { return }
+        let isMark = option.lastYourCheck
         button.layer.borderWidth = isMark ? 3 : 1
         button.layer.borderColor = isMark ? UIColor.systemYellow.cgColor : UIColor.brown.cgColor
+
+        
+        //guard nr < test.answerOptions.count else {     return     }
+        //let isMark =  test.answerOptions[nr].lastYourCheck ?? false
+        //        let curElem = testownik.currentElement
+        //guard let option = testownik.manager?.currentHistory?.answerOptions else { return }
         //button.layer.borderColor = button.layer.borderColor == UIColor.brown.cgColor ? UIColor.systemYellow.cgColor : UIColor.brown.cgColor
         //  button.layer.borderWidth == 1
     }
@@ -751,7 +756,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         for curButt in stackView.arrangedSubviews     {
             if let aTest = test, let butt = curButt as? UIButton {
                 butt.isHidden =  false
-                markSelected(forCurrentTest: aTest, forButton: butt, optionNr: i)
+                markSelected(forButton: butt, optionNr: i)
                 butt.setTitle("\(Setup.placeHolderButtons) \(i)", for: .normal)
                 i += 1
             }
@@ -795,7 +800,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 butt.layer.borderColor = UIColor.brown.cgColor
                 let isSelect = aTest.youAnswer2.contains(i) 
                 butt.layer.backgroundColor = isSelect ? selectedColor.cgColor: unSelectedColor.cgColor
-                markSelected(forCurrentTest: aTest, forButton: butt, optionNr: i)
+                markSelected(forButton: butt, optionNr: i)
                 // MARK: ggggg ffffff
                 if set.contains(i)  {
                     butt.setTitle(" \(i+1)", for: .normal)
