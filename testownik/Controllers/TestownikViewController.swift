@@ -117,8 +117,14 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     }
     @IBAction func checkButtonPress(_ sender: UIButton) {
         //guard testownik.manager?.getSelectedOption(forOptionNumber: <#T##Int#>)
+<<<<<<< HEAD
         guard let answerOptions = testownik.manager?.getOpions(), answerOptions.isNotEmpty() else { return }
         for i in 0..<answerOptions.count {
+=======
+        guard let currTest = testownik[testownik.currentTestNumber] else {    return        }
+        let countTest = currTest.answerOptions.count        //okAnswers.count
+        for i in 0..<countTest {
+>>>>>>> bef0c88abcf24a6bb656768a3d29e6036ce60227
             if let button = stackView.arrangedSubviews[i] as? UIButton {
                 button.layer.borderWidth =  answerOptions[i].isOK ? 3 : 1
                 button.layer.borderColor = answerOptions[i].isOK ? UIColor.systemGreen.cgColor : UIColor.brown.cgColor

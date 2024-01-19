@@ -1352,10 +1352,49 @@
             filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "771"
             endingLineNumber = "771"
             landmarkName = "clearView()"
             landmarkType = "7">
+=======
+            startingLineNumber = "756"
+            endingLineNumber = "756"
+            landmarkName = "clearView()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "E32E71B0-C51C-4AEE-A6CE-D36678843F6F - 16dd7b082368f053"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestownikViewController.clearView() -&gt; ()"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Controllers/TestownikViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "756"
+                  endingLineNumber = "756"
+                  offsetFromSymbolStart = "692">
+               </Location>
+               <Location
+                  uuid = "E32E71B0-C51C-4AEE-A6CE-D36678843F6F - 16dd7b082368f053"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Testownik.TestownikViewController.clearView() -&gt; ()"
+                  moduleName = "Testownik"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/slawek/Desktop/XXX/newTestownik3/testownik/Controllers/TestownikViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "756"
+                  endingLineNumber = "756"
+                  offsetFromSymbolStart = "1111">
+               </Location>
+            </Locations>
+>>>>>>> bef0c88abcf24a6bb656768a3d29e6036ce60227
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1543,8 +1582,13 @@
             filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "218"
             endingLineNumber = "218"
+=======
+            startingLineNumber = "203"
+            endingLineNumber = "203"
+>>>>>>> bef0c88abcf24a6bb656768a3d29e6036ce60227
             landmarkName = "viewWillAppear(_:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1559,8 +1603,13 @@
             filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "495"
             endingLineNumber = "495"
+=======
+            startingLineNumber = "480"
+            endingLineNumber = "480"
+>>>>>>> bef0c88abcf24a6bb656768a3d29e6036ce60227
             landmarkName = "TestownikViewController"
             landmarkType = "3">
          </BreakpointContent>
@@ -1623,8 +1672,13 @@
             filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "290"
             endingLineNumber = "290"
+=======
+            startingLineNumber = "275"
+            endingLineNumber = "275"
+>>>>>>> bef0c88abcf24a6bb656768a3d29e6036ce60227
             landmarkName = "progress(forCurrentPosition:totalPercent:)"
             landmarkType = "7">
             <Locations>
@@ -1686,8 +1740,13 @@
             filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "695"
             endingLineNumber = "695"
+=======
+            startingLineNumber = "680"
+            endingLineNumber = "680"
+>>>>>>> bef0c88abcf24a6bb656768a3d29e6036ce60227
             landmarkName = "buttonNaviHide(isHide:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1750,8 +1809,13 @@
             filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "819"
             endingLineNumber = "819"
+=======
+            startingLineNumber = "804"
+            endingLineNumber = "804"
+>>>>>>> bef0c88abcf24a6bb656768a3d29e6036ce60227
             landmarkName = "refreshView()"
             landmarkType = "7">
             <Locations>
@@ -1813,8 +1877,13 @@
             filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "785"
             endingLineNumber = "785"
+=======
+            startingLineNumber = "770"
+            endingLineNumber = "770"
+>>>>>>> bef0c88abcf24a6bb656768a3d29e6036ce60227
             landmarkName = "refreshView()"
             landmarkType = "7">
             <Locations>
@@ -1861,8 +1930,13 @@
             filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "348"
             endingLineNumber = "348"
+=======
+            startingLineNumber = "333"
+            endingLineNumber = "333"
+>>>>>>> bef0c88abcf24a6bb656768a3d29e6036ce60227
             landmarkName = "tapRefreshUI(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1877,8 +1951,13 @@
             filePath = "testownik/Controllers/TestownikViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
+<<<<<<< HEAD
             startingLineNumber = "349"
             endingLineNumber = "349"
+=======
+            startingLineNumber = "334"
+            endingLineNumber = "334"
+>>>>>>> bef0c88abcf24a6bb656768a3d29e6036ce60227
             landmarkName = "tapRefreshUI(sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -1902,6 +1981,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+<<<<<<< HEAD
             uuid = "A13A93A9-CD03-4A43-A564-B83B691E76F9"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -1963,5 +2043,20 @@
             </Locations>
          </BreakpointContent>
       </BreakpointProxy>
+=======
+            uuid = "E814ABB7-D168-4E7B-8611-C1CD9E8FAEF9"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "testownik/Controllers/TestownikViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "116"
+            endingLineNumber = "116"
+            landmarkName = "checkButtonPress(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+>>>>>>> bef0c88abcf24a6bb656768a3d29e6036ce60227
    </Breakpoints>
 </Bucket>
