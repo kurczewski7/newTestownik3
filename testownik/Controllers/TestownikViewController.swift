@@ -14,7 +14,12 @@ protocol TestownikViewContDataSource {
     var gestures: Gestures { get }
 }
 class TestownikViewController: UIViewController, GesturesDelegate, TestownikDelegate, ListeningDelegate, TestownikViewContDataSource, CommandDelegate, ManagerDelegate  {
-    //  TestToDoDelegate
+    //  MARK: type definition
+    struct ButtonParam {
+        var Tag = 999
+        var Color = UIColor.black
+        var BackgroundColor = UIColor.yellow
+    }
     // MARK: other classes
     let listening = Listening()
     let command   = Command()
@@ -22,26 +27,24 @@ class TestownikViewController: UIViewController, GesturesDelegate, TestownikDele
     //var testownik = Testownik()
 
     //  MARK: variable
-    var cornerRadius: CGFloat = 10
+   
     let initalStackSpacing: CGFloat = 30.0
-    struct ButtonParam {
-        var Tag = 999
-        var Color = UIColor.black
-        var BackgroundColor = UIColor.yellow
-    }
-    var lastButton = ButtonParam()
-    var tabHigh: [NSLayoutConstraint] = [NSLayoutConstraint]()
-    var loremIpsum = """
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-"""
-  
     let alphaLabel: CGFloat =  0.9
-    var isLightStyle = true
     let selectedColor: UIColor   = #colorLiteral(red: 0.9999151826, green: 0.9882825017, blue: 0.4744609594, alpha: 1)
     let unSelectedColor: UIColor = #colorLiteral(red: 0.8469454646, green: 0.9804453254, blue: 0.9018514752, alpha: 1)
     let okBorderedColor: UIColor = #colorLiteral(red: 0.2034551501, green: 0.7804297805, blue: 0.34896487, alpha: 1)
     let borderColor: UIColor     = #colorLiteral(red: 0.7254344821, green: 0.6902328134, blue: 0.5528755784, alpha: 1)
     let otherColor: UIColor      = #colorLiteral(red: 0.8469454646, green: 0.9804453254, blue: 0.9018514752, alpha: 1)
+    
+    var cornerRadius: CGFloat = 10
+    var checkStatus: Bool = false
+    var lastButton = ButtonParam()
+    var tabHigh: [NSLayoutConstraint] = [NSLayoutConstraint]()
+    var isLightStyle = true
+    
+    var loremIpsum = """
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+"""
     var pictureSwitchOn: Bool = false {
         didSet {
             if self.pictureSwitchOn == true {
@@ -86,6 +89,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     @IBOutlet weak var highButton9: NSLayoutConstraint!
     @IBOutlet weak var highButton10: NSLayoutConstraint!
     
+    //  MARK: IBAction
     @IBAction func microphonePress(_ sender: UIBarButtonItem) {
         microphoneButt.image = (microphoneButt.image == UIImage(systemName: "mic") ? UIImage(systemName: "mic.fill") : UIImage(systemName: "mic"))
     }
@@ -113,14 +117,25 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     }
     @IBAction func checkButtonPress(_ sender: UIButton) {
         //guard testownik.manager?.getSelectedOption(forOptionNumber: <#T##Int#>)
-        guard let currTest = testownik[testownik.currentTestNumber] else {    return        }
-        let countTest = currTest.answerOptions.count        //okAnswers.count
-        for i in 0..<countTest {
+        guard let answerOptions = testownik.manager?.getOpions(), answerOptions.isNotEmpty() else { return }
+        for i in 0..<answerOptions.count {
             if let button = stackView.arrangedSubviews[i] as? UIButton {
-                button.layer.borderWidth =  currTest.answerOptions[i].isOK ? 3 : 1
-                button.layer.borderColor = currTest.answerOptions[i].isOK ? UIColor.systemGreen.cgColor : UIColor.brown.cgColor
+                button.layer.borderWidth =  answerOptions[i].isOK ? 3 : 1
+                button.layer.borderColor = answerOptions[i].isOK ? UIColor.systemGreen.cgColor : UIColor.brown.cgColor
             }
         }
+        
+        //testownik.manager?.
+        // checkStatus
+        
+//        guard let currTest = testownik[testownik.currentTestNumber] else {    return        }
+//        let countTest = currTest.answerOptions.count        //okAnswers.count
+//        for i in 0..<countTest {
+//            if let button = stackView.arrangedSubviews[i] as? UIButton {
+//                button.layer.borderWidth =  currTest.answerOptions[i].isOK ? 3 : 1
+//                button.layer.borderColor = currTest.answerOptions[i].isOK ? UIColor.systemGreen.cgColor : UIColor.brown.cgColor
+//            }
+//        }
     }
     
     // MARK: viewDidLoad - initial method

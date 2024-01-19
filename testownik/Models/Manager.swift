@@ -269,7 +269,6 @@ class Manager: ManagerDataSource  {
     }
     func getSelectedOption(forOptionNumber number: Int) -> AnswerShort? {
         guard let options = currentHistory?.answerOptions, options.isInRange(number) else { return nil }
-        //let options = getOpions()
         guard options.isInRange(number) else { return nil }
         return options[number]
     }
@@ -318,6 +317,7 @@ class Manager: ManagerDataSource  {
             }
             let shortAnswer = AnswerShort(isOK: false, lastYourCheck: false)
             let aArr = [AnswerShort](repeating: shortAnswer, count: keySort.count)
+            test.answerOptions.append(AnswerShort(isOK: true))
             test.answerOptions.append(contentsOf: aArr)
         }
     }
