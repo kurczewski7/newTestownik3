@@ -13,10 +13,10 @@ class DatabaseTableGeneric <P: NSFetchRequestResult> {
     var databaseSelf: Database
     var context: NSManagedObjectContext
     
+    private var  currentRow = 0
     private var  genericArray = [P]()
     private var  genericArrayFiltered: [P] = []
     private var  genericArrayDelete: [P] = []
-    private var  currentRow = 0
     
     var featchResultCtrl: NSFetchedResultsController<P> = NSFetchedResultsController<P>()
     var feachRequest: NSFetchRequest<NSFetchRequestResult> = NSFetchRequest<NSFetchRequestResult>()
@@ -225,20 +225,7 @@ class DatabaseTableGeneric <P: NSFetchRequestResult> {
             print("Error fetching data from context \(error.localizedDescription)")
         }
     }
-
     func save() {
         self.databaseSelf.save()
     }
-    //---------------
-
-//feachRequest
-    
-    //<P: NSFetchRequestResult>
-//private var  genericArray = [P]()
-//    class AllTestsTable:  DatabaseTableGeneric<AllTestEntity> {
-//        override class func className() -> String {
-//            return "AllTestsTable"
-//        }
-//    }
-
 }

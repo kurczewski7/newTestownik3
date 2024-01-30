@@ -10,42 +10,76 @@ import UIKit
 //import  CoreData 
 
 protocol TestownikDelegate {
-    //func refreshButtonUI(forFilePosition filePosition: TestToDo.FilePosition)
     func refreshTabbarUI(visableLevel: Int)
-    //func refreshContent(forCurrentTest test: Test)
-    //    func allTestDone()
-    //    func progress()
+    func refreshButtonUI(forFilePosition: Testownik.FilePosition)
+    func allTestDone()
+    func progress(forCurrentPosition: Int, totalCount: Int)
     //    func refreshFilePosition(newFilePosition filePosition: TestToDo.FilePosition)
 }
 protocol TestownikDataSource {
-    //var delegate: TestownikDelegate? { get }
-    var testToDo: TestToDo? { get }
-    func getCurrent() -> Test    
+    var delegate: TestownikDelegate? { get }
+    func getCurrent() -> Test
 }
-class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
-    
+class Testownik: DataOperations, TestownikDataSource {
+    enum FilePosition {
+        case first
+        case last
+        case other
+    }
     struct Answer {
             let isOK: Bool
             let answerOption: String
             var lastYourCheck: Bool = false
     }
+    struct TestInfo {
+        let fileNumber: Int
+        let lifeValue: Int
+        var isCorrect = false
+    }
+    
     var delegate: TestownikDelegate?
-    //var viewContext: TestownikViewController? = nil
-    var rawTestList = [Int]()
-    var isChanged = false
-    var testToDo: TestToDo?
-    var filePosition: TestToDo.FilePosition  {
+   
+    let groupSize = 5  //Setup.defaultMainGroupSize
+    var isChanged = true
+    var maxValueLive: Int = 1
+    var lastFileNumber: Int = 0
+    var rawTestListCount: Int = 0
+
+    var allTestPull: [TestInfo] = [TestInfo]()
+    var loteryTestBasket: [TestInfo] = [TestInfo]()
+    var historycalTest: [TestInfo] = [TestInfo]()
+    var finishedTest: [TestInfo] = [TestInfo]()
+    override var count: Int {
         get {
-            // delegate?.refreshButtonUI(forFilePosition: filePosition)
-            return testToDo?.filePosition ?? TestToDo.FilePosition.first
+            return 12 //allTestPull.count + loteryTestBasket.count + finishedTest.count
         }
     }
-    override var currentTest: Int  {
+//    var filePosition: FilePosition  {
+//        get {
+//            // delegate?.refreshButtonUI(forFilePosition: filePosition)
+//            return testManager?.filePosition ?? TestManager.FilePosition.first
+//        }
+//    }
+    var filePosition: FilePosition = .first {
         didSet {
-            print("currentTest:\(oldValue),\(currentTest), testownik.testToDo?.currentPosition=\(testownik.testToDo?.currentPosition ?? 77), testownik.currentTest=\(testownik.currentTest), \(testownik.filePosition) ")
-            // TODO: ???
-            //delegate?.refreshButtonUI(forFilePosition: filePosition)
-            // currentRow = currentTest < count ? currentTest : count-1
+            if delegate == nil {    print("delegate = NIL, 1")     }
+            if oldValue != filePosition { delegate?.refreshButtonUI(forFilePosition: filePosition)   }
+            if filePosition == .last {  delegate?.allTestDone()   }
+        }
+    }
+    var currentPosition: Int = 0 {
+        didSet {
+            print("**    testManagere      **  CURRENT POSITION=\(currentPosition)")
+            if  self.currentPosition == 0 {    filePosition = .first     }
+            else if  self.currentPosition == count-1 {   filePosition = .last     }
+            else  {  filePosition = .other      }
+            
+            if delegate == nil {
+                print("delegate = NIL, 2")
+            }
+            else {
+                delegate?.progress(forCurrentPosition: currentPosition + 1, totalCount: count)
+            }
         }
     }
     var visableLevel: Int = 4 {
@@ -55,9 +89,23 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
             print("Visable Level:\(visableLevel)")
         }
     }
+    //-----------
+    
+    override var currentTest: Int  {
+        didSet {
+//            print("currentTest:\(oldValue),\(currentTest), testownik.testManager ?.currentPosition=\(testManager?.currentPosition ?? 77), testownik.currentTest=\(currentTest), \(filePosition) ")
+            // TODO: ???
+            delegate?.refreshButtonUI(forFilePosition: filePosition)
+            // currentRow = currentTest < count ? currentTest : count-1
+        }
+    }
     var currentElement: Test {
         get {
-            return testList[currentTest]
+            let pos = currentPosition
+            print("P   O   S  I  T  I  O  N : \(pos)")
+//            let test = Test(code: "aaa", ask: "bbb", pict: nil, fileName: "ccc")
+//            testList.append(test)
+            return    testList[pos]
         }
     }
     //var chooseOpions: [Bool] = [Bool](repeating: false, count: 10)
@@ -68,12 +116,16 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
     // MARK: Init Testownik class
     override init() {
         super.init()
+        let maxValueLive = 3
         print("init sss")
-        
         database.selectedTestTable.loadData()
         guard database.selectedTestTable.isNotEmpty else {  return  }
         if let uuId = database.selectedTestTable[0]?.uuId {
             database.testDescriptionTable.loadData(forUuid: "uuid_parent", fieldValue: uuId)
+            let elemCount = database.testDescriptionTable.count
+            refreshData()
+            fillTestManager(forRawListCout: elemCount, forLive: maxValueLive)
+            //self.testManager = TestManager(elemCount, maxValueLive: 2).fillTestManager(forRawListCout: <#T##Int#>, forLive: <#T##Int#>)
             // TODO: duplicate testToDo
             
 //            if let context = self.viewContext {
@@ -84,15 +136,67 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
         //
         //testToDo?.delegate = self
     }
-    func createTestToDo() {
-        let number = database.testDescriptionTable.count
-        var  rawTestList = [Int]()
-        for i in 0..<number  { // self.testList.count
-            rawTestList.append(i)
+    func fillTestManager(forRawListCout rawListCount: Int, forLive lifeValue: Int) {
+        allTestPull.removeAll()
+        for i in 0..<rawTestListCount {
+            let tmpElem = TestInfo(fileNumber: i, lifeValue: lifeValue)
+            allTestPull.append(tmpElem)
         }
-        self.rawTestList = rawTestList
-        self.testToDo = TestToDo(rawTestList: self.rawTestList)
+        loteryQueue()
+        _ = getFirst()
+        //getNextTest()
+        
+        //        let number = database.testDescriptionTable.count
+        //        var  rawTestList = [Int]()
+        //        for i in 0..<number  { // self.testList.count
+        //            rawTestList.append(i)
+        //        }
+        //        self.rawTestList = rawTestList
+        //        self.testToDo = TestToDo(rawTestList: self.rawTestList)
     }
+    func loteryQueue() {
+        var tmpTestPull = [TestInfo]()
+        let totalGroups = (self.allTestPull.count / self.groupSize) + (self.allTestPull.count % self.groupSize == 0 ? 0 : 1 )
+        for i in 0..<totalGroups {
+            let oneGroup = Setup.changeArryyOrder(forArray: self.allTestPull, fromPosition: i * self.groupSize, count: self.groupSize)
+            tmpTestPull.append(contentsOf: oneGroup)
+        }
+        print("new Pull: \(tmpTestPull)")
+        self.allTestPull = tmpTestPull
+    }
+    fileprivate func fillLotertBasket() {
+        if self.loteryTestBasket.isEmpty {
+            let end = min(groupSize, allTestPull.count)
+            let moreTests = allTestPull[0..<end]
+            loteryTestBasket.append(contentsOf: moreTests)
+            for _ in 0..<moreTests.count {
+                allTestPull.remove(at: 0)
+            }
+        }
+    }
+    func getFirst(onlyNewElement onlyNew: Bool = false)  -> TestInfo? {
+        fillLotertBasket()
+        if historycalTest.isEmpty {
+            guard let oneTest = loteryTestBasket.first else { return nil }
+            historycalTest.append(oneTest)
+            return oneTest
+        }
+        else {
+            return historycalTest.first
+        }
+    }
+    
+    //==========
+    
+//    func createTestToDo() {
+//        let number = database.testDescriptionTable.count
+//        var  rawTestList = [Int]()
+//        for i in 0..<number  { // self.testList.count
+//            rawTestList.append(i)
+//        }
+//        self.rawTestList = rawTestList
+//        //self.testToDo = TestToDo(rawTestList: self.rawTestList)
+//    }
     // MARK: Perform protocol TestToDoDelegate
 //    func getCurrentTest(forFileNumber number: Int) -> Test? {
 //        if  let number = testToDo?.getFirst()?.fileNumber {
@@ -111,30 +215,79 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
 //
 //    }
     // MARK: Metod for navigation
-    override func getCurrent() -> Test {        
-        self.currentTest = testToDo?.getCurrentRawTest()?.fileNumber ?? 0
-        return super.getCurrent()
-    }
+//    override func getCurrent() -> Test {        
+//        self.currentTest = testManager?.getCurrentRawTest()?.fileNumber ?? 0
+//        return super.getCurrent()
+//    }
     override func first() {
-        if  let number = testToDo?.getFirst()?.fileNumber, number >= 0 {
+        if  let number = getFirst()?.fileNumber, number >= 0 {
             self.currentTest = number
+            print("first NUMER:   \(number)")
         }
     }
     override func last() {
-        if  let number = testToDo?.getLast()?.fileNumber, number < count {
+        if  let number = getLast()?.fileNumber, number < count {
             self.currentTest = number
         }
     }
     override func next() {
-        if  let number = testToDo?.getNext()?.fileNumber, number < count {
+        if  let number = getNext()?.fileNumber, number < count {
             self.currentTest = number
+            print("next NUMER:   \(number)")
         }
     }
     override func previous() {
-        if  let number = testToDo?.getPrev()?.fileNumber, number >= 0 {
+        if  let number = getPrev()?.fileNumber, number >= 0 {
             self.currentTest = number
+            print("prev NUMER:   \(number)")
         }
     }
+    func getLast(onlyNewElement onlyNew: Bool = false) -> TestInfo? {
+        //        currentPosition = count - 1
+        //        return getElem(numberFrom0: currentPosition)
+        return nil
+    }
+    func getNext(onlyNewElement onlyNew: Bool = false)  -> TestInfo? {
+//        if self.loteryTestBasket.isEmpty {
+//            let end = min(groupSize, allTestPull.count)
+//            let moreTests = allTestPull[0..<end]
+//            loteryTestBasket.append(contentsOf: moreTests)
+//            for _ in 0..<moreTests.count {
+//                allTestPull.remove(at: 0)
+//            }
+//        }
+        guard !loteryTestBasket.isEmpty else {   return nil    }
+        let oneTest = loteryTestBasket.first
+        loteryTestBasket.remove(at: 0)
+        if let nextTest = allTestPull.first {
+            loteryTestBasket.append(nextTest)
+            allTestPull.remove(at: 0)
+        }
+        print("oneTest.number:\(oneTest?.fileNumber)")
+        currentPosition += (currentPosition < historycalTest.count - 1 ? 1 : 0 )
+        if currentPosition == historycalTest.count  {
+            historycalTest.append(oneTest!)
+        }
+        return oneTest
+        
+        //guard self.groupSize <= self.loteryTestBasket.count  else { return  }
+        //        currentPosition += (currentPosition < count - 1 ? 1 : 0)
+        //        guard currentPosition < count  else {  return nil  }
+        //        return getElem(numberFrom0: currentPosition, changePosition: true)
+        //        //return getElem(numberFrom0: currentPosition,
+    }
+    func getPrev(onlyNewElement onlyNew: Bool = false)  -> TestInfo? {
+        guard currentPosition >= 0, currentPosition < historycalTest.count  else {  return nil  }
+        currentPosition -= (currentPosition > 0 ? 1 : 0 )
+        return getElem(numberFrom0: currentPosition, changePosition: true)
+    }
+    func getElem(numberFrom0: Int, changePosition: Bool = false) -> TestInfo? {
+        //var retVal: RawTest = RawTest(fileNumber: 0, isExtraTest: false)
+        guard currentPosition >= 0, currentPosition < historycalTest.count  else {  return nil  }
+        return historycalTest[currentPosition]
+    }
+
+
 
     // MARK: Perform protocol TestownikDelegate
     func refreshData() {
@@ -169,12 +322,12 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
                     print("Pełny rekord")
                     fillDataDb()
                     // MARK: INITIAL
-                    let xxxx = testToDo?.mainTests
-                    let yyy = testToDo?.mainTests.first
-                    let zzz = testToDo?.currentPosition
-                    let bbb = testToDo?[0]
-                    let ddd = testToDo?.getCurrentRawTest()?.fileNumber
-                    let aaa = testToDo?.extraTests
+//                    let xxxx = testToDo?.mainTests
+//                    let yyy = testToDo?.mainTests.first
+//                    let zzz = testToDo?.currentPosition
+//                    let bbb = testToDo?[0]
+//                    let ddd = testToDo?.getCurrentRawTest()?.fileNumber
+//                    let aaa = testToDo?.extraTests
                 }
                 //currentTest = testToDo?.getCurrent()?.fileNumber
             }
@@ -217,9 +370,9 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
 //            rawTestList.append(i)
 //        }
 //                
-        if let elem = testToDo?[0] {
-            self.currentTest = elem.fileNumber
-        }
+//        if let elem = testToDo?[0] {
+//            self.currentTest = elem.fileNumber
+//        }
         
         print("testownik.count after:\(self.count)")
      }
@@ -241,7 +394,7 @@ class Testownik: DataOperations, TestownikDataSource { // , TestToDoDelegate
             srcAnswerOptions.remove(at: position)
         }
         return sortedAnswerOptions
-        //let elem = srcAnswerOptions[position]
+        //Setup.changeArryyOrder(forArray: srcAnswerOptions, fromPosition: 0, count: srcAnswerOptions.count)
     }
     func fillOneTestAnswers(isOk: [Bool], titles: [String]) -> [Answer] {
         var answerOptions: [Answer] = []

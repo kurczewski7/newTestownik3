@@ -18,8 +18,8 @@ protocol TestToDoDataSource {
 protocol TestToDoDelegate {
     func allTestDone()
     func progress(forCurrentPosition currentPosition: Int, totalCount count:Int)
-    func refreshContent(forFileNumber fileNumber: Int)
-    func refreshButtonUI(forFilePosition filePosition: TestToDo.FilePosition)
+//    func refreshContent(forFileNumber fileNumber: Int)
+    func refreshButtonUI(forFilePosition filePosition: TestManager.FilePosition)
 }
 class TestToDo: TestToDoDataSource {
     typealias MainTestsValues = (mainTests: [[RawTest]], mainCount: Int, groups: Int, groupSize: Int)
@@ -38,11 +38,11 @@ class TestToDo: TestToDoDataSource {
         var checked: Bool = false
         var errorCorrect: Bool = false
     }
-    enum FilePosition {
-        case first
-        case last
-        case other
-    }
+//    enum FilePosition {
+//        case first
+//        case last
+//        case other
+//    }
     var delegate: TestToDoDelegate?  //? TestownikDelegate?
     var groups: Int = 0
     var groupSize: Int = Setup.defaultMainGroupSize {
@@ -61,7 +61,7 @@ class TestToDo: TestToDoDataSource {
             }
         }
     }
-    var filePosition: FilePosition = FilePosition.first {
+    var filePosition: TestManager.FilePosition = .first {
         didSet {
             if delegate == nil {
                 print("delegate = NIL, 1")
@@ -83,7 +83,6 @@ class TestToDo: TestToDoDataSource {
                 print("delegate = NIL, 2")
             }
             // TODO: Error
-            //testownik.currentTest += 1
             delegate?.progress(forCurrentPosition: currentPosition + 1, totalCount: count)
         }
     }

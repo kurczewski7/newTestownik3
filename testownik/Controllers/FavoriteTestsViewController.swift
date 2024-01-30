@@ -127,10 +127,6 @@ class FavoriteTestsViewController: UIViewController, UITableViewDataSource, UITa
             
             database.selectedTestTable[0]?.toAllRelationship = selectedTest
             database.selectedTestTable.save()
-            testownik.refreshData()
-            //database.testDescriptionTable.loadData()
-            //database.
-            //database.testToUpgrade = true
 
              print("Testing set")
             exec(true)

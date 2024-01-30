@@ -16,14 +16,14 @@ class ResultsViewController: UIViewController {
         super.viewWillAppear(true)
         
         self.title = Setup.placeHolderRatings
-        let x = testownik.testToDo?.currentPosition ?? 0
-        let y = testownik.testToDo?.count ?? 10000
-        let percent = Int((100*x)/y)
+//        let x = testownik.testManager?.currentPosition ?? 0
+//        let y = testownik.testManager?.count ?? 10000
+        let percent = 64
         label.text = "\(percent) % OK"
         if percent < 40 {  label.textColor = .magenta   }
         else {  label.textColor = percent > 70 ? .green : .orange    }
-        progressBar.progress = Float(x)/Float(y)
-        infoLabel.text = "Total: \(y)"
+        //progressBar.progress = Float(x)/Float(y)
+        //infoLabel.text = "Total: \(y)"
     }
     
     @IBOutlet weak var label: UILabel!    
