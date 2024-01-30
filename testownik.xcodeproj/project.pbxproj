@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 53;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -213,7 +213,6 @@
 		2C857A8127BADD5800C6F77F /* fr812.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C857A7527BADD5800C6F77F /* fr812.txt */; };
 		2C8B536726F234DA00204774 /* XXSettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B536626F234D900204774 /* XXSettingsBundleHelper.swift */; };
 		2C8B536926F2889B00204774 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8B536826F2889B00204774 /* Settings.swift */; };
-		2C8FAE362A9BC9C2002A81EA /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C8FAE352A9BC9C2002A81EA /* ResultsViewController.swift */; };
 		2C99AE9924001A6700FF28F5 /* pl201.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C99AE9524001A6700FF28F5 /* pl201.txt */; };
 		2C99AE9A24001A6700FF28F5 /* 202.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C99AE9624001A6700FF28F5 /* 202.txt */; };
 		2C99AE9B24001A6700FF28F5 /* 203.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2C99AE9724001A6700FF28F5 /* 203.txt */; };
@@ -224,6 +223,7 @@
 		2CA8229F240411DB000941E1 /* 204.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2CA8229E240411DB000941E1 /* 204.txt */; };
 		2CAEDD2F2829C87000DC8B3D /* TestToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CAEDD2E2829C87000DC8B3D /* TestToDo.swift */; };
 		2CB4841827850E2F001F58C5 /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4841727850E2F001F58C5 /* Database.swift */; };
+		2CB7A1DD2B1D4B1A009795F1 /* Manager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB7A1DC2B1D4B1A009795F1 /* Manager.swift */; };
 		2CBD79AC27A1C9FF0036F35C /* 333.txt in Resources */ = {isa = PBXBuildFile; fileRef = 2CBD79AB27A1C9FF0036F35C /* 333.txt */; };
 		2CC148B727E78E31005B043B /* 002.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC148B627E78E31005B043B /* 002.png */; };
 		2CC148B927E78E53005B043B /* 001.png in Resources */ = {isa = PBXBuildFile; fileRef = 2CC148B827E78E53005B043B /* 001.png */; };
@@ -257,6 +257,7 @@
 		2CEB3FF5271F08E8003011F3 /* ForcePressGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CEB3FF4271F08E8003011F3 /* ForcePressGestureRecognizer.swift */; };
 		2CF509B826F7398400841DA2 /* Messaes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF509B726F7398400841DA2 /* Messaes.swift */; };
 		2CF7F4152719846A00016384 /* Command.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CF7F4142719846A00016384 /* Command.swift */; };
+		2CFA4E8A2B1BF06800D975FD /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CFA4E892B1BF06800D975FD /* ResultsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -488,7 +489,6 @@
 		2C857A7527BADD5800C6F77F /* fr812.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = fr812.txt; sourceTree = "<group>"; };
 		2C8B536626F234D900204774 /* XXSettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XXSettingsBundleHelper.swift; sourceTree = "<group>"; };
 		2C8B536826F2889B00204774 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
-		2C8FAE352A9BC9C2002A81EA /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ResultsViewController.swift; path = /Volumes/WD250/newTestownik3/testownik/Controllers/ResultsViewController.swift; sourceTree = "<absolute>"; };
 		2C99AE9524001A6700FF28F5 /* pl201.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = pl201.txt; sourceTree = "<group>"; };
 		2C99AE9624001A6700FF28F5 /* 202.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 202.txt; sourceTree = "<group>"; };
 		2C99AE9724001A6700FF28F5 /* 203.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 203.txt; sourceTree = "<group>"; };
@@ -499,6 +499,7 @@
 		2CA8229E240411DB000941E1 /* 204.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 204.txt; sourceTree = "<group>"; };
 		2CAEDD2E2829C87000DC8B3D /* TestToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestToDo.swift; sourceTree = "<group>"; };
 		2CB4841727850E2F001F58C5 /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
+		2CB7A1DC2B1D4B1A009795F1 /* Manager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Manager.swift; sourceTree = "<group>"; };
 		2CBD79AB27A1C9FF0036F35C /* 333.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 333.txt; sourceTree = "<group>"; };
 		2CC148B627E78E31005B043B /* 002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 002.png; sourceTree = "<group>"; };
 		2CC148B827E78E53005B043B /* 001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 001.png; sourceTree = "<group>"; };
@@ -538,6 +539,7 @@
 		2CEB3FF4271F08E8003011F3 /* ForcePressGestureRecognizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForcePressGestureRecognizer.swift; sourceTree = "<group>"; };
 		2CF509B726F7398400841DA2 /* Messaes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Messaes.swift; sourceTree = "<group>"; };
 		2CF7F4142719846A00016384 /* Command.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Command.swift; path = testownik/Models/Command.swift; sourceTree = SOURCE_ROOT; };
+		2CFA4E892B1BF06800D975FD /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		84D9C558CBB56A4E78A14FD8 /* Pods-testownik.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testownik.release.xcconfig"; path = "Target Support Files/Pods-testownik/Pods-testownik.release.xcconfig"; sourceTree = "<group>"; };
 		A3CD960258B27FF97A8FBA0C /* Pods_testownik.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_testownik.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB240E545E137D7765DC9E55 /* Pods-testownik.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-testownik.debug.xcconfig"; path = "Target Support Files/Pods-testownik/Pods-testownik.debug.xcconfig"; sourceTree = "<group>"; };
@@ -793,8 +795,8 @@
 		2CDB1DF22407BE0400361884 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				2C8FAE352A9BC9C2002A81EA /* ResultsViewController.swift */,
 				2CE1477C23F6901900C834F4 /* TestownikViewController.swift */,
+				2CFA4E892B1BF06800D975FD /* ResultsViewController.swift */,
 				2CF7F4142719846A00016384 /* Command.swift */,
 				2C625DFA2443A68800EE29A0 /* AddTestViewController.swift */,
 				2C82DE8B24393DA0002CDA10 /* FavoriteTestsViewController.swift */,
@@ -838,6 +840,7 @@
 				2C8B536826F2889B00204774 /* Settings.swift */,
 				2C80431B27061BE3006D9BAE /* Speech.swift */,
 				2CF509B726F7398400841DA2 /* Messaes.swift */,
+				2CB7A1DC2B1D4B1A009795F1 /* Manager.swift */,
 				2C77CD61270CF9FD0024A461 /* Listening.swift */,
 				2C8B536626F234D900204774 /* XXSettingsBundleHelper.swift */,
 				2C7DFF38271E17660087784E /* UIView+Ext.swift */,
@@ -1311,7 +1314,6 @@
 				2CE1477D23F6901900C834F4 /* TestownikViewController.swift in Sources */,
 				2CE2F39A242A5B9200D1B731 /* Colors.swift in Sources */,
 				2C82DE8C24393DA0002CDA10 /* FavoriteTestsViewController.swift in Sources */,
-				2C8FAE362A9BC9C2002A81EA /* ResultsViewController.swift in Sources */,
 				2C77CD62270CF9FD0024A461 /* Listening.swift in Sources */,
 				2C652AFB24087DCC00284ADF /* CloudPicker.swift in Sources */,
 				2CE1478323F6901900C834F4 /* testownik.xcdatamodeld in Sources */,
@@ -1319,6 +1321,7 @@
 				2C625DFB2443A68800EE29A0 /* AddTestViewController.swift in Sources */,
 				2CE2F390242A574100D1B731 /* ZipSectionHeaderView.swift in Sources */,
 				2C0B8198282961490018A372 /* TestResult.swift in Sources */,
+				2CFA4E8A2B1BF06800D975FD /* ResultsViewController.swift in Sources */,
 				2C6538DD2407282A004B1FC8 /* Testownik.swift in Sources */,
 				2CA459DE27EA285900FE71C3 /* PictureLibrary.swift in Sources */,
 				2CE2F39C242A5BEF00D1B731 /* Extensions.swift in Sources */,
@@ -1327,6 +1330,7 @@
 				2CEB3FF5271F08E8003011F3 /* ForcePressGestureRecognizer.swift in Sources */,
 				2C652AFD2408805100284ADF /* CloudsViewController.swift in Sources */,
 				2C6538DB2406FA8D004B1FC8 /* Gestures.swift in Sources */,
+				2CB7A1DD2B1D4B1A009795F1 /* Manager.swift in Sources */,
 				2C66ADB9244F100D00670330 /* TestDescriptionViewController.swift in Sources */,
 				2CF7F4152719846A00016384 /* Command.swift in Sources */,
 				2CE1477923F6901800C834F4 /* AppDelegate.swift in Sources */,

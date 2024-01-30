@@ -76,14 +76,64 @@ let pictureLibrary = PictureLibrary()
             createStartedTest()
             
         }
+<<<<<<< HEAD
          
+=======
+        // testownik.createTestToDo()
+        
+//        let newVal = Settings.CodePageEnum.iso9
+//        let listen = Settings.shared.getValue(boolForKey: .listening_key)
+//        let _ = Settings.shared.getValue(boolForKey: .dark_thema_key)
+//        let _ = Settings.shared.getValue(boolForKey:  .listening_key)
+//        let _ = Settings.shared.getValue(stringForKey: .language_key)
+//
+//        Settings.shared.setValue(forKey: .listening_key, newBoolValue:  !listen)
+//        Settings.shared.setValue(forKey: .code_page_key, newStringValue: newVal.rawValue)
+//        Settings.shared.setValue(forKey: .dark_thema_key, newBoolValue: true)
+//        Settings.shared.setValue(forKey: .repeating_key, newStringValue: Settings.RepeatingEnum.repeating_c.rawValue)
+
+        //testownik = Testownik()
+        
+//        testownik.xcts_random(size: 3, forCount: 500)
+        var answerList: [Testownik.Answer] = [Testownik.Answer]()
+        answerList.append(Testownik.Answer(isOK: true, answerOption: "1"))
+        answerList.append(Testownik.Answer(isOK: true, answerOption: "2"))
+        answerList.append(Testownik.Answer(isOK: true, answerOption: "3"))
+//        let wyn1 = testownik.changeOrder(forAnswerOptions: answerList)
+//        let wyn2 = testownik.changeOrder(forAnswerOptions: answerList)
+//        let wyn3 = testownik.changeOrder(forAnswerOptions: answerList)
+ //       let wyn4 = testownik.changeOrder(forAnswerOptions: answerList)
+//        print(wyn1)
+//        print(wyn2)
+//        print(wyn3)
+//        print(wyn4)
+        
+>>>>>>> b810f7a101de53b95996cac0fe8e28927d8d31ed
         var xxList: [Int] = [Int]()
         for i in 0..<32 {
             xxList.append(i+1)
         }
         
+<<<<<<< HEAD
 //        if let path0 = Bundle.main.path(forResource: "543", ofType: "txt") {
 //        }
+=======
+        if let path0 = Bundle.main.path(forResource: "543", ofType: "txt") {
+//            let aa0 = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: UInt(15)))
+//            print("aa0=\(aa0)")
+//            let aa1 = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: UInt(4)))
+//            print("aa1=\(aa1)")
+            var val: String.Encoding.RawValue = 0
+//            let aa3 = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: val))
+//            print("aa3=\(aa3)")
+            val = 1
+//            let bb = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: val))
+//            print("bb=\(bb)")
+            val = 14
+//            let cc = testownik.giveCodepaeText(contentsOfFile: path0, encoding: String.Encoding(rawValue: val))
+//            print("cc=\(cc)")
+        }
+>>>>>>> b810f7a101de53b95996cac0fe8e28927d8d31ed
         // TODO: test ratings
         ratings.xxxxxx()
         let rr = ratings[2]

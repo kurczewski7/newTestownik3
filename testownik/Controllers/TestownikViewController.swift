@@ -13,12 +13,22 @@ protocol TestownikViewContDataSource {
     var command: Command { get }
     var gestures: Gestures { get }
 }
+<<<<<<< HEAD
 class TestownikViewController: UIViewController, GesturesDelegate, TestownikDelegate, ListeningDelegate, TestownikViewContDataSource, CommandDelegate, TestManagerDelegate    {
     func refreshButtonUI(forFilePosition filePosition: TestManager.FilePosition) {
         
     }
     
     //  TestToDoDelegate
+=======
+class TestownikViewController: UIViewController, GesturesDelegate, TestownikDelegate, ListeningDelegate, TestownikViewContDataSource, CommandDelegate, ManagerDelegate  {
+    //  MARK: type definition
+    struct ButtonParam {
+        var Tag = 999
+        var Color = UIColor.black
+        var BackgroundColor = UIColor.yellow
+    }
+>>>>>>> b810f7a101de53b95996cac0fe8e28927d8d31ed
     // MARK: other classes
     let listening = Listening()
     let command   = Command()
@@ -26,26 +36,24 @@ class TestownikViewController: UIViewController, GesturesDelegate, TestownikDele
     //var testownik = Testownik()
 
     //  MARK: variable
-    var cornerRadius: CGFloat = 10
+   
     let initalStackSpacing: CGFloat = 30.0
-    struct ButtonParam {
-        var Tag = 999
-        var Color = UIColor.black
-        var BackgroundColor = UIColor.yellow
-    }
-    var lastButton = ButtonParam()
-    var tabHigh: [NSLayoutConstraint] = [NSLayoutConstraint]()
-    var loremIpsum = """
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-"""
-  
     let alphaLabel: CGFloat =  0.9
-    var isLightStyle = true
     let selectedColor: UIColor   = #colorLiteral(red: 0.9999151826, green: 0.9882825017, blue: 0.4744609594, alpha: 1)
     let unSelectedColor: UIColor = #colorLiteral(red: 0.8469454646, green: 0.9804453254, blue: 0.9018514752, alpha: 1)
     let okBorderedColor: UIColor = #colorLiteral(red: 0.2034551501, green: 0.7804297805, blue: 0.34896487, alpha: 1)
     let borderColor: UIColor     = #colorLiteral(red: 0.7254344821, green: 0.6902328134, blue: 0.5528755784, alpha: 1)
     let otherColor: UIColor      = #colorLiteral(red: 0.8469454646, green: 0.9804453254, blue: 0.9018514752, alpha: 1)
+    
+    var cornerRadius: CGFloat = 10
+    var checkStatus: Bool = false
+    var lastButton = ButtonParam()
+    var tabHigh: [NSLayoutConstraint] = [NSLayoutConstraint]()
+    var isLightStyle = true
+    
+    var loremIpsum = """
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+"""
     var pictureSwitchOn: Bool = false {
         didSet {
             if self.pictureSwitchOn == true {
@@ -56,6 +64,16 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 askLabel.isHidden = false
                 askPicture.isHidden = true
             }
+        }
+    }
+    var test: Test? {
+        get {
+            return testownik.manager?.currentTest
+            //return testownik.test
+        }
+        set {
+            testownik.manager?.currentTest = newValue
+            //testownik.test = newValue
         }
     }
     
@@ -80,6 +98,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     @IBOutlet weak var highButton9: NSLayoutConstraint!
     @IBOutlet weak var highButton10: NSLayoutConstraint!
     
+    //  MARK: IBAction
     @IBAction func microphonePress(_ sender: UIBarButtonItem) {
         microphoneButt.image = (microphoneButt.image == UIImage(systemName: "mic") ? UIImage(systemName: "mic.fill") : UIImage(systemName: "mic"))
     }
@@ -106,15 +125,130 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         if testownik.filePosition != .first  {       testownik.previous()  }
     }
     @IBAction func checkButtonPress(_ sender: UIButton) {
-        guard let currTest = testownik[testownik.currentTest] else {    return        }
+        //guard testownik.manager?.getSelectedOption(forOptionNumber: <#T##Int#>)
+<<<<<<< HEAD
+        guard let answerOptions = testownik.manager?.getOpions(), answerOptions.isNotEmpty() else { return }
+        for i in 0..<answerOptions.count {
+=======
+        guard let currTest = testownik[testownik.currentTestNumber] else {    return        }
         let countTest = currTest.answerOptions.count        //okAnswers.count
         for i in 0..<countTest {
+>>>>>>> bef0c88abcf24a6bb656768a3d29e6036ce60227
             if let button = stackView.arrangedSubviews[i] as? UIButton {
-                button.layer.borderWidth =  currTest.answerOptions[i].isOK ? 3 : 1
-                button.layer.borderColor = currTest.answerOptions[i].isOK ? UIColor.systemGreen.cgColor : UIColor.brown.cgColor
+                button.layer.borderWidth =  answerOptions[i].isOK ? 3 : 1
+                button.layer.borderColor = answerOptions[i].isOK ? UIColor.systemGreen.cgColor : UIColor.brown.cgColor
             }
         }
+        
+        //testownik.manager?.
+        // checkStatus
+        
+//        guard let currTest = testownik[testownik.currentTestNumber] else {    return        }
+//        let countTest = currTest.answerOptions.count        //okAnswers.count
+//        for i in 0..<countTest {
+//            if let button = stackView.arrangedSubviews[i] as? UIButton {
+//                button.layer.borderWidth =  currTest.answerOptions[i].isOK ? 3 : 1
+//                button.layer.borderColor = currTest.answerOptions[i].isOK ? UIColor.systemGreen.cgColor : UIColor.brown.cgColor
+//            }
+//        }
     }
+    
+    // MARK: viewDidLoad - initial method
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        testownik.delegate = self
+        testownik.manager?.delegate = self
+                
+        testownik.first()
+        //testownik.manager?.first()
+        
+        print("TestownikViewController viewDidLoad-testownik.count:\(testownik.count)")
+        Settings.shared.saveTestPreferences()
+        
+        self.view?.tag = 111
+        let gesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        gesture.numberOfTouchesRequired = 1
+        askLabel.isUserInteractionEnabled = true
+        askLabel.addGestureRecognizer(gesture)
+        Settings.shared.checkResetRequest(forUIViewController: self)
+        //listening.linkSpeaking = speech.self
+        listening.delegate     = self
+        command.delegate       = self
+        //testownik.viewContext  = self
+        //testownik.delegate     = self
+        gestures.delegate      = self
+        gestures.setView(forView: view)
+        
+        listeningText.text = loremIpsum
+        listeningText.userAnimation(12.8, type: .push, subType: .fromLeft, timing: .defaultTiming)
+        //listeningText.alpha = alphaLabel
+        listening.requestAuth()
+        print("Test name 2:\(database.selectedTestTable[0]?.toAllRelationship?.user_name ?? "brak")")
+        
+        var i = 0
+        self.title = "Test (001)"
+        // MARKT: MAYBY ERROR
+        //testownik.loadTestFromDatabase()
+        print("Stack count: \(actionsButtonStackView.arrangedSubviews.count)")
+        stackView.arrangedSubviews.forEach { (button) in
+            if let butt = button as? UIButton {
+                butt.backgroundColor = #colorLiteral(red: 0.8469454646, green: 0.9804453254, blue: 0.9018514752, alpha: 1)
+                butt.layer.cornerRadius = self.cornerRadius
+                butt.layer.borderWidth = 1
+                butt.layer.borderColor = UIColor.brown.cgColor
+                //butt.addTarget(self, action: #selector(buttonAnswerPress), for: .touchUpInside) //touchUpInside
+                gestures.addTapGestureToView(forView: butt)
+                gestures.addForcePressGesture(forView: butt)
+                gestures.addLongPressGesture(forView: butt)
+                 butt.tag = i
+                i += 1
+            }
+        }
+        tabHigh.append(highButton1)
+        tabHigh.append(highButton2)
+        tabHigh.append(highButton3)
+        tabHigh.append(highButton4)
+        tabHigh.append(highButton5)
+        tabHigh.append(highButton6)
+        tabHigh.append(highButton7)
+        tabHigh.append(highButton8)
+        tabHigh.append(highButton9)
+        tabHigh.append(highButton10)
+        
+        addAllRequiredGestures(sender: gestures)
+        askLabel.layer.cornerRadius = self.cornerRadius
+        
+        // TODO: POPRAW
+        //testownik.createStartedTest()
+        if testownik.manager == nil {
+            print("testownik.manager == nil")
+        }
+        //testownik.first()
+        //testownik.manager?.testList.append(Test(code: "AAA", ask: "BBB", pict: nil, fileName: "COS TAM"))
+        //testownik.manager?.delegate = self
+        testownik.refreshData()
+    }
+    // MARK: viewWillAppear - initial method
+    override func viewWillAppear(_ animated: Bool) {
+        print("viewWillAppear viewWillAppear")
+        Settings.shared.readCurrentLanguae()
+        
+        print("Test name 3:\(database.selectedTestTable[0]?.toAllRelationship?.user_name ?? "brak")")
+//       if database.testToUpgrade {
+//            testownik.loadTestFromDatabase()
+//       }
+        if testownik.isChanged {
+            //testownik.refreshData()
+            clearView()
+        }
+        // FIXME: fix testownik.first()
+        //testownik.first()
+        refreshView()
+        self.view.setNeedsUpdateConstraints()
+        super.viewWillAppear(animated)
+        Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(startMe), userInfo: nil, repeats: false)
+    }
+
     override func didRotate(from fromInterfaceOrientation: UIInterfaceOrientation) {
         print("OBRÓT from\(fromInterfaceOrientation.rawValue)")
         checkOrientation()
@@ -126,7 +260,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         let isOk = testownik.isAllAnswersOk()
         print("Twoj wybór: \(isOk)")
         
-        guard let currTest = testownik[testownik.currentTest] else {    return        }
+        guard let currTest = testownik[testownik.currentTestNumber] else {    return        }
         let countTest = currTest.answerOptions.count        //okAnswers.count
     }
     func checkOrientation() {
@@ -166,17 +300,24 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     func allTestDone() {
         print("allTestDone")
     }
+<<<<<<< HEAD
     func progress(forCurrentPosition currentPosition: Int, totalCount count:Int) {
         guard count > 0 else { return }
        // testownik.
         let promil = Int((currentPosition * 1000)/count) ?? 0
         print("progress:\(promil),currentPosition:\(currentPosition),count:\(count)")
         //print("fileNumber:\(testownik.testManager?.getCurFileNumber() ?? -9)")
+=======
+    func progress(forCurrentPosition currentPosition: Int, totalPercent percent: Int) {
+        //guard count > 0 else { return }
+        //let promil = Int((currentPosition * 1000)/count) ?? 0
+        print("progress: currentPosition:\(currentPosition),percent:\(percent)")
+>>>>>>> b810f7a101de53b95996cac0fe8e28927d8d31ed
         let title = tabBarItem.title
         print("title:\(title)")
         if let items = tabBarController?.tabBar.items, items.count > 3 {
-            items[0].badgeValue = "\(currentPosition)"
-            items[3].badgeValue = "\(Int(promil/10)) %"
+            items[0].badgeValue = "\(currentPosition + 1)"
+            items[3].badgeValue = "\(percent) %"
         }
     }
 //    func refreshFilePosition(newFilePosition filePosition: TestToDo.FilePosition) {
@@ -227,6 +368,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                 })
            }
             if (0...9).contains(nr) {
+<<<<<<< HEAD
                 let test = testownik.currentElement
                 if let button = sender.view as? UIButton {
                     testownik.switchYourAnsfer(selectedOptionForTest: nr)
@@ -242,17 +384,45 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
                     //currTest.answerOptions[nr].isOK ? 3 : 1
                     //currTest.answerOptions[nr].isOK ? UIColor.systemGreen.cgColor : UIColor.brown.cgColor
                     //let xxx = testownik.isAnswersOk(selectedOptionForTest: nr)
+=======
+                if let aTest = test, let button = sender.view as? UIButton {
+                    testownik.switchYourAnsfer(selectedOptionForTest: nr)
+                    markSelected(forButton: button, optionNr: nr)
+>>>>>>> b810f7a101de53b95996cac0fe8e28927d8d31ed
                 }
             }
+            //(forCurrentTest test: Test, forButton: button, optionNr: nr)
+            //let mark =  testownik[0]?.answerOptions[nr].lastYourCheck ?? false //button.layer.borderWidth == 1
+            // let txtLabel = button.titleLabel?.text
+//                    self.lastButton.Tag = nr
+//                    self.lastButton.Color = button.tintColor
+            //let currTest = testownik[testownik.currentTest]
+            //button.tintColor = UIColor.purple
+            //currTest.answerOptions[nr].isOK ? 3 : 1
+            //currTest.answerOptions[nr].isOK ? UIColor.systemGreen.cgColor : UIColor.brown.cgColor
+            //let xxx = testownik.isAnswersOk(selectedOptionForTest: nr)
+
             print("tapRefreshUI NOWY zz:\(sender.view?.tag ?? 0)")
         }
     }
+<<<<<<< HEAD
     func markSelected(forCurrentTest test: Test, forButton button: UIButton, optionNr nr: Int) {
 //        let curElem = testownik.currentElement
         guard nr < test.answerOptions.count else {     return     }
         let isMark =  test.answerOptions[nr].lastYourCheck ?? false
+=======
+    func markSelected(forButton button: UIButton, optionNr nr: Int) {
+        guard let option = testownik.manager?.getSelectedOption(forOptionNumber: nr) else { return }
+        let isMark = option.lastYourCheck
+>>>>>>> b810f7a101de53b95996cac0fe8e28927d8d31ed
         button.layer.borderWidth = isMark ? 3 : 1
         button.layer.borderColor = isMark ? UIColor.systemYellow.cgColor : UIColor.brown.cgColor
+
+        
+        //guard nr < test.answerOptions.count else {     return     }
+        //let isMark =  test.answerOptions[nr].lastYourCheck ?? false
+        //        let curElem = testownik.currentElement
+        //guard let option = testownik.manager?.currentHistory?.answerOptions else { return }
         //button.layer.borderColor = button.layer.borderColor == UIColor.brown.cgColor ? UIColor.systemYellow.cgColor : UIColor.brown.cgColor
         //  button.layer.borderWidth == 1
     }
@@ -342,7 +512,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         }
     }
     func swipeRefreshUI(direction: UISwipeGestureRecognizer.Direction) {
-        print("=====\nA currentTest: \(testownik.currentTest)")
+        print("=====\nA currentTest: \(testownik.currentTestNumber)")
         //if let tag =
         switch direction {
             case .right:
@@ -365,26 +535,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             default:
                 print("Swipe unrecognized")
             }
-         print("Y pos: \(testownik.currentTest)")
+         print("Y pos: \(testownik.currentTestNumber)")
     }
     
     // MARK: TestownikDelegate protocol "refreshUI" metods
-    func refreshContent(forFileNumber fileNumber: Int) {
-        let test = testownik[fileNumber]
-        
-    }
-//    func refreshContent(forCurrentTest test: Test) {
-//        if let fileNumber = testownik.testToDo?.getCurrent()?.fileNumber {
-//            if fileNumber < testownik.count {
-//                testownik.currentTest = fileNumber
-//                refreshView()
-//            }
-//        }
-//
-//        // MARK: To do
+//    func refreshContent(forFileNumber fileNumber: Int) {
+//        refreshView()
 //    }
+<<<<<<< HEAD
     func refreshButtonUI(forFilePosition filePosition: Testownik.FilePosition) {
+=======
+    func refreshButtonUI(forFilePosition filePosition: Manager.FilePosition) {
+>>>>>>> b810f7a101de53b95996cac0fe8e28927d8d31ed
         print("filePosition=\(filePosition)")
+        //testownik.filePosition = filePosition
         if filePosition == .first {
             hideButton(forButtonNumber: 0)
             hideButton(forButtonNumber: 1)
@@ -497,6 +661,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
     }
         //window?.rootViewController?.dismiss(animated: <#T##Bool#>, completion: <#T##(() -> Void)?##(() -> Void)?##() -> Void#>)
     //}
+<<<<<<< HEAD
     // MARK: viewDidLoad - initial method
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -576,6 +741,8 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         super.viewWillAppear(animated)
         Timer.scheduledTimer(timeInterval: 30.0, target: self, selector: #selector(startMe), userInfo: nil, repeats: false)
     }
+=======
+>>>>>>> b810f7a101de53b95996cac0fe8e28927d8d31ed
     //--------------------------------
     // TODO: Check content
     func resizeView() {
@@ -678,13 +845,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         var isChecked:Bool = false
         
         print("buttonAnswerPress:\(youSelectedNumber)")
-        guard testownik.currentTest < testownik.count else {  return   }
-        isChecked = testownik[testownik.currentTest]?.youAnswer2.contains(youSelectedNumber) ?? false
+        guard testownik.currentTestNumber < testownik.count else {  return   }
+        isChecked = testownik[testownik.currentTestNumber]?.youAnswer2.contains(youSelectedNumber) ?? false
         if isChecked {
-            testownik[testownik.currentTest]?.youAnswer2.remove(youSelectedNumber)
+            testownik[testownik.currentTestNumber]?.youAnswer2.remove(youSelectedNumber)
             isChecked = false
         } else  {
-            testownik[testownik.currentTest]?.youAnswer2.insert(youSelectedNumber)
+            testownik[testownik.currentTestNumber]?.youAnswer2.insert(youSelectedNumber)
             isChecked = true
         }
         //#colorLiteral(red: 0.9995340705, green: 0.988355577, blue: 0.4726552367, alpha: 1)
@@ -710,13 +877,13 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 //            button.layer.borderWidth = 3
 //            button.layer.borderColor = okAnswer ? UIColor.green.cgColor : UIColor.red.cgColor
 //        }
-        print("aswers:\(testownik[testownik.currentTest]?.youAnswers5)")
-        print("aswers2:\(testownik[testownik.currentTest]?.youAnswer2.sorted())")
+        print("aswers:\(testownik[testownik.currentTestNumber]?.youAnswers5)")
+        print("aswers2:\(testownik[testownik.currentTestNumber]?.youAnswer2.sorted())")
     }
     func isAnswerOk(selectedOptionForTest selectedOption: Int) -> Bool {
          var value = false
-        if  selectedOption < testownik[testownik.currentTest]?.answerOptions.count ?? 0 {
-            value = testownik[testownik.currentTest]?.answerOptions[selectedOption].isOK ?? false
+        if  selectedOption < testownik[testownik.currentTestNumber]?.answerOptions.count ?? 0 {
+            value = testownik[testownik.currentTestNumber]?.answerOptions[selectedOption].isOK ?? false
         }
         return value
     }
@@ -728,17 +895,17 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         return found
     }
     func hideButton(forButtonNumber buttonNumber: Int, isHide: Bool = true) {
+        guard buttonNumber < actionsButtonStackView.arrangedSubviews.count else { return }
         if let button = actionsButtonStackView.arrangedSubviews[buttonNumber] as? UIButton {
-            button.isHidden = isHide
+            button.isHidden = isHide 
         }
     }
     func clearView() {
         var i = 0
-        //let totalQuest = 7
         askLabel.text = "\(Setup.placeHolderTitle)"
         let test = testownik.currentElement
         for curButt in stackView.arrangedSubviews     {
-            if let butt = curButt as? UIButton {
+            if let aTest = test, let butt = curButt as? UIButton {
                 butt.isHidden =  false
                 markSelected(forCurrentTest: test, forButton: butt, optionNr: i)
                 butt.setTitle("\(Setup.placeHolderButtons) \(i)", for: .normal)
@@ -747,11 +914,20 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         }
     }
     func refreshView() {
+//        test?.answerOptions[0].lastYourCheck
+//        test?.answerOptions[1].isOK
+        guard var aTest = test else { return }
+        //aTest.answerOptions[0].lastYourCheck = true
+        print("COUNT:: \(testownik.manager?.testList.count)")
         print("refreshView")
+        print("__ refreshView:\(testownik.currentTestNumber)")
+        
         var i = 0
         let image = UIImage(named: "002.png")
         let set = Set([6,8,9])
+        let txtFile = aTest.fileName
         
+<<<<<<< HEAD
         //let cur = getCurrent()
      
         print("__ refreshView:\(testownik.currentTest)")
@@ -770,24 +946,42 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
         //testownik[testownik.currentTest].pict = UIImage(named: "004.png")
         
         if  let currPict = testownik[testownik.currentTest]!.pict {
+=======
+        self.title = "Test \(txtFile)"
+        // TODO: check it
+        aTest.youAnswer2.removeAll()
+        let totalQuest = aTest.answerOptions.count
+        aTest.youAnswers5.removeAll()
+        askLabel.text = aTest.ask
+        
+        if  let currPict = aTest.pict {
+>>>>>>> b810f7a101de53b95996cac0fe8e28927d8d31ed
             askPicture.image = currPict
             pictureSwitchOn = true
         }
         else {
             pictureSwitchOn = false
+<<<<<<< HEAD
         }     
         let test = testownik.currentElement
+=======
+        }
+>>>>>>> b810f7a101de53b95996cac0fe8e28927d8d31ed
         for curButt in stackView.arrangedSubviews     {
             if let butt = curButt as? UIButton {
                 butt.contentHorizontalAlignment =  (Setup.isNumericQuestions ? .left : .center)
                 butt.isHidden = (i < totalQuest) ? false : true
                 guard testownik.isCurrentValid else {   return     }
-                butt.setTitle((i < totalQuest) ? Setup.getNumericPict(number: i) + testownik[testownik.currentTest]!.answerOptions[i].answerOption : "", for: .normal)
+                butt.setTitle((i < totalQuest) ? Setup.getNumericPict(number: i) + aTest.answerOptions[i].answerOption : "", for: .normal)
                 butt.layer.borderWidth = 1
                 butt.layer.borderColor = UIColor.brown.cgColor
-                let isSelect = testownik[testownik.currentTest]?.youAnswer2.contains(i) ?? false
+                let isSelect = aTest.youAnswer2.contains(i) 
                 butt.layer.backgroundColor = isSelect ? selectedColor.cgColor: unSelectedColor.cgColor
+<<<<<<< HEAD
                 markSelected(forCurrentTest: test, forButton: butt, optionNr: i)
+=======
+                markSelected(forButton: butt, optionNr: i)
+>>>>>>> b810f7a101de53b95996cac0fe8e28927d8d31ed
                 // MARK: ggggg ffffff
                 if set.contains(i)  {
                     butt.setTitle(" \(i+1)", for: .normal)
@@ -799,8 +993,9 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
             }
             i += 1
         }
-        actionsButtonStackView.arrangedSubviews[0].isHidden = (testownik.filePosition == .first)
-        actionsButtonStackView.arrangedSubviews[1].isHidden = (testownik.filePosition == .first)
+//        actionsButtonStackView.arrangedSubviews[0].isHidden = (testownik.filePosition == .first)
+//        actionsButtonStackView.arrangedSubviews[1].isHidden = (testownik.filePosition == .first)
+//        actionsButtonStackView.arrangedSubviews[3].isHidden = (testownik.filePosition == .last)
     }
     func getText(fileName: String, encodingSystem encoding: String.Encoding = .utf8) -> [String] {  //windowsCP1250
         var texts: [String] = ["brak"]
