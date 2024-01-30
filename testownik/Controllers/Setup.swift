@@ -153,6 +153,7 @@ class Setup {
     class func randomOrder(toMax: Int) -> Int {
         // For toMax = 10 get from 0 to 9
         return Int(arc4random_uniform(UInt32(toMax)))
+        //Int.random(in: 1...3)
     }
 
     class func getNumericPict(number: Int) -> String {

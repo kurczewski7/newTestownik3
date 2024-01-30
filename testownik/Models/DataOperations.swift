@@ -21,9 +21,9 @@ class DataOperations {
         get { genericArray.count == 0 } }
     var notEmpty: Bool {
         get { genericArray.count > 0 } }
-    var currentTest: Int = 0
+    var currentTestNumber: Int = 0
     var isCurrentValid: Bool {
-        return currentTest >= 0 && currentTest < count
+        return currentTestNumber >= 0 && currentTestNumber < count
     }
     
     subscript(index: Int) -> T? {
@@ -43,7 +43,7 @@ class DataOperations {
         }
     }
     func clearData() {
-        currentTest = 0
+        currentTestNumber = 0
         genericArray.removeAll()
     }
     func isIndexValid(index: Int) -> Bool  {
@@ -61,22 +61,22 @@ class DataOperations {
         }
     }
     func getCurrent() -> T {
-         return genericArray[currentTest]
+         return genericArray[currentTestNumber]
     }
     func first() {
-        currentTest = 0
+        currentTestNumber = 0
     }
     func last() {
-       currentTest = count-1
+        currentTestNumber = count-1
     }
     func next() {
-        if currentTest+1 < count {
-            currentTest += 1
+        if currentTestNumber+1 < count {
+            currentTestNumber += 1
         }
     }
     func previous() {
-        if currentTest > 0 && currentTest < count {
-            currentTest -= 1
+        if currentTestNumber > 0 && currentTestNumber < count {
+            currentTestNumber -= 1
         }
     }    
     func add(value: T) -> Int {
